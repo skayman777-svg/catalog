@@ -1,0 +1,1527 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:0;font:14px system-ui}[hidden]{display:none!important}</style></head><body>
+<title>Каталог оборудования «Нордпривод»</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#f2f0eb;--surface:#ffffff;--surface-2:#f8f7f4;--ink:#14181d;--muted:#59606a;--line:#d9d5cb;--line-2:#e9e6de;
+  --accent:#0b5cad;--accent-ink:#ffffff;--accent-tint:#e3edf9;
+  --cta:#b83c0a;--cta-ink:#ffffff;
+  --ok:#17784a;--ok-tint:#e1f2e9;--warn:#935300;--warn-tint:#fbefd9;--bad:#b42318;--bad-tint:#fbe4e1;
+  --il-line:#27313b;--il-fill:#eef1f4;--il-accent:#cfe0f3;
+  --rib-bg:#14181d;--rib-ink:#f2f0eb;
+  --shadow:0 1px 2px rgba(20,24,29,.06),0 8px 24px rgba(20,24,29,.07);
+  --radius:8px;
+  --font-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --font-head:'IBM Plex Sans Condensed','IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,'Arial Narrow',Arial,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#13161a;--surface:#1b1f24;--surface-2:#20252b;--ink:#ecebe6;--muted:#9ba2ab;--line:#31383f;--line-2:#282e34;
+    --accent:#6aa9ea;--accent-ink:#0b1622;--accent-tint:#1c2c3f;
+    --cta:#f08a4b;--cta-ink:#1c1008;
+    --ok:#55c08b;--ok-tint:#17302440;--warn:#e3a54c;--warn-tint:#3a2d1440;--bad:#f2877d;--bad-tint:#3d1d1a40;
+    --il-line:#c9d3de;--il-fill:#252b32;--il-accent:#27405c;--rib-bg:#0a0c0f;--rib-ink:#c9d0d8;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#13161a;--surface:#1b1f24;--surface-2:#20252b;--ink:#ecebe6;--muted:#9ba2ab;--line:#31383f;--line-2:#282e34;
+  --accent:#6aa9ea;--accent-ink:#0b1622;--accent-tint:#1c2c3f;
+  --cta:#f08a4b;--cta-ink:#1c1008;
+  --ok:#55c08b;--ok-tint:#17302440;--warn:#e3a54c;--warn-tint:#3a2d1440;--bad:#f2877d;--bad-tint:#3d1d1a40;
+  --il-line:#c9d3de;--il-fill:#252b32;--il-accent:#27405c;--rib-bg:#0a0c0f;--rib-ink:#c9d0d8;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--font-body);-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:60}
+button,input,select,textarea{font:inherit;color:inherit}
+button,label,summary,select{-webkit-tap-highlight-color:transparent}
+.btn:active,.icon-btn:active{filter:brightness(.94)}
+button{cursor:pointer}
+h1,h2,h3,h4,p{margin:0}
+a{color:var(--accent)}
+.wrap{max-width:1280px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.mono{font-family:var(--font-mono);font-feature-settings:"zero" 1}
+.nb{white-space:nowrap}
+
+/* ribbon + header */
+.ribbon{background:var(--rib-bg);color:var(--rib-ink);font-size:12px;letter-spacing:.01em}
+.ribbon .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;padding-block:6px}
+.ribbon .tag{font-weight:600;letter-spacing:.14em;background:var(--cta);color:var(--cta-ink);padding:1px 7px;border-radius:3px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;flex-wrap:wrap;gap:10px 22px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;border:0;background:none;padding:0;text-align:left}
+.brand svg{width:36px;height:36px;color:var(--accent);flex:none}
+.brand-name{display:block;font:600 21px/1 var(--font-head);letter-spacing:.01em}
+.brand-sub{display:block;margin-top:4px;font:500 10px/1.1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:2px;flex-wrap:wrap}
+.nav button{border:0;background:none;padding:8px 12px;border-radius:6px;color:var(--muted);font-weight:500}
+.nav button:hover{background:var(--surface-2);color:var(--ink)}
+.nav button[aria-current=page]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent);border-radius:0}
+.nav .mini{font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:3px;padding:0 4px;margin-left:6px;color:var(--muted)}
+.search{flex:1 1 240px;max-width:480px;margin-left:auto;position:relative;display:block}
+.search svg{position:absolute;left:11px;top:50%;translate:0 -50%;width:16px;height:16px;color:var(--muted);pointer-events:none}
+.search input{width:100%;height:40px;padding:0 12px 0 34px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2)}
+.search input:focus{background:var(--surface);border-color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 16px;border-radius:var(--radius);border:1px solid var(--line);background:var(--surface);font-weight:500;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}
+.btn.cta{background:var(--cta);border-color:var(--cta);color:var(--cta-ink)}
+.btn.cta:hover{filter:brightness(1.07)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.sm{min-height:32px;padding:0 11px;font-size:13px}
+.btn.wide{width:100%}
+.btn[disabled]{opacity:.55;cursor:default}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--accent)}
+.badge{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--cta);color:var(--cta-ink);font-size:12px;font-weight:600}
+.badge.zero{background:var(--line);color:var(--muted)}
+.icon-btn{width:36px;height:36px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);display:inline-grid;place-items:center;font-size:20px;line-height:1}
+.link{border:0;background:none;padding:0;color:var(--accent);text-decoration:underline;text-underline-offset:3px;font-size:13px}
+
+/* layout */
+.main{padding-block:22px 56px;min-height:60vh}
+.catalog{display:grid;grid-template-columns:292px minmax(0,1fr);gap:28px;align-items:start}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);max-height:calc(100vh - 92px);overflow:auto;padding-right:6px}
+.side-head,.side-foot{display:none}
+.tree{display:grid;gap:10px;margin-bottom:18px}
+.tg{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.tc,.tsb{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;border:0;background:none;text-align:left;padding:9px 12px}
+.tc{font:600 15px/1.3 var(--font-head);letter-spacing:.01em}
+.tsb{font-size:14px;color:var(--muted);padding-left:22px;border-top:1px solid var(--line-2)}
+.tc:hover,.tsb:hover{background:var(--surface-2)}
+.tc.on,.tsb.on{background:var(--accent-tint);color:var(--ink)}
+.tc em,.tsb em{font:500 12px var(--font-mono);color:var(--muted);font-style:normal}
+.filters{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.f-head{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--line)}
+.f-head h2{font:600 14px/1.2 var(--font-head);letter-spacing:.03em;text-transform:uppercase}
+.hint{padding:14px;color:var(--muted);font-size:14px}
+.fs{border-bottom:1px solid var(--line-2);padding:0}
+.fs:last-child{border-bottom:0}
+.fs summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:8px;padding:11px 14px;font-weight:500;font-size:14px}
+.fs summary::-webkit-details-marker{display:none}
+.fs summary::after{content:"";width:7px;height:7px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);rotate:45deg;translate:0 -2px;transition:rotate .15s}
+.fs[open] summary::after{rotate:-135deg;translate:0 2px}
+.fs summary .u{margin-left:auto;margin-right:6px;font-weight:400;color:var(--muted);font-size:12px}
+.fs-body{padding:0 14px 14px}
+.chk{display:flex;align-items:center;gap:9px;padding:4px 0;font-size:14px;cursor:pointer}
+.chk input{width:16px;height:16px;accent-color:var(--accent);margin:0;flex:none}
+.chk .cnt{margin-left:auto;font:400 12px var(--font-mono);color:var(--muted)}
+.chk.zero{opacity:.45}
+.rng{padding:6px 7px 0}
+.rng-track{position:relative;height:4px;border-radius:2px;background:var(--line);margin:12px 0 18px}
+.rng-fill{position:absolute;top:0;bottom:0;background:var(--accent);border-radius:2px}
+.rng-th{position:absolute;top:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:2px solid var(--accent);background:var(--surface);padding:0;touch-action:none;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.rng-th:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.rng-in{display:flex;gap:10px}
+.rng-in label{flex:1;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+.rng-in input{width:100%;min-width:0;height:32px;padding:0 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);font:400 13px var(--font-mono);text-align:right}
+.rng-in input:focus{border-color:var(--accent);background:var(--surface)}
+
+/* results */
+.crumbs{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:8px}
+.crumbs button{border:0;background:none;padding:0;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.crumbs button:hover{color:var(--ink)}
+.res-head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:10px 16px;margin-bottom:12px}
+.res-head h1{font:600 30px/1.1 var(--font-head);letter-spacing:.005em;text-wrap:balance}
+.res-count{color:var(--muted);font-size:14px;margin-top:4px}
+.res-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sel{height:36px;padding:0 30px 0 10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);font-size:14px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 15px) 50%,calc(100% - 10px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.only-m{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chips:empty{display:none}
+.chip{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 6px 0 10px;border-radius:14px;background:var(--accent-tint);border:1px solid transparent;font-size:13px}
+.chip button{border:0;background:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;padding:0;color:var(--muted);font-size:15px;line-height:1}
+.chip button:hover{background:var(--surface);color:var(--ink)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:14px;margin-bottom:22px}
+.tile{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;text-align:left;padding:0}
+.tile:hover{border-color:var(--ink)}
+.tile .pic{aspect-ratio:3/1.55}
+.tile .tt{padding:11px 14px 13px;display:grid;gap:2px}
+.tile .tt strong{font:600 17px/1.2 var(--font-head)}
+.tile .tt span{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,16.5rem),1fr));gap:16px}
+.card{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;min-width:0}
+.card:hover{box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--ink) 25%,var(--line))}
+.pic{display:block;width:100%;background-color:var(--surface-2);background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);background-size:16px 16px;border:0;padding:6px 10px;color:inherit}
+.card .pic{aspect-ratio:3/2}
+.card-b{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.art{font:500 12px var(--font-mono);color:var(--muted);letter-spacing:.02em}
+.card h3{font:600 17px/1.25 var(--font-head);overflow-wrap:anywhere}
+.card h3 button{border:0;background:none;padding:0;text-align:left;font:inherit;color:inherit}
+.card h3 button:hover{color:var(--accent)}
+.ks{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin:2px 0 4px}
+.ks div{min-width:0}
+.ks dt{font-size:11.5px;color:var(--muted);line-height:1.25}
+.ks dd{margin:0;font:500 13.5px/1.3 var(--font-mono);overflow-wrap:anywhere}
+.card-a{display:flex;gap:8px;margin-top:auto;padding-top:6px}
+.card-a .btn{flex:1;padding:0 8px}
+.empty{border:1px dashed var(--line);border-radius:var(--radius);padding:36px 18px;text-align:center;color:var(--muted);background:var(--surface)}
+.empty strong{display:block;color:var(--ink);font:600 18px var(--font-head);margin-bottom:4px}
+
+/* product */
+.pdp{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:32px;align-items:start}
+.gal-main{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+.gal-main .pic{aspect-ratio:3/2;padding:14px 18px}
+.gal-th{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.gal-th button{border:1px solid var(--line);border-radius:6px;background:var(--surface);padding:0;overflow:hidden;text-align:center;font-size:12px;color:var(--muted)}
+.gal-th button[aria-pressed=true]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);color:var(--ink)}
+.gal-th .pic{aspect-ratio:3/2;padding:3px 6px}
+.gal-th span{display:block;padding:4px 4px 6px}
+.pdp-i{display:grid;gap:14px}
+.pdp-i h1{font:600 32px/1.12 var(--font-head);text-wrap:balance}
+.kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid var(--line);border-radius:6px;padding:6px 10px;background:var(--surface);display:grid;gap:0}
+.pill small{font-size:11px;color:var(--muted)}
+.pill span{font:500 14px var(--font-mono)}
+.pdp-i .lead{color:var(--ink);max-width:62ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.note{font-size:13px;color:var(--muted)}
+.sec{margin-top:36px}
+.sec>h2{font:600 22px/1.2 var(--font-head);margin-bottom:12px}
+.spec{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.spec th,.spec td{padding:9px 14px;border-bottom:1px solid var(--line-2);text-align:left;vertical-align:baseline}
+.spec tr:last-child th,.spec tr:last-child td{border-bottom:0}
+.spec th{width:46%;font-weight:400;color:var(--muted)}
+.spec td{font:500 14px var(--font-mono)}
+.docs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr));gap:10px}
+.doc{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:10px 12px;text-align:left}
+.doc:hover{border-color:var(--ink)}
+.doc i{font:600 10px var(--font-mono);font-style:normal;border:1px solid var(--line);border-radius:3px;padding:3px 5px;color:var(--muted);flex:none}
+.doc span{display:grid;line-height:1.3;min-width:0}
+.doc small{color:var(--muted);font-size:12px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.use{margin:0;padding-left:18px;display:grid;gap:4px}
+
+/* forms + modal */
+.field{display:grid;gap:5px;min-width:0}
+.field>span,.field>label{font-size:13px;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;min-height:40px;padding:8px 11px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2)}
+.field textarea{min-height:92px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);background:var(--surface);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent)}
+.field.err input,.field.err select,.field.err textarea{border-color:var(--bad)}
+.field .em{font-size:12px;color:var(--bad);min-height:0}
+.form-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px}
+.form-g .full{grid-column:1/-1}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.agree input{margin-top:3px;accent-color:var(--accent)}
+.modal-bg{position:fixed;inset:0;z-index:80;background:rgba(10,14,18,.55);display:grid;place-items:start center;overflow:auto;padding:max(16px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+.modal{width:min(100%,640px);margin-block:4vh;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);display:grid}
+.modal.big{width:min(100%,820px)}
+.m-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.m-head h2{font:600 22px/1.2 var(--font-head)}
+.m-body{padding:18px 20px;display:grid;gap:16px}
+.m-foot{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px;padding:14px 20px;border-top:1px solid var(--line);background:var(--surface-2);border-radius:0 0 12px 12px}
+.kp-list{display:grid;gap:8px}
+.kp-it{display:grid;grid-template-columns:minmax(0,1fr) 84px 36px;gap:10px;align-items:center;border:1px solid var(--line);border-radius:var(--radius);padding:8px 10px;background:var(--surface-2)}
+.kp-it .nm{display:grid;line-height:1.3;min-width:0}
+.kp-it .nm b{font-weight:500;overflow-wrap:anywhere}
+.kp-it input{width:100%;height:36px;border:1px solid var(--line);border-radius:6px;padding:0 8px;background:var(--surface);text-align:center;font-family:var(--font-mono)}
+.ok-box{display:grid;gap:8px;text-align:center;padding:14px 4px}
+.ok-box .tick{width:52px;height:52px;border-radius:50%;background:var(--ok-tint);color:var(--ok);display:grid;place-items:center;margin:0 auto;font-size:26px}
+.ok-box strong{font:600 22px var(--font-head)}
+#toasts{position:fixed;left:50%;translate:-50% 0;bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:100;display:grid;gap:8px;justify-items:center;width:min(92vw,420px);pointer-events:none}
+.toast{background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:14px;box-shadow:var(--shadow);animation:tin .2s ease-out}
+@keyframes tin{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+@media (prefers-reduced-motion: reduce){.toast{animation:none}}
+
+/* contacts */
+.contacts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:start}
+.panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:20px;display:grid;gap:14px}
+.panel h2{font:600 22px/1.2 var(--font-head)}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;margin:0}
+.dl dt{color:var(--muted);font-size:13px}
+.dl dd{margin:0}
+
+/* admin */
+.adm-head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+.adm-head h1{font:600 30px/1.1 var(--font-head)}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto}
+.tabs button{border:0;background:none;padding:10px 14px;color:var(--muted);font-weight:500;white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+.tabs .n{font:500 11px var(--font-mono);margin-left:6px;background:var(--line-2);border-radius:9px;padding:1px 6px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.bar .grow{flex:1 1 200px}
+.bar input[type=search],.bar input[type=text]{height:36px;width:100%;padding:0 11px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.tbl-w{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{position:sticky;top:0;background:var(--surface-2);text-align:left;font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:9px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .r{text-align:right;white-space:nowrap}
+.tbl .m{font-family:var(--font-mono);font-size:13px}
+.tbl tr.off td{opacity:.55}
+.sw{position:relative;width:38px;height:22px;border-radius:11px;border:0;background:var(--line);padding:0;transition:background .15s}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:translate .15s}
+.sw[aria-checked=true]{background:var(--ok)}
+.sw[aria-checked=true]::after{translate:16px 0}
+.tag-s{display:inline-block;font-size:12px;border-radius:4px;padding:1px 7px;background:var(--accent-tint);white-space:nowrap}
+.tag-s.new{background:var(--warn-tint);color:var(--warn)}
+.tag-s.ok{background:var(--ok-tint);color:var(--ok)}
+.tag-s.fb{background:var(--line-2);color:var(--muted)}
+.mini-btns{display:inline-flex;gap:6px}
+.sp-row{display:grid;grid-template-columns:minmax(0,1.6fr) 90px 110px 84px 84px 168px;gap:10px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line-2)}
+.sp-row:last-child{border-bottom:0}
+.sp-row input[type=text],.sp-row select{width:100%;height:34px;border:1px solid var(--line);border-radius:6px;padding:0 8px;background:var(--surface-2)}
+.sp-h{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.sp-row .c{display:flex;justify-content:center}
+.ck{display:inline-flex;align-items:center;gap:8px}
+.ck .only-sm{display:none}
+.sp-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent)}
+.csv-ta{width:100%;min-height:150px;font:400 13px/1.45 var(--font-mono);padding:10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2);resize:vertical}
+.cap{font:600 15px var(--font-head);margin:14px 0 6px}
+.res-ok{color:var(--ok)}
+.res-bad{color:var(--bad)}
+.lead-d{display:grid;gap:4px;font-size:13px;color:var(--muted);padding:2px 0}
+.foot{border-top:1px solid var(--line);background:var(--surface);margin-top:40px}
+.foot .wrap{padding-block:22px;display:grid;gap:6px;color:var(--muted);font-size:13px}
+
+/* illustrations */
+.il{display:block}
+.il .s,.il .f,.il .a{stroke:var(--il-line);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.il .s{fill:none}
+.il .f{fill:var(--il-fill)}
+.il .a{fill:var(--il-accent)}
+.il .thin{fill:none;stroke:var(--il-line);stroke-width:1;stroke-linecap:round;opacity:.55}
+.il .t{fill:var(--il-line);font:500 10px var(--font-mono);stroke:none}
+.pic .il{width:100%;height:100%}
+.more{display:flex;justify-content:center;margin-top:20px}
+.more:empty{display:none}
+.rng-th::before{content:"";position:absolute;inset:-9px}
+label.btn:has(+ input:focus-visible){outline:2px solid var(--accent);outline-offset:2px}
+.lead-d span{overflow-wrap:anywhere}
+@media (max-width: 960px){
+  .catalog{grid-template-columns:minmax(0,1fr)}
+  .side{display:none;position:fixed;inset:0;z-index:70;max-height:none;background:var(--bg);padding:0 0 84px;overflow:auto}
+  .side.open{display:block}
+  .side-head{display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg);padding:max(12px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);z-index:2}
+  .side-head strong{font:600 18px var(--font-head)}
+  .tree,.filters{margin-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));margin-top:14px}
+  .side-foot{display:block;position:fixed;left:0;right:0;bottom:0;padding:12px max(16px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--surface);border-top:1px solid var(--line)}
+  .only-m{display:inline-flex}
+  .pdp{grid-template-columns:minmax(0,1fr);gap:22px}
+  .contacts{grid-template-columns:minmax(0,1fr)}
+  .two{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width: 720px){
+  .top{position:static}
+  .top-in{gap:8px 12px;padding-block:10px 12px}
+  .brand{order:1}
+  .kp-btn{order:2;margin-left:auto}
+  .nav{order:3;flex:1 1 100%;margin-inline:-8px}
+  .search{order:4;flex:1 1 100%;max-width:none;margin-left:0}
+  .res-head h1,.pdp-i h1,.adm-head h1{font-size:26px}
+  .form-g{grid-template-columns:minmax(0,1fr)}
+  .sp-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;padding:12px}
+  .sp-row>:nth-child(1),.sp-row>:nth-child(6){grid-column:1/-1}
+  .sp-row>:nth-child(6){justify-self:end}
+  .sp-row .c{justify-content:flex-start}
+  .ck .only-sm{display:inline;font-size:13px;color:var(--muted)}
+  .sp-h{display:none}
+  .kp-it{grid-template-columns:minmax(0,1fr) 70px 34px}
+  .m-head,.m-body,.m-foot{padding-inline:14px}
+}
+@media (max-width: 480px){
+  .brand-sub{display:none}
+  .brand-name{font-size:20px}
+}
+</style>
+<div class="ribbon" id="ribbon"><div class="wrap"><span class="tag">ДЕМО</span><span>Вымышленная компания. Товары, характеристики и «фото» сгенерированы. Формы работают только на этой странице и ничего не отправляют.</span></div></div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <button class="brand" type="button" data-act="home" aria-label="На главную каталога">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="20" cy="20" r="16.5"/><circle cx="20" cy="20" r="3.4" fill="currentColor"/>
+        <path d="M20 16.6C20 10 17 7.6 13 7.2M23.4 20C30 20 32.4 17 32.8 13M20 23.4C20 30 23 32.4 27 32.8M16.6 20C10 20 7.6 23 7.2 27"/>
+      </svg>
+      <span><span class="brand-name">Нордпривод</span><span class="brand-sub">насосы · двигатели · арматура</span></span>
+    </button>
+    <nav class="nav" aria-label="Разделы">
+      <button type="button" data-act="nav" data-v="catalog">Каталог</button>
+      <button type="button" data-act="nav" data-v="contacts">Контакты</button>
+      <button type="button" data-act="nav" data-v="admin">Админка</button>
+    </nav>
+    <label class="search">
+      <span class="sr">Поиск по названию и артикулу</span>
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="Поиск: название, артикул, материал" />
+    </label>
+    <button class="btn kp-btn" type="button" data-act="kp-open">Запрос КП <span class="badge zero" id="kpn">0</span></button>
+  </div>
+</header>
+
+<main class="wrap main" id="view" tabindex="-1"></main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span><strong>Нордпривод</strong> — каталог промышленного оборудования: подбор по характеристикам, запрос КП и админка.</span>
+  </div>
+</footer>
+
+<div id="toasts" role="status" aria-live="polite"></div>
+<div id="modal-root"></div>
+
+<script>
+(() => {
+'use strict';
+/* ====== утилиты ====== */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const ESC = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'};
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ESC[c]);
+const NF = new Intl.NumberFormat('ru-RU', {maximumFractionDigits: 3});
+const num = (v) => NF.format(v);
+const plural = (n, [one, few, many]) => {
+  const a = Math.abs(n) % 100;
+  const b = a % 10;
+  if (a > 10 && a < 20) return many;
+  if (b === 1) return one;
+  if (b >= 2 && b <= 4) return few;
+  return many;
+};
+
+
+/* ====== данные: категории, характеристики, товары ====== */
+const CATS = [
+  {id: 'pumps', name: 'Насосы', subs: ['cf', 'sub', 'gear'], note: 'Для воды, стоков и технологических жидкостей'},
+  {id: 'motors', name: 'Электродвигатели', subs: ['im', 'ex'], note: 'Общепромышленные и взрывозащищённые'},
+  {id: 'valves', name: 'Трубопроводная арматура', subs: ['ball', 'gate'], note: 'Краны и задвижки на разные давления'},
+];
+const SUBS = {
+  cf: {name: 'Насосы центробежные консольные', one: 'Насос консольный', cat: 'pumps', pre: 'НК'},
+  sub: {name: 'Насосы погружные', one: 'Насос погружной', cat: 'pumps', pre: 'НП'},
+  gear: {name: 'Насосы шестерённые', one: 'Насос шестерённый', cat: 'pumps', pre: 'НШ'},
+  im: {name: 'Электродвигатели асинхронные', one: 'Электродвигатель', cat: 'motors', pre: 'ЭД'},
+  ex: {name: 'Электродвигатели взрывозащищённые', one: 'Электродвигатель взрывозащищённый', cat: 'motors', pre: 'ЭВ'},
+  ball: {name: 'Краны шаровые', one: 'Кран шаровой', cat: 'valves', pre: 'КШ'},
+  gate: {name: 'Задвижки', one: 'Задвижка', cat: 'valves', pre: 'ЗД'},
+};
+const sp = (k, label, unit, type, filter, card) => ({k, label, unit: unit || '', type, filter: !!filter, card: !!card});
+const SCHEMAS0 = {
+  cf: [
+    sp('flow', 'Подача Q', 'м³/ч', 'num', 1, 1), sp('head', 'Напор H', 'м', 'num', 1, 1), sp('power', 'Мощность двигателя', 'кВт', 'num', 1, 1),
+    sp('rpm', 'Частота вращения', 'об/мин', 'enum', 1, 0), sp('material', 'Материал корпуса', '', 'enum', 1, 1), sp('dn', 'Диаметр входа DN', 'мм', 'enum', 1, 0),
+    sp('temp', 'Макс. температура среды', '°C', 'num', 1, 0), sp('seal', 'Уплотнение вала', '', 'enum', 1, 0),
+  ],
+  sub: [
+    sp('flow', 'Подача Q', 'м³/ч', 'num', 1, 1), sp('head', 'Напор H', 'м', 'num', 1, 1), sp('power', 'Мощность двигателя', 'кВт', 'num', 1, 0),
+    sp('volt', 'Напряжение питания', 'В', 'enum', 1, 1), sp('depth', 'Глубина погружения до', 'м', 'num', 1, 0), sp('solids', 'Размер частиц до', 'мм', 'num', 1, 0),
+    sp('purpose', 'Назначение', '', 'enum', 1, 1),
+  ],
+  gear: [
+    sp('flow', 'Подача', 'л/мин', 'num', 1, 1), sp('press', 'Давление нагнетания', 'бар', 'num', 1, 1), sp('visc', 'Вязкость среды до', 'сСт', 'num', 1, 0),
+    sp('power', 'Мощность двигателя', 'кВт', 'num', 1, 0), sp('medium', 'Перекачиваемая среда', '', 'enum', 1, 1), sp('material', 'Материал корпуса', '', 'enum', 1, 1),
+  ],
+  im: [
+    sp('power', 'Мощность', 'кВт', 'num', 1, 1), sp('rpm', 'Синхронная частота', 'об/мин', 'enum', 1, 1), sp('volt', 'Напряжение', 'В', 'enum', 1, 0),
+    sp('ip', 'Степень защиты', '', 'enum', 1, 1), sp('eff', 'Класс энергоэффективности', '', 'enum', 1, 0), sp('mount', 'Исполнение по монтажу', '', 'enum', 1, 0),
+    sp('weight', 'Масса', 'кг', 'num', 0, 0),
+  ],
+  ex: [
+    sp('power', 'Мощность', 'кВт', 'num', 1, 1), sp('rpm', 'Синхронная частота', 'об/мин', 'enum', 1, 1), sp('volt', 'Напряжение', 'В', 'enum', 1, 0),
+    sp('exmark', 'Маркировка взрывозащиты', '', 'enum', 1, 1), sp('ip', 'Степень защиты', '', 'enum', 1, 0), sp('tmin', 'Мин. температура окружающей среды', '°C', 'enum', 1, 0),
+    sp('weight', 'Масса', 'кг', 'num', 0, 0),
+  ],
+  ball: [
+    sp('dn', 'Условный проход DN', 'мм', 'enum', 1, 1), sp('pn', 'Давление PN', 'бар', 'enum', 1, 1), sp('material', 'Материал корпуса', '', 'enum', 1, 1),
+    sp('conn', 'Тип присоединения', '', 'enum', 1, 0), sp('drive', 'Управление', '', 'enum', 1, 1), sp('tmax', 'Макс. температура среды', '°C', 'num', 1, 0),
+  ],
+  gate: [
+    sp('dn', 'Условный проход DN', 'мм', 'enum', 1, 1), sp('pn', 'Давление PN', 'бар', 'enum', 1, 1), sp('material', 'Материал корпуса', '', 'enum', 1, 1),
+    sp('design', 'Конструкция затвора', '', 'enum', 1, 0), sp('drive', 'Управление', '', 'enum', 1, 1), sp('stem', 'Шпиндель', '', 'enum', 1, 0),
+  ],
+};
+const RAW = [
+  ['cf', 'НКМ 32-20-125', {flow: 6.3, head: 20, power: 1.5, rpm: '2900', material: 'Чугун', dn: '32', temp: 105, seal: 'Сальниковое'}],
+  ['cf', 'НКМ 50-32-160', {flow: 12.5, head: 32, power: 4, rpm: '2900', material: 'Чугун', dn: '50', temp: 105, seal: 'Торцевое'}],
+  ['cf', 'НКМ 50-32-160Б', {flow: 12.5, head: 32, power: 4, rpm: '2900', material: 'Бронза', dn: '50', temp: 90, seal: 'Сальниковое'}],
+  ['cf', 'НКМ 65-50-160', {flow: 25, head: 32, power: 5.5, rpm: '2900', material: 'Чугун', dn: '65', temp: 120, seal: 'Торцевое'}],
+  ['cf', 'НКМ 80-50-200', {flow: 50, head: 50, power: 15, rpm: '2900', material: 'Чугун', dn: '80', temp: 120, seal: 'Торцевое'}],
+  ['cf', 'НКМ 80-50-200Н', {flow: 50, head: 50, power: 15, rpm: '2900', material: 'Нержавеющая сталь', dn: '80', temp: 140, seal: 'Торцевое'}],
+  ['cf', 'НКМ 100-65-250', {flow: 100, head: 80, power: 45, rpm: '2900', material: 'Чугун', dn: '100', temp: 120, seal: 'Торцевое'}],
+  ['cf', 'НКМ 125-100-315', {flow: 200, head: 32, power: 30, rpm: '1450', material: 'Чугун', dn: '125', temp: 105, seal: 'Сальниковое'}],
+  ['cf', 'НКМ 150-125-315', {flow: 315, head: 32, power: 45, rpm: '1450', material: 'Чугун', dn: '150', temp: 105, seal: 'Сальниковое'}],
+  ['sub', 'ПД 5-10', {flow: 5, head: 10, power: 0.55, volt: '220', depth: 7, solids: 5, purpose: 'Дренажный'}],
+  ['sub', 'ПД 10-12', {flow: 10, head: 12, power: 0.75, volt: '220', depth: 8, solids: 10, purpose: 'Дренажный'}],
+  ['sub', 'ПФ 15-15', {flow: 15, head: 15, power: 1.5, volt: '380', depth: 10, solids: 35, purpose: 'Фекальный'}],
+  ['sub', 'ПФ 40-20', {flow: 40, head: 20, power: 4, volt: '380', depth: 10, solids: 50, purpose: 'Фекальный'}],
+  ['sub', 'ПС 4-60', {flow: 4, head: 60, power: 0.75, volt: '220', depth: 80, solids: 1, purpose: 'Скважинный'}],
+  ['sub', 'ПС 10-90', {flow: 10, head: 90, power: 3, volt: '380', depth: 120, solids: 1, purpose: 'Скважинный'}],
+  ['gear', 'ШН 8-2,5', {flow: 8, press: 2.5, visc: 500, power: 0.37, medium: 'Масло', material: 'Чугун'}],
+  ['gear', 'ШН 25-6', {flow: 25, press: 6, visc: 1000, power: 1.1, medium: 'Масло', material: 'Чугун'}],
+  ['gear', 'ШН 50-10', {flow: 50, press: 10, visc: 1500, power: 3, medium: 'Мазут', material: 'Чугун'}],
+  ['gear', 'ШН 100-10Н', {flow: 100, press: 10, visc: 800, power: 5.5, medium: 'Дизельное топливо', material: 'Сталь'}],
+  ['gear', 'ШН 200-16', {flow: 200, press: 16, visc: 2000, power: 11, medium: 'Мазут', material: 'Сталь'}],
+  ['im', 'ТПД 71A4', {power: 0.55, rpm: '1500', volt: '220/380', ip: 'IP54', eff: 'IE2', mount: 'IM1081', weight: 9}],
+  ['im', 'ТПД 80B4', {power: 1.5, rpm: '1500', volt: '220/380', ip: 'IP54', eff: 'IE2', mount: 'IM1081', weight: 15}],
+  ['im', 'ТПД 90L2', {power: 3, rpm: '3000', volt: '220/380', ip: 'IP55', eff: 'IE3', mount: 'IM1081', weight: 21}],
+  ['im', 'ТПД 100L4', {power: 4, rpm: '1500', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM2081', weight: 34}],
+  ['im', 'ТПД 132M4', {power: 7.5, rpm: '1500', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM1081', weight: 68}],
+  ['im', 'ТПД 160M6', {power: 11, rpm: '1000', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM2081', weight: 125}],
+  ['im', 'ТПД 180M4', {power: 30, rpm: '1500', volt: '380/660', ip: 'IP65', eff: 'IE4', mount: 'IM1081', weight: 195}],
+  ['im', 'ТПД 225M8', {power: 22, rpm: '750', volt: '380/660', ip: 'IP55', eff: 'IE2', mount: 'IM1081', weight: 255}],
+  ['ex', 'ТПДВ 80B4', {power: 1.5, rpm: '1500', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-40', weight: 24}],
+  ['ex', 'ТПДВ 100L2', {power: 5.5, rpm: '3000', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-40', weight: 52}],
+  ['ex', 'ТПДВ 132S4', {power: 7.5, rpm: '1500', volt: '380/660', exmark: '1Ex d IIC T4 Gb', ip: 'IP65', tmin: '-40', weight: 88}],
+  ['ex', 'ТПДВ 160M4', {power: 15, rpm: '1500', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-60', weight: 165}],
+  ['ex', 'ТПДВ 200L4', {power: 30, rpm: '1500', volt: '380/660', exmark: '1Ex de IIC T4 Gb', ip: 'IP65', tmin: '-60', weight: 270}],
+  ['ball', 'КШ 15-40', {dn: '15', pn: '40', material: 'Латунь', conn: 'Резьбовое', drive: 'Ручное', tmax: 150}],
+  ['ball', 'КШ 20-25', {dn: '20', pn: '25', material: 'Латунь', conn: 'Резьбовое', drive: 'Ручное', tmax: 120}],
+  ['ball', 'КШ 25-40Н', {dn: '25', pn: '40', material: 'Нержавеющая сталь', conn: 'Резьбовое', drive: 'Ручное', tmax: 200}],
+  ['ball', 'КШ 50-40Ф', {dn: '50', pn: '40', material: 'Сталь 20', conn: 'Фланцевое', drive: 'Ручное', tmax: 200}],
+  ['ball', 'КШ 50-63НЭ', {dn: '50', pn: '63', material: 'Нержавеющая сталь', conn: 'Фланцевое', drive: 'Электропривод', tmax: 250}],
+  ['ball', 'КШ 80-25П', {dn: '80', pn: '25', material: 'Сталь 20', conn: 'Фланцевое', drive: 'Пневмопривод', tmax: 200}],
+  ['ball', 'КШ 100-16Э', {dn: '100', pn: '16', material: 'Сталь 20', conn: 'Под приварку', drive: 'Электропривод', tmax: 200}],
+  ['gate', 'ЗК 50-16', {dn: '50', pn: '16', material: 'Чугун', design: 'Клиновая', drive: 'Ручное', stem: 'Выдвижной'}],
+  ['gate', 'ЗК 80-40Н', {dn: '80', pn: '40', material: 'Нержавеющая сталь', design: 'Клиновая', drive: 'Ручное', stem: 'Выдвижной'}],
+  ['gate', 'ЗК 100-16', {dn: '100', pn: '16', material: 'Чугун', design: 'Клиновая', drive: 'Ручное', stem: 'Выдвижной'}],
+  ['gate', 'ЗК 150-16Э', {dn: '150', pn: '16', material: 'Чугун', design: 'Клиновая', drive: 'Электропривод', stem: 'Выдвижной'}],
+  ['gate', 'ЗК 200-25Э', {dn: '200', pn: '25', material: 'Сталь', design: 'Клиновая', drive: 'Электропривод', stem: 'Выдвижной'}],
+  ['gate', 'ЗП 300-10Э', {dn: '300', pn: '10', material: 'Чугун', design: 'Параллельная', drive: 'Электропривод', stem: 'Невыдвижной'}],
+];
+const lc = (s) => String(s == null ? '' : s).toLowerCase();
+const dc = (x) => String(x).replace('.', ',');
+const DESC = {
+  cf: (s) => `Консольный центробежный насос для воды и жидкостей, близких к ней по вязкости. Подача ${dc(s.flow)} м³/ч при напоре ${dc(s.head)} м. Корпус: ${lc(s.material)}, уплотнение вала: ${lc(s.seal)}. Применяется в системах водоснабжения, отопления, охлаждения и на технологических линиях.`,
+  sub: (s) => `${s.purpose} погружной насос с подачей ${dc(s.flow)} м³/ч и напором ${dc(s.head)} м. Питание ${s.volt} В, глубина погружения до ${dc(s.depth)} м, проходимость частиц до ${dc(s.solids)} мм. Работает от встроенной защиты двигателя от перегрева.`,
+  gear: (s) => `Шестерённый насос объёмного типа для среды «${lc(s.medium)}». Подача ${dc(s.flow)} л/мин при давлении до ${dc(s.press)} бар, вязкость до ${s.visc} сСт. Корпус: ${lc(s.material)}. Подходит для маслостанций, котельных и топливных линий.`,
+  im: (s) => `Трёхфазный асинхронный двигатель общепромышленного назначения. Мощность ${String(s.power).replace('.', ',')} кВт, ${s.rpm} об/мин, напряжение ${s.volt} В. Степень защиты ${s.ip}, класс энергоэффективности ${s.eff}, исполнение ${s.mount}. Для насосов, вентиляторов, конвейеров и станков.`,
+  ex: (s) => `Взрывозащищённый асинхронный двигатель для опасных зон. Мощность ${String(s.power).replace('.', ',')} кВт, ${s.rpm} об/мин, маркировка ${s.exmark}, степень защиты ${s.ip}. Рабочая температура окружающей среды от ${s.tmin} °C. Применяется на нефтебазах, АЗС, в химической и газовой промышленности.`,
+  ball: (s) => `Шаровой кран DN ${s.dn} на давление PN ${s.pn}. Корпус: ${lc(s.material)}, присоединение: ${lc(s.conn)}, управление: ${lc(s.drive)}. Рабочая среда до ${s.tmax} °C. Применяется на трубопроводах воды, пара, газа и технологических жидкостей.`,
+  gate: (s) => `Задвижка с ${lc(s.design)} конструкцией затвора, DN ${s.dn}, PN ${s.pn}. Корпус: ${lc(s.material)}, шпиндель: ${lc(s.stem)}, управление: ${lc(s.drive)}. Для магистральных трубопроводов воды, тепла и технологических сред.`,
+};
+const USE = {
+  cf: ['Водоснабжение и повышение давления', 'Системы отопления и охлаждения', 'Технологические линии предприятий', 'Орошение и пожарные системы'],
+  sub: ['Откачка грунтовых и паводковых вод', 'Канализационные станции', 'Скважины и колодцы', 'Строительные котлованы'],
+  gear: ['Маслостанции и смазочные системы', 'Котельные и топливные линии', 'Перекачка вязких жидкостей', 'Дозирование и фасовка'],
+  im: ['Привод насосов и вентиляторов', 'Конвейеры и транспортёры', 'Станки и прессы', 'Компрессорное оборудование'],
+  ex: ['Нефтебазы и АЗС', 'Химические и газовые производства', 'Окрасочные и зерновые линии', 'Шахты и подземные объекты'],
+  ball: ['Холодная и горячая вода', 'Пар и конденсат', 'Газовые и топливные линии', 'Технологические жидкости'],
+  gate: ['Магистральные трубопроводы', 'Тепловые сети', 'Насосные станции', 'Водоподготовка'],
+};
+function seedProducts() {
+  const cnt = {};
+  return RAW.map(([sub, model, specs], i) => {
+    cnt[sub] = (cnt[sub] || 0) + 1;
+    return {
+      id: 'p' + (i + 1), sub, model, name: SUBS[sub].one + ' ' + model,
+      article: SUBS[sub].pre + '-' + String(1000 + cnt[sub] * 13 + i), desc: DESC[sub](specs), specs: {...specs}, pub: true,
+    };
+  });
+}
+
+/* ====== условные иллюстрации (вместо фото) ====== */
+const rng0 = (n) => Array.from({length: n}, (_, i) => i);
+const IL = {
+  cf: `<rect class="f" x="24" y="134" width="192" height="8" rx="1"/>
+    <rect class="f" x="156" y="122" width="14" height="12"/><rect class="f" x="192" y="122" width="14" height="12"/>
+    <rect class="a" x="148" y="78" width="62" height="44" rx="6"/>
+    ${[156, 164, 172, 180, 188, 196, 204].map((x) => `<path class="thin" d="M${x} 83V117"/>`).join('')}
+    <rect class="f" x="210" y="88" width="10" height="24" rx="3"/><rect class="f" x="170" y="68" width="18" height="10" rx="2"/>
+    <rect class="f" x="124" y="92" width="26" height="18" rx="2"/><rect class="f" x="76" y="122" width="40" height="12" rx="1"/>
+    <rect class="f" x="40" y="94" width="40" height="14"/><rect class="f" x="34" y="89" width="7" height="24"/>
+    <rect class="f" x="88" y="50" width="16" height="30"/><rect class="f" x="83" y="45" width="26" height="6"/>
+    <circle class="a" cx="96" cy="100" r="30"/><circle class="f" cx="96" cy="100" r="13"/><circle class="s" cx="96" cy="100" r="4"/>`,
+  sub: `<path class="s" d="M146 58C176 58 176 30 216 30"/><path class="s" d="M100 40q20 -24 40 0"/>
+    <rect class="f" x="112" y="20" width="16" height="22" rx="2"/><path class="thin" d="M112 26h16M112 31h16M112 36h16"/>
+    <rect class="f" x="102" y="38" width="36" height="12" rx="3"/><rect class="a" x="96" y="48" width="48" height="84" rx="10"/>
+    <path class="thin" d="M96 70h48M96 110h48"/><rect class="f" x="92" y="132" width="56" height="9" rx="2"/>
+    ${[100, 108, 116, 124, 132, 140].map((x) => `<path class="s" d="M${x} 134v5" style="stroke-width:1.5"/>`).join('')}
+    <path class="thin" d="M18 84q9 -5 18 0t18 0M18 98q9 -5 18 0t18 0M186 98q9 -5 18 0t18 0"/>`,
+  gear: `<rect class="f" x="28" y="76" width="40" height="18"/><rect class="f" x="24" y="71" width="7" height="28"/>
+    <rect class="f" x="172" y="76" width="40" height="18"/><rect class="f" x="209" y="71" width="7" height="28"/>
+    <rect class="f" x="56" y="124" width="128" height="9" rx="1"/><rect class="f" x="112" y="38" width="16" height="14"/><rect class="f" x="108" y="32" width="24" height="7" rx="2"/>
+    <rect class="a" x="62" y="50" width="116" height="76" rx="8"/>
+    <circle class="s" cx="100" cy="88" r="21" style="stroke-width:6;stroke-dasharray:5.5 4.4"/><circle class="f" cx="100" cy="88" r="16"/><circle class="s" cx="100" cy="88" r="4"/>
+    <circle class="s" cx="140" cy="88" r="21" style="stroke-width:6;stroke-dasharray:5.5 4.4"/><circle class="f" cx="140" cy="88" r="16"/><circle class="s" cx="140" cy="88" r="4"/>
+    <circle class="s" cx="70" cy="58" r="2.5"/><circle class="s" cx="170" cy="58" r="2.5"/><circle class="s" cx="70" cy="118" r="2.5"/><circle class="s" cx="170" cy="118" r="2.5"/>`,
+  im: `<rect class="f" x="70" y="122" width="26" height="11"/><rect class="f" x="146" y="122" width="26" height="11"/><rect class="f" x="62" y="132" width="118" height="5" rx="1"/>
+    <rect class="f" x="106" y="42" width="38" height="20" rx="3"/><circle class="s" cx="150" cy="52" r="3"/>
+    <rect class="f" x="38" y="70" width="26" height="44" rx="9"/><path class="thin" d="M44 78v28M50 76v32M56 78v28"/>
+    <rect class="a" x="62" y="60" width="118" height="62" rx="8"/>
+    ${rng0(12).map((i) => `<path class="thin" d="M${72 + i * 9} 64v54"/>`).join('')}
+    <rect class="f" x="180" y="66" width="10" height="50" rx="3"/><rect class="f" x="190" y="86" width="36" height="10"/><rect class="f" x="200" y="83" width="16" height="4"/>`,
+  ex: `<rect class="f" x="70" y="122" width="30" height="12"/><rect class="f" x="142" y="122" width="30" height="12"/><rect class="f" x="60" y="133" width="124" height="5" rx="1"/>
+    <rect class="f" x="96" y="38" width="50" height="26" rx="3"/><rect class="s" x="102" y="44" width="38" height="14" rx="2" style="stroke-width:1.5"/><rect class="f" x="146" y="46" width="12" height="9" rx="1"/>
+    <rect class="f" x="36" y="70" width="28" height="46" rx="9"/><path class="thin" d="M42 78v30M48 76v34M54 78v30"/>
+    <rect class="a" x="62" y="60" width="118" height="62" rx="6"/>
+    ${rng0(8).map((i) => `<path class="s" d="M${74 + i * 13} 64v54" style="stroke-width:3;opacity:.5"/>`).join('')}
+    <rect class="f" x="180" y="62" width="14" height="58" rx="3"/><rect class="f" x="194" y="86" width="32" height="10"/>
+    <path class="f" d="M200 40l9-5 9 5v10l-9 5-9-5z"/><text class="t" x="209" y="49" text-anchor="middle" style="font-size:9px;font-weight:600">Ex</text>`,
+  ball: `<rect class="f" x="62" y="88" width="116" height="24"/><rect class="f" x="52" y="74" width="10" height="52"/><rect class="f" x="178" y="74" width="10" height="52"/>
+    <circle class="s" cx="57" cy="82" r="2"/><circle class="s" cx="57" cy="118" r="2"/><circle class="s" cx="183" cy="82" r="2"/><circle class="s" cx="183" cy="118" r="2"/>
+    <ellipse class="a" cx="120" cy="100" rx="34" ry="31"/><path class="thin" d="M96 100h48"/>
+    <rect class="f" x="114" y="56" width="12" height="26"/><rect class="f" x="109" y="50" width="22" height="9" rx="2"/><rect class="a" x="52" y="38" width="136" height="9" rx="4.5"/>`,
+  gate: `<rect class="f" x="46" y="92" width="148" height="28"/><rect class="f" x="36" y="80" width="10" height="52"/><rect class="f" x="194" y="80" width="10" height="52"/>
+    <circle class="s" cx="41" cy="88" r="2"/><circle class="s" cx="41" cy="124" r="2"/><circle class="s" cx="199" cy="88" r="2"/><circle class="s" cx="199" cy="124" r="2"/>
+    <rect class="a" x="84" y="80" width="72" height="50" rx="10"/><rect class="f" x="100" y="58" width="40" height="24" rx="2"/>
+    <path class="s" d="M104 58L112 38M136 58L128 38"/><rect class="f" x="117" y="24" width="6" height="36"/>
+    <ellipse class="a" cx="120" cy="22" rx="34" ry="8"/><path class="thin" d="M86 22h68M120 14v16M96 17l48 10M96 27l48-10"/>`,
+};
+const svgWrap = (inner, label) => `<svg class="il" viewBox="0 0 240 160" role="img" aria-label="${esc(label)}" style="display:block;width:100%;height:100%">${inner}</svg>`;
+const illus = (sub, label) => svgWrap(IL[sub] || IL.cf, label || 'Условная иллюстрация изделия');
+
+function dimsFor(p) {
+  const s = p.specs;
+  const n = (k, d) => (Number.isFinite(+s[k]) && s[k] !== '' && s[k] != null ? +s[k] : d);
+  switch (p.sub) {
+    case 'cf': return {L: Math.round(560 + n('power', 3) * 9 + n('dn', 50) * 2.2), H: Math.round(320 + n('dn', 50) * 1.7)};
+    case 'sub': return {L: Math.round(180 + n('power', 1) * 24), H: Math.round(360 + n('head', 12) * 3.4)};
+    case 'gear': return {L: Math.round(300 + n('power', 1) * 26 + n('flow', 20) * 0.8), H: Math.round(230 + n('flow', 20) * 0.9)};
+    case 'im': return {L: Math.round(260 + n('power', 3) * 11), H: Math.round(190 + n('power', 3) * 5)};
+    case 'ex': return {L: Math.round(320 + n('power', 3) * 12), H: Math.round(230 + n('power', 3) * 5)};
+    case 'ball': return {L: Math.round(110 + n('dn', 25) * 1.9), H: Math.round(120 + n('dn', 25) * 1.4)};
+    default: return {L: Math.round(150 + n('dn', 100) * 1.3), H: Math.round(330 + n('dn', 100) * 3.1)};
+  }
+}
+function dimSVG(p) {
+  const d = dimsFor(p);
+  return svgWrap(`<g style="opacity:.4">${IL[p.sub] || IL.cf}</g>
+    <path class="thin" style="opacity:1" d="M22 152H218M22 147v10M218 147v10"/>
+    <text class="t" x="120" y="148" text-anchor="middle">L ≈ ${d.L} мм</text>
+    <path class="thin" style="opacity:1" d="M9 16V140M4 16h10M4 140h10"/>
+    <text class="t" transform="translate(21 78) rotate(-90)" text-anchor="middle">H ≈ ${d.H} мм</text>
+    <text class="t" x="228" y="12" text-anchor="end" style="font-size:8px;opacity:.6">условный чертёж</text>`, 'Габариты, условный чертёж');
+}
+const fv = (spec, v) => (v == null || v === '' ? '—' : (spec.type === 'num' ? num(v) : String(v)) + (spec.unit ? ' ' + spec.unit : ''));
+const SHORT = {'Мощность двигателя': 'Мощность', 'Макс. температура среды': 'Т макс.', 'Частота вращения': 'Частота', 'Синхронная частота': 'Частота', 'Диаметр входа DN': 'DN', 'Условный проход DN': 'DN', 'Давление PN': 'PN', 'Материал корпуса': 'Материал', 'Давление нагнетания': 'Давление', 'Напряжение питания': 'Напряжение', 'Глубина погружения до': 'Глубина', 'Размер частиц до': 'Частицы', 'Вязкость среды до': 'Вязкость', 'Перекачиваемая среда': 'Среда', 'Маркировка взрывозащиты': 'Маркировка', 'Класс энергоэффективности': 'Класс', 'Исполнение по монтажу': 'Монтаж', 'Степень защиты': 'IP', 'Тип присоединения': 'Присоед.', 'Конструкция затвора': 'Затвор', 'Мин. температура окружающей среды': 'Т мин.'};
+const clip = (s, n) => (s.length > n ? s.slice(0, Math.max(1, n - 1)) + '…' : s);
+function plateSVG(p, schema) {
+  const rows = [['Тип', p.model || p.name], ['Арт.', p.article]];
+  schema.filter((s) => s.card || s.filter).slice(0, 4).forEach((s) => {
+    if (p.specs[s.k] != null && p.specs[s.k] !== '') rows.push([SHORT[s.label] || clip(s.label, 14), fv(s, p.specs[s.k])]);
+  });
+  const line = (r, i) => {
+    const y = 57 + i * 13;
+    const room = Math.max(6, Math.floor((164 - r[0].length * 5.4) / 5.4) - 1);
+    return `<text class="t" x="38" y="${y}" style="font-size:9px;opacity:.75">${esc(r[0])}</text><text class="t" x="202" y="${y}" text-anchor="end" style="font-size:9px;font-weight:600">${esc(clip(String(r[1]), room))}</text>`;
+  };
+  return svgWrap(`<rect class="f" x="18" y="14" width="204" height="132" rx="10"/>
+    <circle class="s" cx="30" cy="26" r="3"/><circle class="s" cx="210" cy="26" r="3"/><circle class="s" cx="30" cy="134" r="3"/><circle class="s" cx="210" cy="134" r="3"/>
+    <text class="t" x="120" y="34" text-anchor="middle" style="font-size:11px;font-weight:600;letter-spacing:.18em">НОРДПРИВОД</text>
+    <path class="thin" d="M38 42H202"/>
+    ${rows.slice(0, 6).map(line).join('')}
+    <text class="t" x="120" y="139" text-anchor="middle" style="font-size:7px;opacity:.55">ДЕМО · ШИЛЬДИК УСЛОВНЫЙ</text>`, 'Шильдик, условный');
+}
+
+/* ====== приложение ====== */
+const LS_KEY = 'nordprivod-demo-v3';
+const seedDB = () => ({v: 3, schemas: JSON.parse(JSON.stringify(SCHEMAS0)), products: seedProducts(), leads: [], seq: 1000});
+let DB = (() => {
+  try {
+    const d = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
+    if (d && d.v === 3 && Array.isArray(d.products) && d.schemas) return d;
+  } catch (e) { /* хранилище недоступно: работаем в памяти */ }
+  return seedDB();
+})();
+const save = () => { try { localStorage.setItem(LS_KEY, JSON.stringify(DB)); } catch (e) { /* без хранилища */ } };
+
+const PAGE = 12;
+const S = {view: 'catalog', cat: null, sub: null, q: '', sort: 'name', F: {}, pid: null, kp: [], limit: PAGE, sig: '', tab: 'products', aq: '', asub: '', ssub: 'cf', arm: '', leadOpen: null, lf: '', csvSub: 'cf', csvText: '', csvRes: null, fbTopic: '', fbText: ''};
+const schemaOf = (sub) => DB.schemas[sub] || [];
+const byId = (id) => DB.products.find((p) => p.id === id);
+const pubList = () => DB.products.filter((p) => p.pub);
+const catOf = (sub) => CATS.find((c) => c.id === SUBS[sub].cat);
+const parseNum = (raw) => { const t = String(raw).replace(/\s/g, '').replace(',', '.'); if (t === '') return null; const n = Number(t); return Number.isFinite(n) ? n : null; };
+const filled = (v) => v != null && v !== '';
+
+/* ---------- фильтрация ---------- */
+function matchQ(p, q) {
+  if (!q) return true;
+  const s = lc(p.name + ' ' + p.article + ' ' + p.desc + ' ' + Object.values(p.specs).join(' '));
+  return lc(q).split(/\s+/).filter(Boolean).every((w) => s.includes(w));
+}
+function passes(p, F, skip) {
+  for (const spec of schemaOf(p.sub)) {
+    if (spec.k === skip || !spec.filter) continue;
+    const f = F[spec.k];
+    if (!f) continue;
+    const v = p.specs[spec.k];
+    if (spec.type === 'num') { if (typeof v !== 'number' || v < f.min - 1e-9 || v > f.max + 1e-9) return false; }
+    else if (f.length && !f.includes(String(v))) return false;
+  }
+  return true;
+}
+const SUB_ORDER = Object.fromEntries(CATS.flatMap((c) => c.subs).map((s, i) => [s, i]));
+function sorter() {
+  const [k, dir] = S.sort.split(':');
+  const byName = (a, b) => a.name.localeCompare(b.name, 'ru', {numeric: true});
+  if (k === 'name') return (a, b) => SUB_ORDER[a.sub] - SUB_ORDER[b.sub] || byName(a, b);
+  if (k === 'art') return (a, b) => a.article.localeCompare(b.article, 'ru', {numeric: true});
+  const m = dir === 'desc' ? -1 : 1;
+  return (a, b) => ((a.specs[k] ?? Infinity) - (b.specs[k] ?? Infinity)) * m || byName(a, b);
+}
+function results() {
+  const F = S.sub ? (S.F[S.sub] || {}) : {};
+  return pubList().filter((p) => (S.sub ? p.sub === S.sub : S.cat ? SUBS[p.sub].cat === S.cat : true) && matchQ(p, S.q) && (!S.sub || passes(p, F))).sort(sorter());
+}
+function enumValues(prods, k) {
+  const set = new Set();
+  prods.forEach((p) => { if (filled(p.specs[k])) set.add(String(p.specs[k])); });
+  const arr = [...set];
+  const numeric = arr.every((v) => /^-?\d+([.,]\d+)?$/.test(v));
+  return arr.sort((a, b) => (numeric ? parseFloat(a) - parseFloat(b) : a.localeCompare(b, 'ru', {numeric: true})));
+}
+function bounds(prods, k) {
+  const v = prods.map((p) => p.specs[k]).filter((x) => typeof x === 'number' && Number.isFinite(x));
+  if (!v.length) return null;
+  const min = Math.min(...v);
+  const max = Math.max(...v);
+  const span = max - min;
+  let step = span <= 3 ? 0.05 : span <= 20 ? 0.1 : span <= 60 ? 0.5 : span <= 400 ? 1 : span <= 3000 ? 5 : 10;
+  if (step < 1 && v.every(Number.isInteger)) step = 1;
+  return {min, max, step};
+}
+function activeCount() {
+  let n = S.q ? 1 : 0;
+  if (S.sub) {
+    const F = S.F[S.sub] || {};
+    for (const spec of schemaOf(S.sub)) { const f = F[spec.k]; if (f) n += spec.type === 'num' ? 1 : f.length; }
+  }
+  return n;
+}
+
+/* ---------- утилиты интерфейса ---------- */
+function toast(msg) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  $('#toasts').appendChild(t);
+  setTimeout(() => t.remove(), Math.max(2800, msg.length * 60));
+}
+const M = {prev: null};
+function openModal(html, opts = {}) {
+  $('#toasts').innerHTML = '';
+  if (!$('#modal-root .modal')) M.prev = document.activeElement;
+  $('#modal-root').innerHTML = `<div class="modal-bg" data-act="modal-bg"><div class="modal${opts.big ? ' big' : ''}" role="dialog" aria-modal="true" tabindex="-1" aria-label="${esc(opts.label || 'Окно')}">${html}</div></div>`;
+  document.documentElement.style.overflow = 'hidden';
+  const touch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  const f = touch ? null : $('#modal-root [autofocus]');
+  (f || $('#modal-root .modal')).focus({preventScroll: true});
+}
+function closeModal() {
+  $('#modal-root').innerHTML = '';
+  document.documentElement.style.overflow = '';
+  if (M.prev && M.prev.focus && document.contains(M.prev)) M.prev.focus({preventScroll: true});
+  M.prev = null;
+}
+const field = (name, label, o = {}) => {
+  const id = (o.pre || 'f') + '-' + name.replace(/[^a-z0-9]/gi, '_');
+  const val = esc(o.value || '');
+  const af = o.af ? ' autofocus' : '';
+  const ctl = o.area
+    ? `<textarea id="${id}" name="${name}" placeholder="${esc(o.ph || '')}"${af}>${val}</textarea>`
+    : `<input id="${id}" name="${name}" type="${o.type || 'text'}" autocomplete="${o.ac || 'off'}" placeholder="${esc(o.ph || '')}" value="${val}"${o.mode ? ` inputmode="${o.mode}"` : ''}${af}>`;
+  return `<div class="field${o.cls ? ' ' + o.cls : ''}"><label for="${id}">${label}${o.req ? ' *' : ''}</label>${ctl}<div class="em" aria-live="polite"></div></div>`;
+};
+function readForm(form) {
+  const d = {};
+  $$('[name]', form).forEach((el) => { d[el.name] = el.type === 'checkbox' ? el.checked : el.value.trim(); });
+  return d;
+}
+function setErr(form, errs) {
+  $$('.field', form).forEach((f) => {
+    const c = f.querySelector('[name]');
+    const m = c ? errs[c.name] : '';
+    f.classList.toggle('err', !!m);
+    const em = f.querySelector('.em');
+    if (em) em.textContent = m || '';
+  });
+  const ag = $('.agree .em', form);
+  if (ag) ag.textContent = errs.agree || '';
+  const first = form.querySelector('.field.err [name]');
+  if (first) first.focus();
+}
+const okPhone = (s) => (String(s).match(/\d/g) || []).length >= 10;
+const okMail = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+const nameHTML = (name) => esc(name).replace(/\S*\d\S*-\S*|\S*-\S*\d\S*/g, (m) => `<span class="nb">${m}</span>`);
+
+/* ---------- каркас ---------- */
+function setView(v, o = {}) {
+  S.view = v;
+  if (v === 'catalog') {
+    if (o.cat !== undefined) S.cat = o.cat;
+    if (o.sub !== undefined) S.sub = o.sub;
+    if (S.sort.includes(':') && !schemaOf(S.sub || '').some((s) => s.k === S.sort.split(':')[0])) S.sort = 'name';
+  }
+  render();
+  window.scrollTo(0, 0);
+}
+function render() {
+  $$('.nav button').forEach((b) => b.setAttribute('aria-current', b.dataset.v === (S.view === 'product' ? 'catalog' : S.view) ? 'page' : 'false'));
+  updateKpBadge();
+  ({catalog: viewCatalog, product: viewProduct, contacts: viewContacts, admin: viewAdmin})[S.view]();
+}
+function updateKpBadge() {
+  const n = S.kp.length;
+  const b = $('#kpn');
+  b.textContent = n;
+  b.classList.toggle('zero', !n);
+}
+function refreshKpButtons() {
+  $$('[data-act="kp-add"]').forEach((b) => {
+    const inList = S.kp.some((k) => k.id === b.dataset.id);
+    b.textContent = inList ? 'В запросе' : 'В запрос КП';
+    b.classList.toggle('cta', !inList);
+    b.classList.toggle('pri', inList);
+  });
+}
+
+/* ---------- каталог ---------- */
+function viewCatalog() {
+  $('#view').innerHTML = `<div class="catalog">
+    <aside class="side" id="side" aria-label="Каталог и фильтры">
+      <div class="side-head"><strong>Каталог и фильтры</strong><button type="button" class="icon-btn" data-act="side-close" aria-label="Закрыть">×</button></div>
+      <nav class="tree" id="tree" aria-label="Категории"></nav>
+      <div class="filters" id="filters"></div>
+      <div class="side-foot"><button type="button" class="btn cta wide" id="side-show" data-act="side-close">Показать</button></div>
+    </aside>
+    <section id="results" aria-label="Товары">
+      <div class="crumbs" id="crumbs"></div>
+      <div class="res-head">
+        <div><h1 id="res-title"></h1><div class="res-count" id="res-count" aria-live="polite"></div></div>
+        <div class="res-tools">
+          <button type="button" class="btn sm only-m" data-act="side-open">Фильтры <span class="badge zero" id="fcount">0</span></button>
+          <label class="sr" for="sort">Сортировка</label><select class="sel" id="sort"></select>
+        </div>
+      </div>
+      <div id="tiles"></div>
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="grid"></div>
+      <div class="more" id="more"></div>
+    </section></div>`;
+  renderTree();
+  renderFilters();
+  renderSort();
+  renderResults();
+}
+function renderTree() {
+  const cnt = {};
+  pubList().forEach((p) => { cnt[p.sub] = (cnt[p.sub] || 0) + 1; });
+  $('#tree').innerHTML = CATS.map((c) => {
+    const n = c.subs.reduce((a, s) => a + (cnt[s] || 0), 0);
+    const open = !S.cat || S.cat === c.id;
+    return `<div class="tg"><button type="button" class="tc${S.cat === c.id && !S.sub ? ' on' : ''}" data-act="cat" data-id="${c.id}"><span>${esc(c.name)}</span><em>${n}</em></button>${!open ? '' : c.subs.map((s) => `<button type="button" class="tsb${S.sub === s ? ' on' : ''}" data-act="sub" data-id="${s}"><span>${esc(SUBS[s].name)}</span><em>${cnt[s] || 0}</em></button>`).join('')}</div>`;
+  }).join('');
+}
+function renderSort() {
+  const sel = $('#sort');
+  if (!sel) return;
+  const opts = [['name', 'По умолчанию'], ['art', 'По артикулу']];
+  if (S.sub) schemaOf(S.sub).filter((s) => s.type === 'num' && (s.card || s.filter)).slice(0, 3).forEach((s) => { opts.push([s.k + ':asc', `${s.label} ↑`]); opts.push([s.k + ':desc', `${s.label} ↓`]); });
+  sel.innerHTML = opts.map(([v, t]) => `<option value="${esc(v)}">${esc(t)}</option>`).join('');
+  sel.value = opts.some(([v]) => v === S.sort) ? S.sort : 'name';
+  S.sort = sel.value;
+}
+function tilesHTML() {
+  if (S.q || S.sub) return '';
+  const cnt = {};
+  pubList().forEach((p) => { cnt[p.sub] = (cnt[p.sub] || 0) + 1; });
+  if (!S.cat) {
+    return `<div class="tiles">${CATS.map((c) => `<button type="button" class="tile" data-act="cat" data-id="${c.id}"><span class="pic">${illus(c.subs[0], c.name)}</span><span class="tt"><strong>${esc(c.name)}</strong><span>${esc(c.note)} · ${c.subs.reduce((a, s) => a + (cnt[s] || 0), 0)} поз.</span></span></button>`).join('')}</div>`;
+  }
+  const c = CATS.find((x) => x.id === S.cat);
+  return `<div class="tiles">${c.subs.map((s) => `<button type="button" class="tile" data-act="sub" data-id="${s}"><span class="pic">${illus(s, SUBS[s].name)}</span><span class="tt"><strong>${esc(SUBS[s].name)}</strong><span>${cnt[s] || 0} поз. · фильтры по характеристикам</span></span></button>`).join('')}</div>`;
+}
+function chipsHTML() {
+  const chip = (t, kind, key) => `<span class="chip">${esc(t)}<button type="button" data-act="chip-x" data-kind="${kind}" data-key="${esc(key)}" aria-label="Убрать фильтр: ${esc(t)}">×</button></span>`;
+  const out = [];
+  if (S.q) out.push(chip(`Поиск: «${S.q}»`, 'q', ''));
+  if (S.sub) {
+    const F = S.F[S.sub] || {};
+    for (const spec of schemaOf(S.sub)) {
+      const f = F[spec.k];
+      if (!f) continue;
+      if (spec.type === 'num') out.push(chip(`${spec.label}: ${num(f.min)}–${num(f.max)}${spec.unit ? ' ' + spec.unit : ''}`, 'n', spec.k));
+      else f.forEach((v) => out.push(chip(`${spec.label}: ${v}${spec.unit ? ' ' + spec.unit : ''}`, 'e', spec.k + '|' + v)));
+    }
+  }
+  return out.join('');
+}
+function cardHTML(p) {
+  const ks = schemaOf(p.sub).filter((s) => s.card && filled(p.specs[s.k])).slice(0, 4);
+  return `<article class="card">
+    <button type="button" class="pic" data-act="open" data-id="${p.id}" aria-label="Открыть: ${esc(p.name)}">${illus(p.sub, p.name)}</button>
+    <div class="card-b">
+      <div class="art">${esc(p.article)}</div>
+      <h3><button type="button" data-act="open" data-id="${p.id}">${nameHTML(p.name)}</button></h3>
+      <dl class="ks">${ks.map((s) => `<div><dt>${esc(s.label)}</dt><dd>${esc(fv(s, p.specs[s.k]))}</dd></div>`).join('')}</dl>
+      <div class="card-a"><button type="button" class="btn sm" data-act="open" data-id="${p.id}">Подробнее</button><button type="button" class="btn sm cta" data-act="kp-add" data-id="${p.id}">В запрос КП</button></div>
+    </div></article>`;
+}
+function renderResults() {
+  if (!$('#results')) return;
+  const list = results();
+  const cat = CATS.find((c) => c.id === S.cat);
+  const cr = ['<button type="button" data-act="home">Каталог</button>'];
+  if (cat) cr.push(S.sub ? `<button type="button" data-act="cat" data-id="${cat.id}">${esc(cat.name)}</button>` : `<span>${esc(cat.name)}</span>`);
+  if (S.sub) cr.push(`<span>${esc(SUBS[S.sub].name)}</span>`);
+  $('#crumbs').innerHTML = cr.join('<span aria-hidden="true">/</span>');
+  $('#res-title').textContent = S.sub ? SUBS[S.sub].name : cat ? cat.name : 'Каталог оборудования';
+  $('#res-count').textContent = `${list.length} ${plural(list.length, ['позиция', 'позиции', 'позиций'])}${S.q ? ` по запросу «${S.q}»` : ''}`;
+  $('#tiles').innerHTML = tilesHTML();
+  $('#chips').innerHTML = chipsHTML();
+  const sig = JSON.stringify([S.cat, S.sub, S.q, S.sort, S.sub ? S.F[S.sub] || null : null]);
+  if (sig !== S.sig) { S.sig = sig; S.limit = PAGE; }
+  const shown = list.slice(0, S.limit);
+  const wide = (S.cat || S.sub) && S.q;
+  $('#grid').innerHTML = list.length ? shown.map(cardHTML).join('') : `<div class="empty" style="grid-column:1/-1"><strong>Ничего не найдено</strong>Попробуйте ослабить фильтры или изменить запрос.<div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button type="button" class="btn sm" data-act="f-reset-all">Сбросить всё</button>${wide ? '<button type="button" class="btn sm" data-act="search-all">Искать во всём каталоге</button>' : ''}</div></div>`;
+  $('#more').innerHTML = list.length > shown.length ? `<button type="button" class="btn" data-act="more">Показать ещё ${Math.min(PAGE, list.length - shown.length)} из ${list.length - shown.length}</button>` : '';
+  const n = activeCount();
+  $('#fcount').textContent = n;
+  $('#fcount').classList.toggle('zero', !n);
+  const sh = $('#side-show');
+  if (sh) sh.textContent = `Показать ${list.length}`;
+  refreshKpButtons();
+}
+
+/* ---------- фильтры по характеристикам ---------- */
+function renderFilters() {
+  const box = $('#filters');
+  if (!box) return;
+  if (!S.sub) {
+    box.innerHTML = '<p class="hint">Выберите подкатегорию, и здесь появятся фильтры по техническим характеристикам: мощность, подача, диаметр, материал и другие.</p>';
+    return;
+  }
+  const prods = pubList().filter((p) => p.sub === S.sub);
+  const F = (S.F[S.sub] = S.F[S.sub] || {});
+  const parts = [];
+  for (const spec of schemaOf(S.sub)) {
+    if (!spec.filter) continue;
+    const head = `<summary>${esc(spec.label)}<span class="u">${esc(spec.unit)}</span></summary>`;
+    if (spec.type === 'num') {
+      const b = bounds(prods, spec.k);
+      if (!b || b.min === b.max) continue;
+      parts.push(`<details class="fs" open data-k="${spec.k}">${head}<div class="fs-body"><div class="rng" data-k="${spec.k}" data-min="${b.min}" data-max="${b.max}" data-step="${b.step}">
+        <div class="rng-track"><div class="rng-fill"></div>
+          <button type="button" class="rng-th" data-th="min" role="slider" aria-label="${esc(spec.label)}: от"></button>
+          <button type="button" class="rng-th" data-th="max" role="slider" aria-label="${esc(spec.label)}: до"></button></div>
+        <div class="rng-in"><label>от<input type="text" inputmode="decimal" data-in="min" aria-label="${esc(spec.label)}: от"></label><label>до<input type="text" inputmode="decimal" data-in="max" aria-label="${esc(spec.label)}: до"></label></div></div></div></details>`);
+    } else {
+      const vals = enumValues(prods, spec.k);
+      if (vals.length < 2) continue;
+      parts.push(`<details class="fs" open data-k="${spec.k}">${head}<div class="fs-body">${vals.map((v) => `<label class="chk"><input type="checkbox" data-k="${spec.k}" value="${esc(v)}"${(F[spec.k] || []).includes(v) ? ' checked' : ''}><span>${esc(v)}</span><span class="cnt"></span></label>`).join('')}</div></details>`);
+    }
+  }
+  box.innerHTML = `<div class="f-head"><h2>Подбор по параметрам</h2><button type="button" class="link" data-act="f-reset">Сбросить</button></div>${parts.join('') || '<p class="hint">Для этой подкатегории фильтры не настроены. Их можно включить в админке.</p>'}`;
+  $$('.rng', box).forEach(syncRange);
+  updateFacets();
+}
+function updateFacets() {
+  if (!S.sub || !$('#filters')) return;
+  const F = S.F[S.sub] || {};
+  const prods = pubList().filter((p) => p.sub === S.sub && matchQ(p, S.q));
+  for (const spec of schemaOf(S.sub)) {
+    if (!spec.filter || spec.type !== 'enum') continue;
+    const cnt = {};
+    for (const p of prods) if (passes(p, F, spec.k)) { const v = String(p.specs[spec.k]); cnt[v] = (cnt[v] || 0) + 1; }
+    $$('#filters .chk input').filter((i) => i.dataset.k === spec.k).forEach((inp) => {
+      const lab = inp.closest('.chk');
+      const n = cnt[inp.value] || 0;
+      lab.querySelector('.cnt').textContent = n;
+      lab.classList.toggle('zero', n === 0 && !inp.checked);
+    });
+  }
+}
+const afterFilter = () => { renderResults(); updateFacets(); };
+const snapIn = (v, r) => {
+  const x = +(Math.round(v / r.step) * r.step).toFixed(4);
+  return x <= r.min ? r.min : x >= r.max ? r.max : x;
+};
+function rangeOf(el) {
+  const k = el.dataset.k;
+  const min = +el.dataset.min;
+  const max = +el.dataset.max;
+  const f = (S.F[S.sub] || {})[k];
+  return {k, min, max, step: +el.dataset.step, lo: f ? f.min : min, hi: f ? f.max : max};
+}
+function syncRange(el) {
+  const r = rangeOf(el);
+  const pct = (v) => (r.max === r.min ? 0 : ((v - r.min) / (r.max - r.min)) * 100);
+  const [a, b] = $$('.rng-th', el);
+  a.style.left = pct(r.lo) + '%';
+  b.style.left = pct(r.hi) + '%';
+  const fill = $('.rng-fill', el);
+  fill.style.left = pct(r.lo) + '%';
+  fill.style.width = pct(r.hi) - pct(r.lo) + '%';
+  [[a, r.lo], [b, r.hi]].forEach(([t, v]) => { t.setAttribute('aria-valuemin', r.min); t.setAttribute('aria-valuemax', r.max); t.setAttribute('aria-valuenow', v); t.setAttribute('aria-valuetext', num(v)); });
+  const [i1, i2] = $$('input', el);
+  if (document.activeElement !== i1) i1.value = num(r.lo);
+  if (document.activeElement !== i2) i2.value = num(r.hi);
+}
+function setRange(el, lo, hi) {
+  const r = rangeOf(el);
+  lo = Math.min(Math.max(lo, r.min), r.max);
+  hi = Math.min(Math.max(hi, r.min), r.max);
+  if (lo > hi) [lo, hi] = [hi, lo];
+  const F = (S.F[S.sub] = S.F[S.sub] || {});
+  if (lo <= r.min + 1e-9 && hi >= r.max - 1e-9) delete F[r.k]; else F[r.k] = {min: lo, max: hi};
+  syncRange(el);
+  afterFilter();
+}
+let drag = null;
+function moveDrag(x) {
+  const {el, which, rect} = drag;
+  const r = rangeOf(el);
+  const raw = r.min + ((x - rect.left) / rect.width) * (r.max - r.min);
+  const v = snapIn(raw, r);
+  if (which === 'min') setRange(el, Math.min(v, r.hi), r.hi); else setRange(el, r.lo, Math.max(v, r.lo));
+}
+
+/* ---------- карточка товара ---------- */
+function docsFor(p) {
+  const h = [...p.article].reduce((a, c) => (a * 31 + c.charCodeAt(0)) % 997, 7);
+  const sz = (i, base) => num(+(base + ((h * (i + 3)) % 17) / 10).toFixed(1)) + ' МБ';
+  const d = [['Паспорт изделия', 'PDF', sz(1, 0.6)], ['Руководство по эксплуатации', 'PDF', sz(2, 1.8)], ['Декларация о соответствии', 'PDF', sz(3, 0.3)], ['Опросный лист для заказа', 'XLS', sz(4, 0.1)], ['3D-модель', 'STEP', sz(5, 3.2)]];
+  if (p.sub === 'ex') d.splice(3, 0, ['Сертификат взрывозащиты', 'PDF', sz(6, 0.5)]);
+  return d;
+}
+function viewProduct() {
+  const p = byId(S.pid);
+  if (!p) { setView('catalog'); return; }
+  const schema = schemaOf(p.sub);
+  const cat = catOf(p.sub);
+  const key = schema.filter((s) => s.card && filled(p.specs[s.k])).slice(0, 4);
+  const rel = pubList().filter((x) => x.sub === p.sub && x.id !== p.id).slice(0, 4);
+  const rows = schema.filter((s) => filled(p.specs[s.k]));
+  $('#view').innerHTML = `<div class="crumbs"><button type="button" data-act="home">Каталог</button><span aria-hidden="true">/</span><button type="button" data-act="cat" data-id="${cat.id}">${esc(cat.name)}</button><span aria-hidden="true">/</span><button type="button" data-act="sub" data-id="${p.sub}">${esc(SUBS[p.sub].name)}</button><span aria-hidden="true">/</span><span>${esc(p.name)}</span></div>
+  <div class="pdp">
+    <div>
+      <div class="gal-main" id="gal-main"><div class="pic">${illus(p.sub, p.name)}</div></div>
+      <div class="gal-th">${['Общий вид', 'Габариты', 'Шильдик'].map((t, i) => `<button type="button" data-act="img" data-i="${i}" aria-pressed="${i === 0}"><span class="pic">${[illus(p.sub, t), dimSVG(p), plateSVG(p, schema)][i]}</span><span>${t}</span></button>`).join('')}</div>
+      <p class="note" style="margin-top:8px">Изображения условные: в рабочей версии здесь фотографии изделия.</p>
+    </div>
+    <div class="pdp-i">
+      <div class="kicker">${esc(SUBS[p.sub].name)}</div>
+      <h1>${nameHTML(p.name)}</h1>
+      <div class="art">Артикул <span class="mono" style="color:var(--ink)">${esc(p.article)}</span></div>
+      <div class="pills">${key.map((s) => `<div class="pill"><small>${esc(s.label)}</small><span>${esc(fv(s, p.specs[s.k]))}</span></div>`).join('')}</div>
+      <p class="lead">${esc(p.desc)}</p>
+      <div class="cta-row"><button type="button" class="btn cta" data-act="kp-add" data-id="${p.id}">В запрос КП</button><button type="button" class="btn" data-act="ask" data-id="${p.id}">Задать вопрос инженеру</button></div>
+      <p class="note">Цена не публикуется: стоимость и сроки поставки отправляются в коммерческом предложении.</p>
+    </div>
+  </div>
+  <div class="two sec">
+    <section><h2>Технические характеристики</h2><table class="spec"><tbody>${rows.map((s) => `<tr><th scope="row">${esc(s.label)}</th><td>${esc(fv(s, p.specs[s.k]))}</td></tr>`).join('')}</tbody></table></section>
+    <div><section><h2>Документация</h2><div class="docs">${docsFor(p).map(([t, k, s]) => `<button type="button" class="doc" data-act="doc"><i>${k}</i><span>${esc(t)}<small>${s}</small></span></button>`).join('')}</div></section>
+    ${(USE[p.sub] || []).length ? `<section class="sec" style="margin-top:24px"><h2>Где применяется</h2><ul class="use">${USE[p.sub].map((u) => `<li>${esc(u)}</li>`).join('')}</ul></section>` : ''}</div>
+  </div>
+  ${rel.length ? `<section class="sec"><h2>Похожие позиции</h2><div class="grid">${rel.map(cardHTML).join('')}</div></section>` : ''}`;
+  refreshKpButtons();
+}
+
+/* ---------- контакты и формы ---------- */
+function viewContacts() {
+  $('#view').innerHTML = `<div class="crumbs"><button type="button" data-act="home">Каталог</button><span aria-hidden="true">/</span><span>Контакты</span></div>
+  <div class="res-head"><div><h1>Контакты</h1><div class="res-count">Напишите нам или запросите коммерческое предложение из каталога</div></div></div>
+  <div class="contacts">
+    <div class="panel"><h2>Отдел продаж</h2>
+      <dl class="dl"><dt>Телефон</dt><dd class="mono">+7 (000) 000-00-00</dd><dt>E-mail</dt><dd class="mono">sales@example.com</dd><dt>Адрес</dt><dd>г. Город, ул. Заводская, 1</dd><dt>Режим работы</dt><dd>Пн–Пт, 9:00–18:00</dd></dl>
+      <p class="note">Контакты условные. В рабочей версии здесь реквизиты, карта проезда и представители по регионам.</p></div>
+    <div class="panel"><h2>Обратная связь</h2>
+      <form id="fb-form" novalidate><div class="form-g">
+        ${field('name', 'Имя', {req: true, ac: 'name', pre: 'fb'})}${field('contact', 'Телефон или e-mail', {req: true, pre: 'fb'})}
+        <div class="field full"><label for="fb-topic">Тема</label><select id="fb-topic" name="topic">${['Подбор оборудования', 'Техническая консультация', 'Документация и сертификаты', 'Другое'].map((t) => `<option${S.fbTopic === t ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
+        <div class="full">${field('message', 'Сообщение', {req: true, area: true, value: S.fbText || '', pre: 'fb'})}</div>
+        <label class="agree full"><input type="checkbox" name="agree"><span>Согласен на обработку персональных данных. Данные с этой страницы никуда не передаются.<span class="em" style="display:block;color:var(--bad)"></span></span></label>
+        <div class="full"><button type="submit" class="btn pri">Отправить сообщение</button></div>
+      </div></form></div></div>`;
+  S.fbText = '';
+  S.fbTopic = '';
+}
+function addLead(l) {
+  DB.leads.push({id: ++DB.seq, at: Date.now(), status: 'new', ...l});
+  save();
+  return DB.leads[DB.leads.length - 1];
+}
+function submitFeedback(form) {
+  const d = readForm(form);
+  const errs = {};
+  if (!d.name) errs.name = 'Представьтесь, пожалуйста';
+  if (!d.contact) errs.contact = 'Укажите телефон или e-mail';
+  else if (!okPhone(d.contact) && !okMail(d.contact)) errs.contact = 'Похоже на неверный телефон или e-mail';
+  if (!d.message) errs.message = 'Напишите сообщение';
+  if (!d.agree) errs.agree = 'Нужно согласие на обработку данных';
+  setErr(form, errs);
+  if (Object.keys(errs).length) return;
+  const l = addLead({type: 'fb', name: d.name, contact: d.contact, topic: d.topic, message: d.message});
+  form.closest('.panel').innerHTML = `<div class="ok-box"><div class="tick" aria-hidden="true">✓</div><strong>Сообщение принято</strong><p>Номер обращения: <span class="mono">№${l.id}</span>. Оно уже лежит в админке во вкладке «Заявки».</p><div><button type="button" class="btn" data-act="go-leads">Открыть в админке</button></div></div>`;
+}
+function kpHTML() {
+  const items = S.kp.map((k) => ({k, p: byId(k.id)})).filter((x) => x.p);
+  const head = `<div class="m-head"><h2>Запрос коммерческого предложения</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Закрыть">×</button></div>`;
+  if (!items.length) return `${head}<div class="m-body"><div class="empty"><strong>Список пуст</strong>Добавьте позиции из каталога кнопкой «В запрос КП».</div></div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Закрыть</button></div>`;
+  return `${head}<form id="kp-form" novalidate><div class="m-body">
+    <div class="kp-list">${items.map(({k, p}) => `<div class="kp-it"><div class="nm"><b>${esc(p.name)}</b><span class="art">${esc(p.article)}</span></div><input type="number" min="1" max="9999" value="${k.qty}" data-qty="${p.id}" aria-label="Количество: ${esc(p.name)}"><button type="button" class="icon-btn" data-act="kp-rm" data-id="${p.id}" aria-label="Убрать из запроса">×</button></div>`).join('')}</div>
+    <div class="form-g">${field('name', 'Имя', {req: true, ac: 'name', pre: 'kp', af: true})}${field('company', 'Организация', {ac: 'organization', pre: 'kp'})}${field('phone', 'Телефон', {req: true, type: 'tel', ac: 'tel', ph: '+7 000 000-00-00', pre: 'kp'})}${field('email', 'E-mail', {req: true, type: 'email', ac: 'email', pre: 'kp'})}
+      <div class="full">${field('comment', 'Комментарий', {area: true, ph: 'Сроки, условия поставки, требования к документации', pre: 'kp'})}</div></div>
+    <label class="agree"><input type="checkbox" name="agree"><span>Согласен на обработку персональных данных. Данные с этой страницы никуда не передаются.<span class="em" style="display:block;color:var(--bad)"></span></span></label>
+  </div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Отмена</button><button type="submit" class="btn cta">Отправить запрос</button></div></form>`;
+}
+function openKp() { openModal(kpHTML(), {label: 'Запрос коммерческого предложения'}); }
+function submitKp(form) {
+  const d = readForm(form);
+  const errs = {};
+  if (!d.name) errs.name = 'Представьтесь, пожалуйста';
+  if (!d.phone) errs.phone = 'Укажите телефон'; else if (!okPhone(d.phone)) errs.phone = 'Нужно не меньше 10 цифр';
+  if (!d.email) errs.email = 'Укажите e-mail'; else if (!okMail(d.email)) errs.email = 'Проверьте адрес почты';
+  if (!d.agree) errs.agree = 'Нужно согласие на обработку данных';
+  setErr(form, errs);
+  if (Object.keys(errs).length) return;
+  const items = S.kp.map((k) => ({p: byId(k.id), qty: k.qty})).filter((x) => x.p).map((x) => ({article: x.p.article, name: x.p.name, qty: x.qty}));
+  const l = addLead({type: 'kp', name: d.name, company: d.company, phone: d.phone, email: d.email, message: d.comment, items});
+  S.kp = [];
+  updateKpBadge();
+  refreshKpButtons();
+  $('#modal-root .modal').innerHTML = `<div class="m-head"><h2>Запрос отправлен</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Закрыть">×</button></div><div class="m-body"><div class="ok-box"><div class="tick" aria-hidden="true">✓</div><strong>Заявка №${l.id} принята</strong><p>Позиций в запросе: ${items.length}. Заявка уже появилась в админке во вкладке «Заявки».</p></div></div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Закрыть</button><button type="button" class="btn pri" data-act="go-leads">Открыть в админке</button></div>`;
+  const b = $('#modal-root .m-foot .btn');
+  if (b) b.focus({preventScroll: true});
+}
+
+/* ---------- админка ---------- */
+const fmtDate = (t) => new Date(t).toLocaleString('ru-RU', {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit'});
+function viewAdmin() {
+  const nl = DB.leads.length;
+  const nn = DB.leads.filter((l) => l.status === 'new').length;
+  $('#view').innerHTML = `<div class="adm-head"><div><div class="kicker">Панель управления</div><h1>Админка</h1>
+      <p class="note" style="margin-top:6px;max-width:70ch">Изменения сохраняются в вашем браузере и сразу видны в каталоге. Добавьте товар, поменяйте набор фильтров, отправьте запрос КП на витрине: он появится во вкладке «Заявки».</p></div>
+    <button type="button" class="btn sm" data-act="adm-reset">${S.arm === 'reset' ? 'Точно сбросить?' : 'Сбросить данные'}</button></div>
+    <div class="tabs" role="tablist">${[['products', 'Товары', DB.products.length], ['specs', 'Характеристики', null], ['leads', 'Заявки', nn ? nn + ' нов.' : nl], ['import', 'Импорт CSV', null]].map(([k, t, n]) => `<button type="button" role="tab" aria-selected="${S.tab === k}" data-act="tab" data-id="${k}">${t}${n != null ? `<span class="n">${n}</span>` : ''}</button>`).join('')}</div>
+    <div id="adm-body"></div>`;
+  renderAdminTab();
+}
+function refreshAdmin() { if (S.view === 'admin') viewAdmin(); else render(); }
+function renderAdminTab() {
+  $('#adm-body').innerHTML = {products: admProducts, specs: admSpecs, leads: admLeads, import: admImport}[S.tab]();
+  if (S.tab === 'products') renderAdmRows();
+}
+const subOptions = (cur, all) => `${all ? '<option value="">Все подкатегории</option>' : ''}${Object.keys(SUBS).map((k) => `<option value="${k}"${cur === k ? ' selected' : ''}>${esc(SUBS[k].name)}</option>`).join('')}`;
+function admProducts() {
+  return `<div class="bar"><div class="grow"><label class="sr" for="adm-q">Поиск</label><input type="search" id="adm-q" placeholder="Поиск по названию или артикулу" value="${esc(S.aq)}"></div>
+    <label class="sr" for="adm-sub">Подкатегория</label><select class="sel" id="adm-sub">${subOptions(S.asub, true)}</select>
+    <button type="button" class="btn pri" data-act="adm-add">Добавить товар</button></div>
+    <div class="tbl-w"><table class="tbl"><thead><tr><th>Артикул</th><th>Название</th><th>Подкатегория</th><th>Опубликован</th><th class="r">Действия</th></tr></thead><tbody id="adm-rows"></tbody></table></div>`;
+}
+function renderAdmRows() {
+  const q = lc(S.aq);
+  const rows = DB.products.filter((p) => (!S.asub || p.sub === S.asub) && (!q || lc(p.name + ' ' + p.article).includes(q)));
+  $('#adm-rows').innerHTML = rows.map((p) => `<tr class="${p.pub ? '' : 'off'}"><td class="m">${esc(p.article)}</td><td>${esc(p.name)}</td><td>${esc(SUBS[p.sub].name)}</td>
+    <td><button type="button" class="sw" role="switch" aria-checked="${p.pub}" aria-label="Опубликован: ${esc(p.name)}" data-act="adm-pub" data-id="${p.id}"></button></td>
+    <td class="r"><span class="mini-btns"><button type="button" class="btn sm" data-act="adm-edit" data-id="${p.id}">Изменить</button><button type="button" class="btn sm" data-act="adm-del" data-id="${p.id}">${S.arm === p.id ? 'Точно удалить?' : 'Удалить'}</button></span></td></tr>`).join('') || '<tr><td colspan="5" class="note" style="padding:18px">Ничего не найдено.</td></tr>';
+}
+function specFields(sub, p) {
+  const all = DB.products.filter((x) => x.sub === sub);
+  return schemaOf(sub).map((s) => {
+    const v = p && filled(p.specs[s.k]) ? p.specs[s.k] : '';
+    const dl = s.type === 'enum' ? `<datalist id="dl-${s.k}">${enumValues(all, s.k).map((x) => `<option value="${esc(x)}"></option>`).join('')}</datalist>` : '';
+    return `<div class="field"><label for="sp-${s.k}">${esc(s.label)}${s.unit ? ', ' + esc(s.unit) : ''}</label><input id="sp-${s.k}" name="sp:${s.k}" type="text" ${s.type === 'num' ? 'inputmode="decimal"' : `list="dl-${s.k}"`} value="${esc(v)}" autocomplete="off">${dl}<div class="em" aria-live="polite"></div></div>`;
+  }).join('') || '<p class="note">Для этой подкатегории не заданы характеристики.</p>';
+}
+function openEditor(id, subIn) {
+  const p = id ? byId(id) : null;
+  const sub = p ? p.sub : subIn || S.asub || 'cf';
+  openModal(`<div class="m-head"><h2>${p ? 'Изменить товар' : 'Новый товар'}</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Закрыть">×</button></div>
+  <form id="ed-form" novalidate data-id="${p ? p.id : ''}"><div class="m-body">
+    <div class="form-g">
+      <div class="field full"><label for="ed-sub">Подкатегория</label><select id="ed-sub" name="sub"${p ? ' disabled' : ''}>${subOptions(sub, false)}</select></div>
+      ${field('name', 'Название', {req: true, value: p ? p.name : '', pre: 'ed', af: true})}${field('article', 'Артикул', {req: true, value: p ? p.article : '', pre: 'ed'})}
+      <div class="full">${field('desc', 'Описание', {area: true, value: p ? p.desc : '', pre: 'ed'})}</div>
+    </div>
+    <div><h3 style="font:600 17px var(--font-head);margin-bottom:8px">Характеристики</h3><div class="form-g" id="ed-specs">${specFields(sub, p)}</div>
+      <p class="note" style="margin-top:8px">Эти поля формируют фильтры на витрине. Набор характеристик настраивается во вкладке «Характеристики».</p></div>
+    <label class="agree" style="align-items:center"><input type="checkbox" name="pub"${!p || p.pub ? ' checked' : ''}><span>Опубликован на сайте</span></label>
+  </div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Отмена</button><button type="submit" class="btn pri">Сохранить</button></div></form>`, {big: true, label: 'Редактор товара'});
+}
+function saveEditor(form) {
+  const id = form.dataset.id;
+  const d = readForm(form);
+  const sub = id ? byId(id).sub : $('#ed-sub').value;
+  const errs = {};
+  if (!d.name) errs.name = 'Укажите название';
+  if (!d.article) errs.article = 'Укажите артикул';
+  else if (DB.products.some((x) => lc(x.article) === lc(d.article) && x.id !== id)) errs.article = 'Такой артикул уже есть';
+  const specs = {};
+  for (const s of schemaOf(sub)) {
+    const raw = d['sp:' + s.k];
+    if (raw === '' || raw == null) continue;
+    if (s.type === 'num') { const n = parseNum(raw); if (n == null) errs['sp:' + s.k] = 'Нужно число'; else specs[s.k] = n; } else specs[s.k] = raw;
+  }
+  setErr(form, errs);
+  if (Object.keys(errs).length) return;
+  if (id) Object.assign(byId(id), {name: d.name, article: d.article, desc: d.desc, pub: !!d.pub, specs});
+  else DB.products.push({id: 'p' + (++DB.seq), sub, model: d.name, name: d.name, article: d.article, desc: d.desc, specs, pub: !!d.pub});
+  save();
+  closeModal();
+  toast(id ? 'Товар сохранён' : 'Товар добавлен и уже виден в каталоге');
+  refreshAdmin();
+}
+function admSpecs() {
+  const sub = S.ssub;
+  const list = schemaOf(sub);
+  return `<div class="bar"><label for="ssub" class="note">Подкатегория</label><select class="sel" id="ssub">${subOptions(sub, false)}</select><span class="note">Отметьте, какие характеристики показывать в фильтре и на карточке.</span></div>
+  <div class="tbl-w"><div class="sp-row sp-h"><span>Характеристика</span><span>Единица</span><span>Тип</span><span class="c">В фильтре</span><span class="c">На карточке</span><span></span></div>
+    ${list.map((s, i) => `<div class="sp-row" data-k="${s.k}">
+      <input type="text" data-sp="label" value="${esc(s.label)}" aria-label="Название характеристики">
+      <input type="text" data-sp="unit" value="${esc(s.unit)}" aria-label="Единица измерения" placeholder="—">
+      <select data-sp="type" aria-label="Тип"${s.k.startsWith('c_') ? '' : ' disabled title="Тип встроенной характеристики менять нельзя"'}><option value="num"${s.type === 'num' ? ' selected' : ''}>Число</option><option value="enum"${s.type === 'enum' ? ' selected' : ''}>Список</option></select>
+      <span class="c"><label class="ck"><input type="checkbox" data-sp="filter"${s.filter ? ' checked' : ''} aria-label="Показывать в фильтре"><span class="only-sm">В фильтре</span></label></span>
+      <span class="c"><label class="ck"><input type="checkbox" data-sp="card"${s.card ? ' checked' : ''} aria-label="Показывать на карточке"><span class="only-sm">На карточке</span></label></span>
+      <span class="mini-btns"><button type="button" class="icon-btn" data-act="sp-up" data-k="${s.k}" aria-label="Выше"${i === 0 ? ' disabled' : ''}>↑</button><button type="button" class="icon-btn" data-act="sp-down" data-k="${s.k}" aria-label="Ниже"${i === list.length - 1 ? ' disabled' : ''}>↓</button><button type="button" class="btn sm" data-act="sp-del" data-k="${s.k}">${S.arm === 'sp:' + s.k ? 'Точно?' : 'Удалить'}</button></span></div>`).join('')}</div>
+  <form id="sp-new" class="panel" style="margin-top:16px" novalidate><h2 style="font-size:18px">Новая характеристика</h2>
+    <div class="form-g">${field('label', 'Название', {req: true, ph: 'Например, Класс точности', pre: 'sn'})}${field('unit', 'Единица измерения', {ph: 'мм, кВт, бар… или пусто', pre: 'sn'})}
+    <div class="field"><label for="sp-type">Тип значения</label><select id="sp-type" name="type"><option value="enum">Список (материал, исполнение…)</option><option value="num">Число (диапазон на слайдере)</option></select></div>
+    <div class="field" style="align-content:end"><button type="submit" class="btn pri">Добавить характеристику</button></div></div></form>`;
+}
+function admLeads() {
+  const rows = DB.leads.filter((l) => !S.lf || l.type === S.lf).slice().reverse();
+  const stat = [['new', 'Новая'], ['work', 'В работе'], ['sent', 'КП отправлено'], ['closed', 'Закрыта']];
+  return `<div class="bar"><label class="sr" for="lead-f">Тип заявки</label><select class="sel" id="lead-f"><option value="">Все заявки</option><option value="kp"${S.lf === 'kp' ? ' selected' : ''}>Запросы КП</option><option value="fb"${S.lf === 'fb' ? ' selected' : ''}>Обратная связь</option></select>
+    <span class="note grow">Заявки с витрины попадают сюда сразу. Статус можно менять.</span>${DB.leads.length ? '<button type="button" class="btn sm" data-act="leads-clear">Очистить список</button>' : ''}</div>
+  ${rows.length ? `<div class="tbl-w"><table class="tbl"><thead><tr><th>№</th><th>Дата</th><th>Тип</th><th>Контакт</th><th>Содержание</th><th>Статус</th></tr></thead><tbody>${rows.map((l) => `<tr>
+    <td class="m">${l.id}</td><td class="m">${fmtDate(l.at)}</td><td><span class="tag-s ${l.type === 'kp' ? 'ok' : 'fb'}">${l.type === 'kp' ? 'Запрос КП' : 'Вопрос'}</span></td>
+    <td>${esc(l.name)}${l.company ? `<br><span class="note">${esc(l.company)}</span>` : ''}<br><span class="note mono">${esc(l.type === 'kp' ? l.phone : l.contact)}</span></td>
+    <td>${l.type === 'kp' ? `${l.items.length} ${plural(l.items.length, ['позиция', 'позиции', 'позиций'])}` : esc(l.topic)}<br><button type="button" class="link" data-act="lead-open" data-id="${l.id}">${S.leadOpen === l.id ? 'Свернуть' : 'Подробнее'}</button></td>
+    <td><select class="sel" data-lead="${l.id}" aria-label="Статус заявки ${l.id}">${stat.map(([k, t]) => `<option value="${k}"${l.status === k ? ' selected' : ''}>${t}</option>`).join('')}</select></td></tr>${S.leadOpen === l.id ? `<tr><td colspan="6"><div class="lead-d">${l.type === 'kp' ? l.items.map((i) => `<span><span class="mono">${esc(i.article)}</span> · ${esc(i.name)} · ${i.qty} шт.</span>`).join('') + (l.email ? `<span>E-mail: <span class="mono">${esc(l.email)}</span></span>` : '') : ''}${l.message ? `<span>${esc(l.message)}</span>` : ''}</div></td></tr>` : ''}`).join('')}</tbody></table></div>` : '<div class="empty"><strong>Заявок пока нет</strong>Отправьте запрос КП из каталога или сообщение со страницы «Контакты»: оно сразу появится здесь.</div>'}`;
+}
+function csvTemplate() {
+  const schema = schemaOf(S.csvSub);
+  const prods = DB.products.filter((p) => p.sub === S.csvSub);
+  const head = ['article', 'name', 'description', ...schema.map((s) => s.k)];
+  const row = (n) => [`${SUBS[S.csvSub].pre}-9${n}0`, `${SUBS[S.csvSub].one} Новый ${n}`, 'Описание товара', ...schema.map((s) => {
+    const vals = s.type === 'num' ? prods.map((p) => p.specs[s.k]).filter((v) => typeof v === 'number') : enumValues(prods, s.k);
+    const v = vals[(n - 1) % Math.max(1, vals.length)];
+    return v == null ? '' : String(v).replace('.', ',');
+  })];
+  return [head, row(1), row(2)].map((r) => r.join(';')).join('\n');
+}
+function parseCSV(text) {
+  const t = text.replace(/\r/g, '').trim();
+  if (!t) return [];
+  const first = t.split('\n')[0];
+  const delim = first.includes(';') ? ';' : first.includes('\t') ? '\t' : ',';
+  const rows = [];
+  let row = [];
+  let cur = '';
+  let q = false;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (q) { if (c === '"') { if (t[i + 1] === '"') { cur += '"'; i++; } else q = false; } else cur += c; }
+    else if (c === '"') q = true;
+    else if (c === delim) { row.push(cur); cur = ''; }
+    else if (c === '\n') { row.push(cur); rows.push(row); row = []; cur = ''; }
+    else cur += c;
+  }
+  row.push(cur);
+  rows.push(row);
+  return rows;
+}
+function csvCheck() {
+  const rows = parseCSV(S.csvText);
+  const res = {ok: [], bad: []};
+  if (rows.length < 2) { res.err = 'Нужна строка заголовков и хотя бы одна строка с данными.'; return res; }
+  const head = rows[0].map((h) => lc(h.trim()));
+  const schema = schemaOf(S.csvSub);
+  const idx = (names) => head.findIndex((h) => names.includes(h));
+  const iA = idx(['article', 'артикул']);
+  const iN = idx(['name', 'название']);
+  const iD = idx(['description', 'описание']);
+  if (iA < 0 || iN < 0) { res.err = 'В заголовке нужны колонки article и name.'; return res; }
+  const colFor = (s) => head.findIndex((h) => h === lc(s.k) || h === lc(s.label));
+  const seen = new Set(DB.products.map((p) => lc(p.article)));
+  rows.slice(1).forEach((r, n) => {
+    if (r.every((c) => !c.trim())) return;
+    const errs = [];
+    const art = (r[iA] || '').trim();
+    const name = (r[iN] || '').trim();
+    if (!art) errs.push('нет артикула'); else if (seen.has(lc(art))) errs.push('артикул уже есть');
+    if (!name) errs.push('нет названия');
+    const specs = {};
+    schema.forEach((s) => {
+      const c = colFor(s);
+      if (c < 0) return;
+      const raw = (r[c] || '').trim();
+      if (!raw) return;
+      if (s.type === 'num') { const v = parseNum(raw); if (v == null) errs.push(`${s.label}: не число`); else specs[s.k] = v; } else specs[s.k] = raw;
+    });
+    if (errs.length) res.bad.push({line: n + 2, art, name, errs});
+    else { seen.add(lc(art)); res.ok.push({line: n + 2, article: art, name, desc: iD >= 0 ? (r[iD] || '').trim() : '', specs}); }
+  });
+  return res;
+}
+function csvResHTML() {
+  const r = S.csvRes;
+  if (!r) return '<p class="note">Нажмите «Проверить»: покажем, какие строки подойдут, а какие нужно поправить.</p>';
+  if (r.err) return `<p class="res-bad">${esc(r.err)}</p>`;
+  return `<p><span class="res-ok">Готово к добавлению: ${r.ok.length}</span>${r.bad.length ? ` · <span class="res-bad">с ошибками: ${r.bad.length}</span>` : ''}</p>
+  ${r.bad.length ? `<h3 class="cap">Строки с ошибками: они не будут добавлены</h3><div class="tbl-w"><table class="tbl"><thead><tr><th>Строка</th><th>Артикул</th><th>Что не так</th></tr></thead><tbody>${r.bad.slice(0, 20).map((b) => `<tr><td class="m">${b.line}</td><td class="m">${esc(b.art)}</td><td class="res-bad">${esc(b.errs.join(', '))}</td></tr>`).join('')}</tbody></table></div>` : ''}
+  ${r.ok.length ? `<h3 class="cap">Будут добавлены</h3><div class="tbl-w"><table class="tbl"><thead><tr><th>Строка</th><th>Артикул</th><th>Название</th><th>Характеристик</th></tr></thead><tbody>${r.ok.slice(0, 8).map((o) => `<tr><td class="m">${o.line}</td><td class="m">${esc(o.article)}</td><td>${esc(o.name)}</td><td class="m">${Object.keys(o.specs).length}</td></tr>`).join('')}</tbody></table></div>${r.ok.length > 8 ? `<p class="note">…и ещё ${r.ok.length - 8}</p>` : ''}` : ''}`;
+}
+function admImport() {
+  const cols = ['article', 'name', 'description', ...schemaOf(S.csvSub).map((s) => s.k)];
+  return `<div class="panel"><h2>Массовая загрузка из CSV</h2>
+    <p class="note" style="max-width:80ch">Выберите подкатегорию и вставьте строки из Excel (разделитель: точка с запятой или табуляция) либо загрузите файл .csv. Колонки: ${cols.map((c) => `<code class="mono">${esc(c)}</code>`).join(', ')}. Числа можно писать с запятой. Первая строка: заголовки.</p>
+    <div class="bar"><label class="sr" for="csv-sub">Подкатегория</label><select class="sel" id="csv-sub">${subOptions(S.csvSub, false)}</select>
+      <button type="button" class="btn sm" data-act="csv-tpl">Вставить шаблон</button>
+      <label class="btn sm" for="csv-file">Загрузить файл…</label><input type="file" id="csv-file" accept=".csv,.txt,text/csv" class="sr"></div>
+    <label class="sr" for="csv-ta">Данные CSV</label><textarea class="csv-ta" id="csv-ta" spellcheck="false" placeholder="article;name;description;…">${esc(S.csvText)}</textarea>
+    <div class="bar"><button type="button" class="btn" data-act="csv-check">Проверить</button><button type="button" class="btn pri" id="csv-go" data-act="csv-import"${S.csvRes && S.csvRes.ok && S.csvRes.ok.length ? '' : ' disabled'}>Добавить ${S.csvRes && S.csvRes.ok ? S.csvRes.ok.length : 0} товаров</button></div>
+    <div id="csv-res">${csvResHTML()}</div></div>`;
+}
+
+/* ---------- события ---------- */
+document.addEventListener('click', (e) => {
+  const el = e.target.closest('[data-act]');
+  if (!el) return;
+  const a = el.dataset.act;
+  const id = el.dataset.id;
+  if (a === 'modal-bg') { if (e.target === el) closeModal(); return; }
+  if (a === 'modal-close') return closeModal();
+  if (a === 'home') return goHome();
+  if (a === 'nav') {
+    if (el.dataset.v === 'catalog') return goHome();
+    if (el.dataset.v === 'admin') S.arm = '';
+    return setView(el.dataset.v);
+  }
+  if (a === 'more') {
+    S.limit += PAGE;
+    renderResults();
+    const c = $$('#grid .card')[S.limit - PAGE];
+    if (c) $('h3 button', c).focus({preventScroll: true});
+    return;
+  }
+  if (a === 'search-all') { S.cat = null; S.sub = null; return setView('catalog'); }
+  if (a === 'cat') { S.sort = 'name'; return setView('catalog', {cat: id, sub: null}); }
+  if (a === 'sub') { S.sort = 'name'; closeSide(); return setView('catalog', {cat: SUBS[id].cat, sub: id}); }
+  if (a === 'open') { S.pid = id; return setView('product'); }
+  if (a === 'img') {
+    const p = byId(S.pid);
+    const i = +el.dataset.i;
+    $('#gal-main').innerHTML = `<div class="pic">${[illus(p.sub, p.name), dimSVG(p), plateSVG(p, schemaOf(p.sub))][i]}</div>`;
+    $$('.gal-th button').forEach((b) => b.setAttribute('aria-pressed', String(b === el)));
+    return;
+  }
+  if (a === 'kp-add') {
+    if (S.kp.some((k) => k.id === id)) return openKp();
+    S.kp.push({id, qty: 1});
+    updateKpBadge();
+    refreshKpButtons();
+    return toast('Добавлено в запрос КП');
+  }
+  if (a === 'kp-open') return openKp();
+  if (a === 'kp-rm') { S.kp = S.kp.filter((k) => k.id !== id); updateKpBadge(); refreshKpButtons(); return openKp(); }
+  if (a === 'doc') return toast('Документ подключается при наполнении каталога.');
+  if (a === 'ask') { const p = byId(id); S.fbTopic = 'Техническая консультация'; S.fbText = `Вопрос по позиции ${p.name} (${p.article}): `; return setView('contacts'); }
+  if (a === 'f-reset') { S.F[S.sub] = {}; renderFilters(); return renderResults(); }
+  if (a === 'f-reset-all') { if (S.sub) S.F[S.sub] = {}; S.q = ''; $('#q').value = ''; renderFilters(); return renderResults(); }
+  if (a === 'chip-x') {
+    const {kind, key} = el.dataset;
+    if (kind === 'q') { S.q = ''; $('#q').value = ''; }
+    else if (kind === 'n') delete S.F[S.sub][key];
+    else { const [k, v] = key.split('|'); S.F[S.sub][k] = (S.F[S.sub][k] || []).filter((x) => x !== v); if (!S.F[S.sub][k].length) delete S.F[S.sub][k]; }
+    renderFilters();
+    return renderResults();
+  }
+  if (a === 'side-open') { $('#side').classList.add('open'); return; }
+  if (a === 'side-close') return closeSide();
+  if (a === 'go-leads') { closeModal(); S.tab = 'leads'; return setView('admin'); }
+  /* админка */
+  if (a === 'tab') { S.tab = id; S.arm = ''; return viewAdmin(); }
+  if (a === 'adm-add') return openEditor(null);
+  if (a === 'adm-edit') return openEditor(id);
+  if (a === 'adm-pub') { const p = byId(id); p.pub = !p.pub; save(); renderAdmRows(); return; }
+  if (a === 'adm-del') {
+    if (S.arm !== id) { S.arm = id; return renderAdmRows(); }
+    DB.products = DB.products.filter((p) => p.id !== id);
+    S.kp = S.kp.filter((k) => k.id !== id);
+    S.arm = '';
+    save();
+    toast('Товар удалён');
+    return refreshAdmin();
+  }
+  if (a === 'adm-reset') {
+    if (S.arm !== 'reset') { S.arm = 'reset'; return viewAdmin(); }
+    DB = seedDB();
+    S.F = {}; S.kp = []; S.arm = '';
+    try { localStorage.removeItem(LS_KEY); } catch (err) { /* ничего */ }
+    toast('Данные восстановлены');
+    return viewAdmin();
+  }
+  if (a === 'sp-up' || a === 'sp-down') {
+    const list = schemaOf(S.ssub);
+    const i = list.findIndex((s) => s.k === el.dataset.k);
+    const j = a === 'sp-up' ? i - 1 : i + 1;
+    if (j < 0 || j >= list.length) return;
+    [list[i], list[j]] = [list[j], list[i]];
+    save();
+    return renderAdminTab();
+  }
+  if (a === 'sp-del') {
+    const k = el.dataset.k;
+    if (S.arm !== 'sp:' + k) { S.arm = 'sp:' + k; return renderAdminTab(); }
+    DB.schemas[S.ssub] = schemaOf(S.ssub).filter((s) => s.k !== k);
+    DB.products.filter((p) => p.sub === S.ssub).forEach((p) => { delete p.specs[k]; });
+    if (S.F[S.ssub]) delete S.F[S.ssub][k];
+    S.arm = '';
+    save();
+    toast('Характеристика удалена');
+    return renderAdminTab();
+  }
+  if (a === 'lead-open') { const n = +id; S.leadOpen = S.leadOpen === n ? null : n; return renderAdminTab(); }
+  if (a === 'leads-clear') { DB.leads = []; save(); return viewAdmin(); }
+  if (a === 'csv-tpl') { S.csvText = csvTemplate(); S.csvRes = null; return renderAdminTab(); }
+  if (a === 'csv-check') { S.csvText = $('#csv-ta').value; S.csvRes = csvCheck(); return renderAdminTab(); }
+  if (a === 'csv-import') {
+    const r = S.csvRes;
+    if (!r || !r.ok || !r.ok.length) return;
+    r.ok.forEach((o) => DB.products.push({id: 'p' + (++DB.seq), sub: S.csvSub, model: o.name, name: o.name, article: o.article, desc: o.desc, specs: o.specs, pub: true}));
+    save();
+    toast(`Добавлено товаров: ${r.ok.length}`);
+    S.csvText = ''; S.csvRes = null;
+    return viewAdmin();
+  }
+});
+function closeSide() { const s = $('#side'); if (s) s.classList.remove('open'); }
+function goHome() {
+  S.cat = null;
+  S.sub = null;
+  S.q = '';
+  $('#q').value = '';
+  setView('catalog');
+}
+document.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const f = e.target;
+  if (f.id === 'kp-form') submitKp(f);
+  else if (f.id === 'fb-form') submitFeedback(f);
+  else if (f.id === 'ed-form') saveEditor(f);
+  else if (f.id === 'sp-new') {
+    const d = readForm(f);
+    if (!d.label) return setErr(f, {label: 'Укажите название'});
+    DB.schemas[S.ssub].push({k: 'c_' + (++DB.seq), label: d.label, unit: d.unit, type: d.type, filter: true, card: false});
+    save();
+    toast('Характеристика добавлена. Заполните её в карточках товаров');
+    renderAdminTab();
+  }
+});
+document.addEventListener('input', (e) => {
+  const t = e.target;
+  const fe = t.closest && t.closest('.field.err');
+  if (fe) { fe.classList.remove('err'); const em = $('.em', fe); if (em) em.textContent = ''; }
+  if (t.id === 'q') {
+    S.q = t.value.trim();
+    if (S.view !== 'catalog') { S.cat = null; S.sub = null; return setView('catalog'); }
+    renderResults();
+    return updateFacets();
+  }
+  if (t.id === 'adm-q') { S.aq = t.value; return renderAdmRows(); }
+  if (t.dataset.qty) { const k = S.kp.find((x) => x.id === t.dataset.qty); if (k) k.qty = Math.max(1, Math.min(9999, parseInt(t.value, 10) || 1)); return; }
+  const row = t.closest && t.closest('.sp-row');
+  if (row && t.dataset.sp && t.type === 'text') {
+    const s = schemaOf(S.ssub).find((x) => x.k === row.dataset.k);
+    s[t.dataset.sp] = t.value;
+    save();
+  }
+});
+document.addEventListener('change', (e) => {
+  const t = e.target;
+  if (t.name === 'agree') { const em = $('.agree .em', t.closest('form')); if (em) em.textContent = ''; }
+  if (t.id === 'sort') { S.sort = t.value; return renderResults(); }
+  if (t.matches('#filters .chk input')) {
+    const F = (S.F[S.sub] = S.F[S.sub] || {});
+    const cur = new Set(F[t.dataset.k] || []);
+    if (t.checked) cur.add(t.value); else cur.delete(t.value);
+    if (cur.size) F[t.dataset.k] = [...cur]; else delete F[t.dataset.k];
+    return afterFilter();
+  }
+  if (t.matches('.rng-in input')) {
+    const el = t.closest('.rng');
+    const r = rangeOf(el);
+    const v = parseNum(t.value);
+    if (v == null) return syncRange(el);
+    if (t.dataset.in === 'min') setRange(el, Math.min(v, r.hi), r.hi); else setRange(el, r.lo, Math.max(v, r.lo));
+    return syncRange(el);
+  }
+  if (t.id === 'adm-sub') { S.asub = t.value; return renderAdmRows(); }
+  if (t.id === 'ssub') { S.ssub = t.value; S.arm = ''; return renderAdminTab(); }
+  if (t.id === 'lead-f') { S.lf = t.value; return renderAdminTab(); }
+  if (t.id === 'csv-sub') { S.csvSub = t.value; S.csvRes = null; S.csvText = $('#csv-ta').value; return renderAdminTab(); }
+  if (t.id === 'ed-sub') { $('#ed-specs').innerHTML = specFields(t.value, null); return; }
+  if (t.dataset.lead) { const l = DB.leads.find((x) => x.id === +t.dataset.lead); l.status = t.value; save(); return viewAdmin(); }
+  if (t.id === 'csv-file') {
+    const f = t.files && t.files[0];
+    if (!f) return;
+    const fr = new FileReader();
+    fr.onload = () => { S.csvText = String(fr.result || ''); S.csvRes = null; renderAdminTab(); };
+    fr.readAsText(f);
+    return;
+  }
+  const row = t.closest && t.closest('.sp-row');
+  if (row && t.dataset.sp) {
+    const s = schemaOf(S.ssub).find((x) => x.k === row.dataset.k);
+    if (t.type === 'checkbox') { s[t.dataset.sp] = t.checked; if (t.dataset.sp === 'filter' && !t.checked && S.F[S.ssub]) delete S.F[S.ssub][s.k]; }
+    else if (t.dataset.sp === 'type') {
+      s.type = t.value;
+      if (S.F[S.ssub]) delete S.F[S.ssub][s.k];
+      DB.products.filter((p) => p.sub === S.ssub).forEach((p) => {
+        if (!filled(p.specs[s.k])) return;
+        if (t.value === 'num') { const n = parseNum(p.specs[s.k]); if (n == null) delete p.specs[s.k]; else p.specs[s.k] = n; } else p.specs[s.k] = String(p.specs[s.k]);
+      });
+    }
+    save();
+  }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { if ($('#modal-root').firstChild) closeModal(); else closeSide(); return; }
+  if (e.key === 'Enter' && e.target.id === 'q') { e.target.blur(); return; }
+  const modal = $('#modal-root .modal');
+  if (e.key === 'Tab' && modal) {
+    const f = $$('button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])', modal);
+    if (f.length) {
+      const cur = document.activeElement;
+      if (e.shiftKey && (cur === f[0] || cur === modal)) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && (cur === f[f.length - 1] || !modal.contains(cur))) { e.preventDefault(); f[0].focus(); }
+    }
+    return;
+  }
+  const th = e.target.closest && e.target.closest('.rng-th');
+  if (!th) return;
+  const el = th.closest('.rng');
+  const r = rangeOf(el);
+  const m = {ArrowLeft: -1, ArrowDown: -1, ArrowRight: 1, ArrowUp: 1, PageDown: -10, PageUp: 10}[e.key];
+  const which = th.dataset.th;
+  if (e.key === 'Home' || e.key === 'End') {
+    e.preventDefault();
+    const v = e.key === 'Home' ? r.min : r.max;
+    return which === 'min' ? setRange(el, Math.min(v, r.hi), r.hi) : setRange(el, r.lo, Math.max(v, r.lo));
+  }
+  if (!m) return;
+  e.preventDefault();
+  const cur = which === 'min' ? r.lo : r.hi;
+  const v = snapIn(cur + m * r.step, r);
+  if (which === 'min') setRange(el, Math.min(v, r.hi), r.hi); else setRange(el, r.lo, Math.max(v, r.lo));
+  const again = $$('.rng-th', el).find((x) => x.dataset.th === which);
+  if (again) again.focus();
+});
+document.addEventListener('pointerdown', (e) => {
+  const th = e.target.closest && e.target.closest('.rng-th');
+  if (!th) return;
+  const el = th.closest('.rng');
+  drag = {el, which: th.dataset.th, rect: $('.rng-track', el).getBoundingClientRect()};
+  try { th.setPointerCapture(e.pointerId); } catch (err) { /* ничего */ }
+  e.preventDefault();
+  th.focus();
+});
+document.addEventListener('pointermove', (e) => { if (drag) moveDrag(e.clientX); });
+['pointerup', 'pointercancel'].forEach((n) => document.addEventListener(n, () => { drag = null; }));
+
+render();
+})();
+</script>
+</body></html>
