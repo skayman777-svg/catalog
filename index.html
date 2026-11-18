@@ -1,5 +1,5 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:0;font:14px system-ui}[hidden]{display:none!important}</style></head><body>
-<title>Каталог оборудования «Нордпривод»</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:0;font:14px system-ui}[hidden]{display:none!important}</style></head><body>
+<title>NordDrive Industrial Equipment Catalog</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
@@ -332,28 +332,28 @@ label.btn:has(+ input:focus-visible){outline:2px solid var(--accent);outline-off
   .brand-name{font-size:20px}
 }
 </style>
-<div class="ribbon" id="ribbon"><div class="wrap"><span class="tag">ДЕМО</span><span>Вымышленная компания. Товары, характеристики и «фото» сгенерированы. Формы работают только на этой странице и ничего не отправляют.</span></div></div>
+<div class="ribbon" id="ribbon"><div class="wrap"><span class="tag">DEMO</span><span>Fictional company. Products, specs and “photos” are generated. Forms work only on this page and send nothing.</span></div></div>
 
 <header class="top">
   <div class="wrap top-in">
-    <button class="brand" type="button" data-act="home" aria-label="На главную каталога">
+    <button class="brand" type="button" data-act="home" aria-label="Catalog home">
       <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <circle cx="20" cy="20" r="16.5"/><circle cx="20" cy="20" r="3.4" fill="currentColor"/>
         <path d="M20 16.6C20 10 17 7.6 13 7.2M23.4 20C30 20 32.4 17 32.8 13M20 23.4C20 30 23 32.4 27 32.8M16.6 20C10 20 7.6 23 7.2 27"/>
       </svg>
-      <span><span class="brand-name">Нордпривод</span><span class="brand-sub">насосы · двигатели · арматура</span></span>
+      <span><span class="brand-name">NordDrive</span><span class="brand-sub">pumps · motors · valves</span></span>
     </button>
-    <nav class="nav" aria-label="Разделы">
-      <button type="button" data-act="nav" data-v="catalog">Каталог</button>
-      <button type="button" data-act="nav" data-v="contacts">Контакты</button>
-      <button type="button" data-act="nav" data-v="admin">Админка</button>
+    <nav class="nav" aria-label="Sections">
+      <button type="button" data-act="nav" data-v="catalog">Catalog</button>
+      <button type="button" data-act="nav" data-v="contacts">Contacts</button>
+      <button type="button" data-act="nav" data-v="admin">Admin</button>
     </nav>
     <label class="search">
-      <span class="sr">Поиск по названию и артикулу</span>
+      <span class="sr">Search by name or SKU</span>
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
-      <input id="q" type="search" autocomplete="off" placeholder="Поиск: название, артикул, материал" />
+      <input id="q" type="search" autocomplete="off" placeholder="Search: name, SKU, material" />
     </label>
-    <button class="btn kp-btn" type="button" data-act="kp-open">Запрос КП <span class="badge zero" id="kpn">0</span></button>
+    <button class="btn kp-btn" type="button" data-act="kp-open">Request a quote <span class="badge zero" id="kpn">0</span></button>
   </div>
 </header>
 
@@ -361,7 +361,7 @@ label.btn:has(+ input:focus-visible){outline:2px solid var(--accent);outline-off
 
 <footer class="foot">
   <div class="wrap">
-    <span><strong>Нордпривод</strong> — каталог промышленного оборудования: подбор по характеристикам, запрос КП и админка.</span>
+    <span><strong>NordDrive</strong> — industrial equipment catalog: filter by specs, request a quote, admin panel.</span>
   </div>
 </footer>
 
@@ -371,140 +371,135 @@ label.btn:has(+ input:focus-visible){outline:2px solid var(--accent);outline-off
 <script>
 (() => {
 'use strict';
-/* ====== утилиты ====== */
+/* ====== utilities ====== */
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const ESC = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'};
 const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ESC[c]);
-const NF = new Intl.NumberFormat('ru-RU', {maximumFractionDigits: 3});
+const NF = new Intl.NumberFormat('en-US', {maximumFractionDigits: 3});
 const num = (v) => NF.format(v);
 const plural = (n, [one, few, many]) => {
-  const a = Math.abs(n) % 100;
-  const b = a % 10;
-  if (a > 10 && a < 20) return many;
-  if (b === 1) return one;
-  if (b >= 2 && b <= 4) return few;
-  return many;
+  return Math.abs(n) === 1 ? one : many;
 };
 
 
-/* ====== данные: категории, характеристики, товары ====== */
+/* ====== data: categories, specs, products ====== */
 const CATS = [
-  {id: 'pumps', name: 'Насосы', subs: ['cf', 'sub', 'gear'], note: 'Для воды, стоков и технологических жидкостей'},
-  {id: 'motors', name: 'Электродвигатели', subs: ['im', 'ex'], note: 'Общепромышленные и взрывозащищённые'},
-  {id: 'valves', name: 'Трубопроводная арматура', subs: ['ball', 'gate'], note: 'Краны и задвижки на разные давления'},
+  {id: 'pumps', name: 'Pumps', subs: ['cf', 'sub', 'gear'], note: 'For water, wastewater and process fluids'},
+  {id: 'motors', name: 'Electric motors', subs: ['im', 'ex'], note: 'General purpose and explosion-proof'},
+  {id: 'valves', name: 'Pipeline valves', subs: ['ball', 'gate'], note: 'Ball valves and gate valves for various pressures'},
 ];
 const SUBS = {
-  cf: {name: 'Насосы центробежные консольные', one: 'Насос консольный', cat: 'pumps', pre: 'НК'},
-  sub: {name: 'Насосы погружные', one: 'Насос погружной', cat: 'pumps', pre: 'НП'},
-  gear: {name: 'Насосы шестерённые', one: 'Насос шестерённый', cat: 'pumps', pre: 'НШ'},
-  im: {name: 'Электродвигатели асинхронные', one: 'Электродвигатель', cat: 'motors', pre: 'ЭД'},
-  ex: {name: 'Электродвигатели взрывозащищённые', one: 'Электродвигатель взрывозащищённый', cat: 'motors', pre: 'ЭВ'},
-  ball: {name: 'Краны шаровые', one: 'Кран шаровой', cat: 'valves', pre: 'КШ'},
-  gate: {name: 'Задвижки', one: 'Задвижка', cat: 'valves', pre: 'ЗД'},
+  cf: {name: 'End-suction centrifugal pumps', one: 'End-suction pump', cat: 'pumps', pre: 'CP'},
+  sub: {name: 'Submersible pumps', one: 'Submersible pump', cat: 'pumps', pre: 'SP'},
+  gear: {name: 'Gear pumps', one: 'Gear pump', cat: 'pumps', pre: 'GP'},
+  im: {name: 'Induction motors', one: 'Electric motor', cat: 'motors', pre: 'EM'},
+  ex: {name: 'Explosion-proof motors', one: 'Explosion-proof motor', cat: 'motors', pre: 'EX'},
+  ball: {name: 'Ball valves', one: 'Ball valve', cat: 'valves', pre: 'BV'},
+  gate: {name: 'Gate valves', one: 'Gate valve', cat: 'valves', pre: 'GV'},
 };
 const sp = (k, label, unit, type, filter, card) => ({k, label, unit: unit || '', type, filter: !!filter, card: !!card});
 const SCHEMAS0 = {
   cf: [
-    sp('flow', 'Подача Q', 'м³/ч', 'num', 1, 1), sp('head', 'Напор H', 'м', 'num', 1, 1), sp('power', 'Мощность двигателя', 'кВт', 'num', 1, 1),
-    sp('rpm', 'Частота вращения', 'об/мин', 'enum', 1, 0), sp('material', 'Материал корпуса', '', 'enum', 1, 1), sp('dn', 'Диаметр входа DN', 'мм', 'enum', 1, 0),
-    sp('temp', 'Макс. температура среды', '°C', 'num', 1, 0), sp('seal', 'Уплотнение вала', '', 'enum', 1, 0),
+    sp('flow', 'Flow Q', 'm³/h', 'num', 1, 1), sp('head', 'Head H', 'm', 'num', 1, 1), sp('power', 'Motor power', 'kW', 'num', 1, 1),
+    sp('rpm', 'Speed', 'rpm', 'enum', 1, 0), sp('material', 'Casing material', '', 'enum', 1, 1), sp('dn', 'Inlet diameter DN', 'mm', 'enum', 1, 0),
+    sp('temp', 'Max. fluid temperature', '°C', 'num', 1, 0), sp('seal', 'Shaft seal', '', 'enum', 1, 0),
   ],
   sub: [
-    sp('flow', 'Подача Q', 'м³/ч', 'num', 1, 1), sp('head', 'Напор H', 'м', 'num', 1, 1), sp('power', 'Мощность двигателя', 'кВт', 'num', 1, 0),
-    sp('volt', 'Напряжение питания', 'В', 'enum', 1, 1), sp('depth', 'Глубина погружения до', 'м', 'num', 1, 0), sp('solids', 'Размер частиц до', 'мм', 'num', 1, 0),
-    sp('purpose', 'Назначение', '', 'enum', 1, 1),
+    sp('flow', 'Flow Q', 'm³/h', 'num', 1, 1), sp('head', 'Head H', 'm', 'num', 1, 1), sp('power', 'Motor power', 'kW', 'num', 1, 0),
+    sp('volt', 'Supply voltage', 'V', 'enum', 1, 1), sp('depth', 'Immersion depth up to', 'm', 'num', 1, 0), sp('solids', 'Solids size up to', 'mm', 'num', 1, 0),
+    sp('purpose', 'Application', '', 'enum', 1, 1),
   ],
   gear: [
-    sp('flow', 'Подача', 'л/мин', 'num', 1, 1), sp('press', 'Давление нагнетания', 'бар', 'num', 1, 1), sp('visc', 'Вязкость среды до', 'сСт', 'num', 1, 0),
-    sp('power', 'Мощность двигателя', 'кВт', 'num', 1, 0), sp('medium', 'Перекачиваемая среда', '', 'enum', 1, 1), sp('material', 'Материал корпуса', '', 'enum', 1, 1),
+    sp('flow', 'Flow', 'l/min', 'num', 1, 1), sp('press', 'Discharge pressure', 'bar', 'num', 1, 1), sp('visc', 'Fluid viscosity up to', 'cSt', 'num', 1, 0),
+    sp('power', 'Motor power', 'kW', 'num', 1, 0), sp('medium', 'Pumped fluid', '', 'enum', 1, 1), sp('material', 'Casing material', '', 'enum', 1, 1),
   ],
   im: [
-    sp('power', 'Мощность', 'кВт', 'num', 1, 1), sp('rpm', 'Синхронная частота', 'об/мин', 'enum', 1, 1), sp('volt', 'Напряжение', 'В', 'enum', 1, 0),
-    sp('ip', 'Степень защиты', '', 'enum', 1, 1), sp('eff', 'Класс энергоэффективности', '', 'enum', 1, 0), sp('mount', 'Исполнение по монтажу', '', 'enum', 1, 0),
-    sp('weight', 'Масса', 'кг', 'num', 0, 0),
+    sp('power', 'Power', 'kW', 'num', 1, 1), sp('rpm', 'Synchronous speed', 'rpm', 'enum', 1, 1), sp('volt', 'Voltage', 'V', 'enum', 1, 0),
+    sp('ip', 'Ingress protection', '', 'enum', 1, 1), sp('eff', 'Efficiency class', '', 'enum', 1, 0), sp('mount', 'Mounting type', '', 'enum', 1, 0),
+    sp('weight', 'Weight', 'kg', 'num', 0, 0),
   ],
   ex: [
-    sp('power', 'Мощность', 'кВт', 'num', 1, 1), sp('rpm', 'Синхронная частота', 'об/мин', 'enum', 1, 1), sp('volt', 'Напряжение', 'В', 'enum', 1, 0),
-    sp('exmark', 'Маркировка взрывозащиты', '', 'enum', 1, 1), sp('ip', 'Степень защиты', '', 'enum', 1, 0), sp('tmin', 'Мин. температура окружающей среды', '°C', 'enum', 1, 0),
-    sp('weight', 'Масса', 'кг', 'num', 0, 0),
+    sp('power', 'Power', 'kW', 'num', 1, 1), sp('rpm', 'Synchronous speed', 'rpm', 'enum', 1, 1), sp('volt', 'Voltage', 'V', 'enum', 1, 0),
+    sp('exmark', 'Ex marking', '', 'enum', 1, 1), sp('ip', 'Ingress protection', '', 'enum', 1, 0), sp('tmin', 'Min. ambient temperature', '°C', 'enum', 1, 0),
+    sp('weight', 'Weight', 'kg', 'num', 0, 0),
   ],
   ball: [
-    sp('dn', 'Условный проход DN', 'мм', 'enum', 1, 1), sp('pn', 'Давление PN', 'бар', 'enum', 1, 1), sp('material', 'Материал корпуса', '', 'enum', 1, 1),
-    sp('conn', 'Тип присоединения', '', 'enum', 1, 0), sp('drive', 'Управление', '', 'enum', 1, 1), sp('tmax', 'Макс. температура среды', '°C', 'num', 1, 0),
+    sp('dn', 'Nominal size DN', 'mm', 'enum', 1, 1), sp('pn', 'Pressure PN', 'bar', 'enum', 1, 1), sp('material', 'Body material', '', 'enum', 1, 1),
+    sp('conn', 'Connection type', '', 'enum', 1, 0), sp('drive', 'Actuation', '', 'enum', 1, 1), sp('tmax', 'Max. fluid temperature', '°C', 'num', 1, 0),
   ],
   gate: [
-    sp('dn', 'Условный проход DN', 'мм', 'enum', 1, 1), sp('pn', 'Давление PN', 'бар', 'enum', 1, 1), sp('material', 'Материал корпуса', '', 'enum', 1, 1),
-    sp('design', 'Конструкция затвора', '', 'enum', 1, 0), sp('drive', 'Управление', '', 'enum', 1, 1), sp('stem', 'Шпиндель', '', 'enum', 1, 0),
+    sp('dn', 'Nominal size DN', 'mm', 'enum', 1, 1), sp('pn', 'Pressure PN', 'bar', 'enum', 1, 1), sp('material', 'Body material', '', 'enum', 1, 1),
+    sp('design', 'Wedge design', '', 'enum', 1, 0), sp('drive', 'Actuation', '', 'enum', 1, 1), sp('stem', 'Stem', '', 'enum', 1, 0),
   ],
 };
 const RAW = [
-  ['cf', 'НКМ 32-20-125', {flow: 6.3, head: 20, power: 1.5, rpm: '2900', material: 'Чугун', dn: '32', temp: 105, seal: 'Сальниковое'}],
-  ['cf', 'НКМ 50-32-160', {flow: 12.5, head: 32, power: 4, rpm: '2900', material: 'Чугун', dn: '50', temp: 105, seal: 'Торцевое'}],
-  ['cf', 'НКМ 50-32-160Б', {flow: 12.5, head: 32, power: 4, rpm: '2900', material: 'Бронза', dn: '50', temp: 90, seal: 'Сальниковое'}],
-  ['cf', 'НКМ 65-50-160', {flow: 25, head: 32, power: 5.5, rpm: '2900', material: 'Чугун', dn: '65', temp: 120, seal: 'Торцевое'}],
-  ['cf', 'НКМ 80-50-200', {flow: 50, head: 50, power: 15, rpm: '2900', material: 'Чугун', dn: '80', temp: 120, seal: 'Торцевое'}],
-  ['cf', 'НКМ 80-50-200Н', {flow: 50, head: 50, power: 15, rpm: '2900', material: 'Нержавеющая сталь', dn: '80', temp: 140, seal: 'Торцевое'}],
-  ['cf', 'НКМ 100-65-250', {flow: 100, head: 80, power: 45, rpm: '2900', material: 'Чугун', dn: '100', temp: 120, seal: 'Торцевое'}],
-  ['cf', 'НКМ 125-100-315', {flow: 200, head: 32, power: 30, rpm: '1450', material: 'Чугун', dn: '125', temp: 105, seal: 'Сальниковое'}],
-  ['cf', 'НКМ 150-125-315', {flow: 315, head: 32, power: 45, rpm: '1450', material: 'Чугун', dn: '150', temp: 105, seal: 'Сальниковое'}],
-  ['sub', 'ПД 5-10', {flow: 5, head: 10, power: 0.55, volt: '220', depth: 7, solids: 5, purpose: 'Дренажный'}],
-  ['sub', 'ПД 10-12', {flow: 10, head: 12, power: 0.75, volt: '220', depth: 8, solids: 10, purpose: 'Дренажный'}],
-  ['sub', 'ПФ 15-15', {flow: 15, head: 15, power: 1.5, volt: '380', depth: 10, solids: 35, purpose: 'Фекальный'}],
-  ['sub', 'ПФ 40-20', {flow: 40, head: 20, power: 4, volt: '380', depth: 10, solids: 50, purpose: 'Фекальный'}],
-  ['sub', 'ПС 4-60', {flow: 4, head: 60, power: 0.75, volt: '220', depth: 80, solids: 1, purpose: 'Скважинный'}],
-  ['sub', 'ПС 10-90', {flow: 10, head: 90, power: 3, volt: '380', depth: 120, solids: 1, purpose: 'Скважинный'}],
-  ['gear', 'ШН 8-2,5', {flow: 8, press: 2.5, visc: 500, power: 0.37, medium: 'Масло', material: 'Чугун'}],
-  ['gear', 'ШН 25-6', {flow: 25, press: 6, visc: 1000, power: 1.1, medium: 'Масло', material: 'Чугун'}],
-  ['gear', 'ШН 50-10', {flow: 50, press: 10, visc: 1500, power: 3, medium: 'Мазут', material: 'Чугун'}],
-  ['gear', 'ШН 100-10Н', {flow: 100, press: 10, visc: 800, power: 5.5, medium: 'Дизельное топливо', material: 'Сталь'}],
-  ['gear', 'ШН 200-16', {flow: 200, press: 16, visc: 2000, power: 11, medium: 'Мазут', material: 'Сталь'}],
-  ['im', 'ТПД 71A4', {power: 0.55, rpm: '1500', volt: '220/380', ip: 'IP54', eff: 'IE2', mount: 'IM1081', weight: 9}],
-  ['im', 'ТПД 80B4', {power: 1.5, rpm: '1500', volt: '220/380', ip: 'IP54', eff: 'IE2', mount: 'IM1081', weight: 15}],
-  ['im', 'ТПД 90L2', {power: 3, rpm: '3000', volt: '220/380', ip: 'IP55', eff: 'IE3', mount: 'IM1081', weight: 21}],
-  ['im', 'ТПД 100L4', {power: 4, rpm: '1500', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM2081', weight: 34}],
-  ['im', 'ТПД 132M4', {power: 7.5, rpm: '1500', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM1081', weight: 68}],
-  ['im', 'ТПД 160M6', {power: 11, rpm: '1000', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM2081', weight: 125}],
-  ['im', 'ТПД 180M4', {power: 30, rpm: '1500', volt: '380/660', ip: 'IP65', eff: 'IE4', mount: 'IM1081', weight: 195}],
-  ['im', 'ТПД 225M8', {power: 22, rpm: '750', volt: '380/660', ip: 'IP55', eff: 'IE2', mount: 'IM1081', weight: 255}],
-  ['ex', 'ТПДВ 80B4', {power: 1.5, rpm: '1500', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-40', weight: 24}],
-  ['ex', 'ТПДВ 100L2', {power: 5.5, rpm: '3000', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-40', weight: 52}],
-  ['ex', 'ТПДВ 132S4', {power: 7.5, rpm: '1500', volt: '380/660', exmark: '1Ex d IIC T4 Gb', ip: 'IP65', tmin: '-40', weight: 88}],
-  ['ex', 'ТПДВ 160M4', {power: 15, rpm: '1500', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-60', weight: 165}],
-  ['ex', 'ТПДВ 200L4', {power: 30, rpm: '1500', volt: '380/660', exmark: '1Ex de IIC T4 Gb', ip: 'IP65', tmin: '-60', weight: 270}],
-  ['ball', 'КШ 15-40', {dn: '15', pn: '40', material: 'Латунь', conn: 'Резьбовое', drive: 'Ручное', tmax: 150}],
-  ['ball', 'КШ 20-25', {dn: '20', pn: '25', material: 'Латунь', conn: 'Резьбовое', drive: 'Ручное', tmax: 120}],
-  ['ball', 'КШ 25-40Н', {dn: '25', pn: '40', material: 'Нержавеющая сталь', conn: 'Резьбовое', drive: 'Ручное', tmax: 200}],
-  ['ball', 'КШ 50-40Ф', {dn: '50', pn: '40', material: 'Сталь 20', conn: 'Фланцевое', drive: 'Ручное', tmax: 200}],
-  ['ball', 'КШ 50-63НЭ', {dn: '50', pn: '63', material: 'Нержавеющая сталь', conn: 'Фланцевое', drive: 'Электропривод', tmax: 250}],
-  ['ball', 'КШ 80-25П', {dn: '80', pn: '25', material: 'Сталь 20', conn: 'Фланцевое', drive: 'Пневмопривод', tmax: 200}],
-  ['ball', 'КШ 100-16Э', {dn: '100', pn: '16', material: 'Сталь 20', conn: 'Под приварку', drive: 'Электропривод', tmax: 200}],
-  ['gate', 'ЗК 50-16', {dn: '50', pn: '16', material: 'Чугун', design: 'Клиновая', drive: 'Ручное', stem: 'Выдвижной'}],
-  ['gate', 'ЗК 80-40Н', {dn: '80', pn: '40', material: 'Нержавеющая сталь', design: 'Клиновая', drive: 'Ручное', stem: 'Выдвижной'}],
-  ['gate', 'ЗК 100-16', {dn: '100', pn: '16', material: 'Чугун', design: 'Клиновая', drive: 'Ручное', stem: 'Выдвижной'}],
-  ['gate', 'ЗК 150-16Э', {dn: '150', pn: '16', material: 'Чугун', design: 'Клиновая', drive: 'Электропривод', stem: 'Выдвижной'}],
-  ['gate', 'ЗК 200-25Э', {dn: '200', pn: '25', material: 'Сталь', design: 'Клиновая', drive: 'Электропривод', stem: 'Выдвижной'}],
-  ['gate', 'ЗП 300-10Э', {dn: '300', pn: '10', material: 'Чугун', design: 'Параллельная', drive: 'Электропривод', stem: 'Невыдвижной'}],
+  ['cf', 'CPM 32-20-125', {flow: 6.3, head: 20, power: 1.5, rpm: '2900', material: 'Cast iron', dn: '32', temp: 105, seal: 'Gland packing'}],
+  ['cf', 'CPM 50-32-160', {flow: 12.5, head: 32, power: 4, rpm: '2900', material: 'Cast iron', dn: '50', temp: 105, seal: 'Mechanical'}],
+  ['cf', 'CPM 50-32-160B', {flow: 12.5, head: 32, power: 4, rpm: '2900', material: 'Bronze', dn: '50', temp: 90, seal: 'Gland packing'}],
+  ['cf', 'CPM 65-50-160', {flow: 25, head: 32, power: 5.5, rpm: '2900', material: 'Cast iron', dn: '65', temp: 120, seal: 'Mechanical'}],
+  ['cf', 'CPM 80-50-200', {flow: 50, head: 50, power: 15, rpm: '2900', material: 'Cast iron', dn: '80', temp: 120, seal: 'Mechanical'}],
+  ['cf', 'CPM 80-50-200S', {flow: 50, head: 50, power: 15, rpm: '2900', material: 'Stainless steel', dn: '80', temp: 140, seal: 'Mechanical'}],
+  ['cf', 'CPM 100-65-250', {flow: 100, head: 80, power: 45, rpm: '2900', material: 'Cast iron', dn: '100', temp: 120, seal: 'Mechanical'}],
+  ['cf', 'CPM 125-100-315', {flow: 200, head: 32, power: 30, rpm: '1450', material: 'Cast iron', dn: '125', temp: 105, seal: 'Gland packing'}],
+  ['cf', 'CPM 150-125-315', {flow: 315, head: 32, power: 45, rpm: '1450', material: 'Cast iron', dn: '150', temp: 105, seal: 'Gland packing'}],
+  ['sub', 'SPD 5-10', {flow: 5, head: 10, power: 0.55, volt: '220', depth: 7, solids: 5, purpose: 'Drainage'}],
+  ['sub', 'SPD 10-12', {flow: 10, head: 12, power: 0.75, volt: '220', depth: 8, solids: 10, purpose: 'Drainage'}],
+  ['sub', 'SPS 15-15', {flow: 15, head: 15, power: 1.5, volt: '380', depth: 10, solids: 35, purpose: 'Sewage'}],
+  ['sub', 'SPS 40-20', {flow: 40, head: 20, power: 4, volt: '380', depth: 10, solids: 50, purpose: 'Sewage'}],
+  ['sub', 'SPW 4-60', {flow: 4, head: 60, power: 0.75, volt: '220', depth: 80, solids: 1, purpose: 'Borehole'}],
+  ['sub', 'SPW 10-90', {flow: 10, head: 90, power: 3, volt: '380', depth: 120, solids: 1, purpose: 'Borehole'}],
+  ['gear', 'GPN 8-2.5', {flow: 8, press: 2.5, visc: 500, power: 0.37, medium: 'Oil', material: 'Cast iron'}],
+  ['gear', 'GPN 25-6', {flow: 25, press: 6, visc: 1000, power: 1.1, medium: 'Oil', material: 'Cast iron'}],
+  ['gear', 'GPN 50-10', {flow: 50, press: 10, visc: 1500, power: 3, medium: 'Fuel oil', material: 'Cast iron'}],
+  ['gear', 'GPN 100-10S', {flow: 100, press: 10, visc: 800, power: 5.5, medium: 'Diesel fuel', material: 'Steel'}],
+  ['gear', 'GPN 200-16', {flow: 200, press: 16, visc: 2000, power: 11, medium: 'Fuel oil', material: 'Steel'}],
+  ['im', 'TM 71A4', {power: 0.55, rpm: '1500', volt: '220/380', ip: 'IP54', eff: 'IE2', mount: 'IM1081', weight: 9}],
+  ['im', 'TM 80B4', {power: 1.5, rpm: '1500', volt: '220/380', ip: 'IP54', eff: 'IE2', mount: 'IM1081', weight: 15}],
+  ['im', 'TM 90L2', {power: 3, rpm: '3000', volt: '220/380', ip: 'IP55', eff: 'IE3', mount: 'IM1081', weight: 21}],
+  ['im', 'TM 100L4', {power: 4, rpm: '1500', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM2081', weight: 34}],
+  ['im', 'TM 132M4', {power: 7.5, rpm: '1500', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM1081', weight: 68}],
+  ['im', 'TM 160M6', {power: 11, rpm: '1000', volt: '380/660', ip: 'IP55', eff: 'IE3', mount: 'IM2081', weight: 125}],
+  ['im', 'TM 180M4', {power: 30, rpm: '1500', volt: '380/660', ip: 'IP65', eff: 'IE4', mount: 'IM1081', weight: 195}],
+  ['im', 'TM 225M8', {power: 22, rpm: '750', volt: '380/660', ip: 'IP55', eff: 'IE2', mount: 'IM1081', weight: 255}],
+  ['ex', 'TMX 80B4', {power: 1.5, rpm: '1500', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-40', weight: 24}],
+  ['ex', 'TMX 100L2', {power: 5.5, rpm: '3000', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-40', weight: 52}],
+  ['ex', 'TMX 132S4', {power: 7.5, rpm: '1500', volt: '380/660', exmark: '1Ex d IIC T4 Gb', ip: 'IP65', tmin: '-40', weight: 88}],
+  ['ex', 'TMX 160M4', {power: 15, rpm: '1500', volt: '380/660', exmark: '1Ex d IIB T4 Gb', ip: 'IP55', tmin: '-60', weight: 165}],
+  ['ex', 'TMX 200L4', {power: 30, rpm: '1500', volt: '380/660', exmark: '1Ex de IIC T4 Gb', ip: 'IP65', tmin: '-60', weight: 270}],
+  ['ball', 'BV 15-40', {dn: '15', pn: '40', material: 'Brass', conn: 'Threaded', drive: 'Manual', tmax: 150}],
+  ['ball', 'BV 20-25', {dn: '20', pn: '25', material: 'Brass', conn: 'Threaded', drive: 'Manual', tmax: 120}],
+  ['ball', 'BV 25-40S', {dn: '25', pn: '40', material: 'Stainless steel', conn: 'Threaded', drive: 'Manual', tmax: 200}],
+  ['ball', 'BV 50-40F', {dn: '50', pn: '40', material: 'Carbon steel', conn: 'Flanged', drive: 'Manual', tmax: 200}],
+  ['ball', 'BV 50-63SE', {dn: '50', pn: '63', material: 'Stainless steel', conn: 'Flanged', drive: 'Electric actuator', tmax: 250}],
+  ['ball', 'BV 80-25P', {dn: '80', pn: '25', material: 'Carbon steel', conn: 'Flanged', drive: 'Pneumatic actuator', tmax: 200}],
+  ['ball', 'BV 100-16E', {dn: '100', pn: '16', material: 'Carbon steel', conn: 'Weld end', drive: 'Electric actuator', tmax: 200}],
+  ['gate', 'GVW 50-16', {dn: '50', pn: '16', material: 'Cast iron', design: 'Wedge', drive: 'Manual', stem: 'Rising'}],
+  ['gate', 'GVW 80-40S', {dn: '80', pn: '40', material: 'Stainless steel', design: 'Wedge', drive: 'Manual', stem: 'Rising'}],
+  ['gate', 'GVW 100-16', {dn: '100', pn: '16', material: 'Cast iron', design: 'Wedge', drive: 'Manual', stem: 'Rising'}],
+  ['gate', 'GVW 150-16E', {dn: '150', pn: '16', material: 'Cast iron', design: 'Wedge', drive: 'Electric actuator', stem: 'Rising'}],
+  ['gate', 'GVW 200-25E', {dn: '200', pn: '25', material: 'Steel', design: 'Wedge', drive: 'Electric actuator', stem: 'Rising'}],
+  ['gate', 'GVP 300-10E', {dn: '300', pn: '10', material: 'Cast iron', design: 'Parallel', drive: 'Electric actuator', stem: 'Non-rising'}],
 ];
 const lc = (s) => String(s == null ? '' : s).toLowerCase();
-const dc = (x) => String(x).replace('.', ',');
+const dc = (x) => String(x);
 const DESC = {
-  cf: (s) => `Консольный центробежный насос для воды и жидкостей, близких к ней по вязкости. Подача ${dc(s.flow)} м³/ч при напоре ${dc(s.head)} м. Корпус: ${lc(s.material)}, уплотнение вала: ${lc(s.seal)}. Применяется в системах водоснабжения, отопления, охлаждения и на технологических линиях.`,
-  sub: (s) => `${s.purpose} погружной насос с подачей ${dc(s.flow)} м³/ч и напором ${dc(s.head)} м. Питание ${s.volt} В, глубина погружения до ${dc(s.depth)} м, проходимость частиц до ${dc(s.solids)} мм. Работает от встроенной защиты двигателя от перегрева.`,
-  gear: (s) => `Шестерённый насос объёмного типа для среды «${lc(s.medium)}». Подача ${dc(s.flow)} л/мин при давлении до ${dc(s.press)} бар, вязкость до ${s.visc} сСт. Корпус: ${lc(s.material)}. Подходит для маслостанций, котельных и топливных линий.`,
-  im: (s) => `Трёхфазный асинхронный двигатель общепромышленного назначения. Мощность ${String(s.power).replace('.', ',')} кВт, ${s.rpm} об/мин, напряжение ${s.volt} В. Степень защиты ${s.ip}, класс энергоэффективности ${s.eff}, исполнение ${s.mount}. Для насосов, вентиляторов, конвейеров и станков.`,
-  ex: (s) => `Взрывозащищённый асинхронный двигатель для опасных зон. Мощность ${String(s.power).replace('.', ',')} кВт, ${s.rpm} об/мин, маркировка ${s.exmark}, степень защиты ${s.ip}. Рабочая температура окружающей среды от ${s.tmin} °C. Применяется на нефтебазах, АЗС, в химической и газовой промышленности.`,
-  ball: (s) => `Шаровой кран DN ${s.dn} на давление PN ${s.pn}. Корпус: ${lc(s.material)}, присоединение: ${lc(s.conn)}, управление: ${lc(s.drive)}. Рабочая среда до ${s.tmax} °C. Применяется на трубопроводах воды, пара, газа и технологических жидкостей.`,
-  gate: (s) => `Задвижка с ${lc(s.design)} конструкцией затвора, DN ${s.dn}, PN ${s.pn}. Корпус: ${lc(s.material)}, шпиндель: ${lc(s.stem)}, управление: ${lc(s.drive)}. Для магистральных трубопроводов воды, тепла и технологических сред.`,
+  cf: (s) => `End-suction centrifugal pump for water and fluids of similar viscosity. Flow ${dc(s.flow)} m³/h at a head of ${dc(s.head)} m. Casing: ${lc(s.material)}, shaft seal: ${lc(s.seal)}. Used in water supply, heating, cooling and process lines.`,
+  sub: (s) => `${s.purpose} submersible pump, flow ${dc(s.flow)} m³/h, head ${dc(s.head)} m. Supply ${s.volt} V, immersion depth up to ${dc(s.depth)} m, solids handling up to ${dc(s.solids)} mm. Built-in motor overheat protection.`,
+  gear: (s) => `Positive displacement gear pump for “${lc(s.medium)}”. Flow ${dc(s.flow)} l/min at pressure up to ${dc(s.press)} bar, viscosity up to ${s.visc} cSt. Casing: ${lc(s.material)}. Suitable for oil stations, boiler rooms and fuel lines.`,
+  im: (s) => `Three-phase general purpose induction motor. Power ${String(s.power)} kW, ${s.rpm} rpm, voltage ${s.volt} V. Protection ${s.ip}, efficiency class ${s.eff}, mounting ${s.mount}. For pumps, fans, conveyors and machine tools.`,
+  ex: (s) => `Explosion-proof induction motor for hazardous areas. Power ${String(s.power)} kW, ${s.rpm} rpm, marking ${s.exmark}, protection ${s.ip}. Ambient operating temperature from ${s.tmin} °C. Used at oil depots, fuel stations, chemical and gas plants.`,
+  ball: (s) => `Ball valve DN ${s.dn} rated PN ${s.pn}. Body: ${lc(s.material)}, connection: ${lc(s.conn)}, actuation: ${lc(s.drive)}. Fluid up to ${s.tmax} °C. Used on water, steam, gas and process fluid pipelines.`,
+  gate: (s) => `Gate valve with ${lc(s.design)} wedge design, DN ${s.dn}, PN ${s.pn}. Body: ${lc(s.material)}, stem: ${lc(s.stem)}, actuation: ${lc(s.drive)}. For water mains, heating networks and process lines.`,
 };
 const USE = {
-  cf: ['Водоснабжение и повышение давления', 'Системы отопления и охлаждения', 'Технологические линии предприятий', 'Орошение и пожарные системы'],
-  sub: ['Откачка грунтовых и паводковых вод', 'Канализационные станции', 'Скважины и колодцы', 'Строительные котлованы'],
-  gear: ['Маслостанции и смазочные системы', 'Котельные и топливные линии', 'Перекачка вязких жидкостей', 'Дозирование и фасовка'],
-  im: ['Привод насосов и вентиляторов', 'Конвейеры и транспортёры', 'Станки и прессы', 'Компрессорное оборудование'],
-  ex: ['Нефтебазы и АЗС', 'Химические и газовые производства', 'Окрасочные и зерновые линии', 'Шахты и подземные объекты'],
-  ball: ['Холодная и горячая вода', 'Пар и конденсат', 'Газовые и топливные линии', 'Технологические жидкости'],
-  gate: ['Магистральные трубопроводы', 'Тепловые сети', 'Насосные станции', 'Водоподготовка'],
+  cf: ['Water supply and pressure boosting', 'Heating and cooling systems', 'Industrial process lines', 'Irrigation and fire systems'],
+  sub: ['Groundwater and flood dewatering', 'Sewage stations', 'Boreholes and wells', 'Construction pits'],
+  gear: ['Oil stations and lubrication', 'Boiler rooms and fuel lines', 'Viscous fluid transfer', 'Dosing and filling'],
+  im: ['Pump and fan drives', 'Conveyors', 'Machine tools and presses', 'Compressors'],
+  ex: ['Oil depots and fuel stations', 'Chemical and gas plants', 'Paint and grain lines', 'Mines and underground sites'],
+  ball: ['Cold and hot water', 'Steam and condensate', 'Gas and fuel lines', 'Process fluids'],
+  gate: ['Main pipelines', 'Heating networks', 'Pumping stations', 'Water treatment'],
 };
 function seedProducts() {
   const cnt = {};
@@ -517,7 +512,7 @@ function seedProducts() {
   });
 }
 
-/* ====== условные иллюстрации (вместо фото) ====== */
+/* ====== placeholder illustrations (instead of photos) ====== */
 const rng0 = (n) => Array.from({length: n}, (_, i) => i);
 const IL = {
   cf: `<rect class="f" x="24" y="134" width="192" height="8" rx="1"/>
@@ -566,7 +561,7 @@ const IL = {
     <ellipse class="a" cx="120" cy="22" rx="34" ry="8"/><path class="thin" d="M86 22h68M120 14v16M96 17l48 10M96 27l48-10"/>`,
 };
 const svgWrap = (inner, label) => `<svg class="il" viewBox="0 0 240 160" role="img" aria-label="${esc(label)}" style="display:block;width:100%;height:100%">${inner}</svg>`;
-const illus = (sub, label) => svgWrap(IL[sub] || IL.cf, label || 'Условная иллюстрация изделия');
+const illus = (sub, label) => svgWrap(IL[sub] || IL.cf, label || 'Product illustration (placeholder)');
 
 function dimsFor(p) {
   const s = p.specs;
@@ -585,16 +580,16 @@ function dimSVG(p) {
   const d = dimsFor(p);
   return svgWrap(`<g style="opacity:.4">${IL[p.sub] || IL.cf}</g>
     <path class="thin" style="opacity:1" d="M22 152H218M22 147v10M218 147v10"/>
-    <text class="t" x="120" y="148" text-anchor="middle">L ≈ ${d.L} мм</text>
+    <text class="t" x="120" y="148" text-anchor="middle">L ≈ ${d.L} mm</text>
     <path class="thin" style="opacity:1" d="M9 16V140M4 16h10M4 140h10"/>
-    <text class="t" transform="translate(21 78) rotate(-90)" text-anchor="middle">H ≈ ${d.H} мм</text>
-    <text class="t" x="228" y="12" text-anchor="end" style="font-size:8px;opacity:.6">условный чертёж</text>`, 'Габариты, условный чертёж');
+    <text class="t" transform="translate(21 78) rotate(-90)" text-anchor="middle">H ≈ ${d.H} mm</text>
+    <text class="t" x="228" y="12" text-anchor="end" style="font-size:8px;opacity:.6">schematic drawing</text>`, 'Dimensions, schematic drawing');
 }
 const fv = (spec, v) => (v == null || v === '' ? '—' : (spec.type === 'num' ? num(v) : String(v)) + (spec.unit ? ' ' + spec.unit : ''));
-const SHORT = {'Мощность двигателя': 'Мощность', 'Макс. температура среды': 'Т макс.', 'Частота вращения': 'Частота', 'Синхронная частота': 'Частота', 'Диаметр входа DN': 'DN', 'Условный проход DN': 'DN', 'Давление PN': 'PN', 'Материал корпуса': 'Материал', 'Давление нагнетания': 'Давление', 'Напряжение питания': 'Напряжение', 'Глубина погружения до': 'Глубина', 'Размер частиц до': 'Частицы', 'Вязкость среды до': 'Вязкость', 'Перекачиваемая среда': 'Среда', 'Маркировка взрывозащиты': 'Маркировка', 'Класс энергоэффективности': 'Класс', 'Исполнение по монтажу': 'Монтаж', 'Степень защиты': 'IP', 'Тип присоединения': 'Присоед.', 'Конструкция затвора': 'Затвор', 'Мин. температура окружающей среды': 'Т мин.'};
+const SHORT = {'Motor power': 'Power', 'Max. fluid temperature': 'T max', 'Speed': 'Speed', 'Synchronous speed': 'Speed', 'Inlet diameter DN': 'DN', 'Nominal size DN': 'DN', 'Pressure PN': 'PN', 'Casing material': 'Material', 'Body material': 'Material', 'Discharge pressure': 'Pressure', 'Supply voltage': 'Voltage', 'Immersion depth up to': 'Depth', 'Solids size up to': 'Solids', 'Fluid viscosity up to': 'Viscosity', 'Pumped fluid': 'Fluid', 'Ex marking': 'Ex marking', 'Efficiency class': 'Class', 'Mounting type': 'Mounting', 'Ingress protection': 'IP', 'Connection type': 'Connection', 'Wedge design': 'Wedge', 'Min. ambient temperature': 'T min'};
 const clip = (s, n) => (s.length > n ? s.slice(0, Math.max(1, n - 1)) + '…' : s);
 function plateSVG(p, schema) {
-  const rows = [['Тип', p.model || p.name], ['Арт.', p.article]];
+  const rows = [['Type', p.model || p.name], ['SKU', p.article]];
   schema.filter((s) => s.card || s.filter).slice(0, 4).forEach((s) => {
     if (p.specs[s.k] != null && p.specs[s.k] !== '') rows.push([SHORT[s.label] || clip(s.label, 14), fv(s, p.specs[s.k])]);
   });
@@ -605,23 +600,23 @@ function plateSVG(p, schema) {
   };
   return svgWrap(`<rect class="f" x="18" y="14" width="204" height="132" rx="10"/>
     <circle class="s" cx="30" cy="26" r="3"/><circle class="s" cx="210" cy="26" r="3"/><circle class="s" cx="30" cy="134" r="3"/><circle class="s" cx="210" cy="134" r="3"/>
-    <text class="t" x="120" y="34" text-anchor="middle" style="font-size:11px;font-weight:600;letter-spacing:.18em">НОРДПРИВОД</text>
+    <text class="t" x="120" y="34" text-anchor="middle" style="font-size:11px;font-weight:600;letter-spacing:.18em">NORDDRIVE</text>
     <path class="thin" d="M38 42H202"/>
     ${rows.slice(0, 6).map(line).join('')}
-    <text class="t" x="120" y="139" text-anchor="middle" style="font-size:7px;opacity:.55">ДЕМО · ШИЛЬДИК УСЛОВНЫЙ</text>`, 'Шильдик, условный');
+    <text class="t" x="120" y="139" text-anchor="middle" style="font-size:7px;opacity:.55">DEMO · NAMEPLATE SAMPLE</text>`, 'Nameplate (sample)');
 }
 
-/* ====== приложение ====== */
-const LS_KEY = 'nordprivod-demo-v3';
+/* ====== app ====== */
+const LS_KEY = 'nordprivod-demo-v3-en';
 const seedDB = () => ({v: 3, schemas: JSON.parse(JSON.stringify(SCHEMAS0)), products: seedProducts(), leads: [], seq: 1000});
 let DB = (() => {
   try {
     const d = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
     if (d && d.v === 3 && Array.isArray(d.products) && d.schemas) return d;
-  } catch (e) { /* хранилище недоступно: работаем в памяти */ }
+  } catch (e) { /* storage unavailable: working in memory */ }
   return seedDB();
 })();
-const save = () => { try { localStorage.setItem(LS_KEY, JSON.stringify(DB)); } catch (e) { /* без хранилища */ } };
+const save = () => { try { localStorage.setItem(LS_KEY, JSON.stringify(DB)); } catch (e) { /* no storage */ } };
 
 const PAGE = 12;
 const S = {view: 'catalog', cat: null, sub: null, q: '', sort: 'name', F: {}, pid: null, kp: [], limit: PAGE, sig: '', tab: 'products', aq: '', asub: '', ssub: 'cf', arm: '', leadOpen: null, lf: '', csvSub: 'cf', csvText: '', csvRes: null, fbTopic: '', fbText: ''};
@@ -632,7 +627,7 @@ const catOf = (sub) => CATS.find((c) => c.id === SUBS[sub].cat);
 const parseNum = (raw) => { const t = String(raw).replace(/\s/g, '').replace(',', '.'); if (t === '') return null; const n = Number(t); return Number.isFinite(n) ? n : null; };
 const filled = (v) => v != null && v !== '';
 
-/* ---------- фильтрация ---------- */
+/* ---------- filtering ---------- */
 function matchQ(p, q) {
   if (!q) return true;
   const s = lc(p.name + ' ' + p.article + ' ' + p.desc + ' ' + Object.values(p.specs).join(' '));
@@ -688,7 +683,7 @@ function activeCount() {
   return n;
 }
 
-/* ---------- утилиты интерфейса ---------- */
+/* ---------- UI utilities ---------- */
 function toast(msg) {
   const t = document.createElement('div');
   t.className = 'toast';
@@ -700,7 +695,7 @@ const M = {prev: null};
 function openModal(html, opts = {}) {
   $('#toasts').innerHTML = '';
   if (!$('#modal-root .modal')) M.prev = document.activeElement;
-  $('#modal-root').innerHTML = `<div class="modal-bg" data-act="modal-bg"><div class="modal${opts.big ? ' big' : ''}" role="dialog" aria-modal="true" tabindex="-1" aria-label="${esc(opts.label || 'Окно')}">${html}</div></div>`;
+  $('#modal-root').innerHTML = `<div class="modal-bg" data-act="modal-bg"><div class="modal${opts.big ? ' big' : ''}" role="dialog" aria-modal="true" tabindex="-1" aria-label="${esc(opts.label || 'Dialog')}">${html}</div></div>`;
   document.documentElement.style.overflow = 'hidden';
   const touch = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
   const f = touch ? null : $('#modal-root [autofocus]');
@@ -743,7 +738,7 @@ const okPhone = (s) => (String(s).match(/\d/g) || []).length >= 10;
 const okMail = (s) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
 const nameHTML = (name) => esc(name).replace(/\S*\d\S*-\S*|\S*-\S*\d\S*/g, (m) => `<span class="nb">${m}</span>`);
 
-/* ---------- каркас ---------- */
+/* ---------- layout ---------- */
 function setView(v, o = {}) {
   S.view = v;
   if (v === 'catalog') {
@@ -768,28 +763,28 @@ function updateKpBadge() {
 function refreshKpButtons() {
   $$('[data-act="kp-add"]').forEach((b) => {
     const inList = S.kp.some((k) => k.id === b.dataset.id);
-    b.textContent = inList ? 'В запросе' : 'В запрос КП';
+    b.textContent = inList ? 'In quote' : 'Add to quote';
     b.classList.toggle('cta', !inList);
     b.classList.toggle('pri', inList);
   });
 }
 
-/* ---------- каталог ---------- */
+/* ---------- catalog ---------- */
 function viewCatalog() {
   $('#view').innerHTML = `<div class="catalog">
-    <aside class="side" id="side" aria-label="Каталог и фильтры">
-      <div class="side-head"><strong>Каталог и фильтры</strong><button type="button" class="icon-btn" data-act="side-close" aria-label="Закрыть">×</button></div>
-      <nav class="tree" id="tree" aria-label="Категории"></nav>
+    <aside class="side" id="side" aria-label="Catalog and filters">
+      <div class="side-head"><strong>Catalog and filters</strong><button type="button" class="icon-btn" data-act="side-close" aria-label="Close">×</button></div>
+      <nav class="tree" id="tree" aria-label="Categories"></nav>
       <div class="filters" id="filters"></div>
-      <div class="side-foot"><button type="button" class="btn cta wide" id="side-show" data-act="side-close">Показать</button></div>
+      <div class="side-foot"><button type="button" class="btn cta wide" id="side-show" data-act="side-close">Show</button></div>
     </aside>
-    <section id="results" aria-label="Товары">
+    <section id="results" aria-label="Products">
       <div class="crumbs" id="crumbs"></div>
       <div class="res-head">
         <div><h1 id="res-title"></h1><div class="res-count" id="res-count" aria-live="polite"></div></div>
         <div class="res-tools">
-          <button type="button" class="btn sm only-m" data-act="side-open">Фильтры <span class="badge zero" id="fcount">0</span></button>
-          <label class="sr" for="sort">Сортировка</label><select class="sel" id="sort"></select>
+          <button type="button" class="btn sm only-m" data-act="side-open">Filters <span class="badge zero" id="fcount">0</span></button>
+          <label class="sr" for="sort">Sort</label><select class="sel" id="sort"></select>
         </div>
       </div>
       <div id="tiles"></div>
@@ -814,7 +809,7 @@ function renderTree() {
 function renderSort() {
   const sel = $('#sort');
   if (!sel) return;
-  const opts = [['name', 'По умолчанию'], ['art', 'По артикулу']];
+  const opts = [['name', 'Default'], ['art', 'By SKU']];
   if (S.sub) schemaOf(S.sub).filter((s) => s.type === 'num' && (s.card || s.filter)).slice(0, 3).forEach((s) => { opts.push([s.k + ':asc', `${s.label} ↑`]); opts.push([s.k + ':desc', `${s.label} ↓`]); });
   sel.innerHTML = opts.map(([v, t]) => `<option value="${esc(v)}">${esc(t)}</option>`).join('');
   sel.value = opts.some(([v]) => v === S.sort) ? S.sort : 'name';
@@ -825,15 +820,15 @@ function tilesHTML() {
   const cnt = {};
   pubList().forEach((p) => { cnt[p.sub] = (cnt[p.sub] || 0) + 1; });
   if (!S.cat) {
-    return `<div class="tiles">${CATS.map((c) => `<button type="button" class="tile" data-act="cat" data-id="${c.id}"><span class="pic">${illus(c.subs[0], c.name)}</span><span class="tt"><strong>${esc(c.name)}</strong><span>${esc(c.note)} · ${c.subs.reduce((a, s) => a + (cnt[s] || 0), 0)} поз.</span></span></button>`).join('')}</div>`;
+    return `<div class="tiles">${CATS.map((c) => `<button type="button" class="tile" data-act="cat" data-id="${c.id}"><span class="pic">${illus(c.subs[0], c.name)}</span><span class="tt"><strong>${esc(c.name)}</strong><span>${esc(c.note)} · ${c.subs.reduce((a, s) => a + (cnt[s] || 0), 0)} items</span></span></button>`).join('')}</div>`;
   }
   const c = CATS.find((x) => x.id === S.cat);
-  return `<div class="tiles">${c.subs.map((s) => `<button type="button" class="tile" data-act="sub" data-id="${s}"><span class="pic">${illus(s, SUBS[s].name)}</span><span class="tt"><strong>${esc(SUBS[s].name)}</strong><span>${cnt[s] || 0} поз. · фильтры по характеристикам</span></span></button>`).join('')}</div>`;
+  return `<div class="tiles">${c.subs.map((s) => `<button type="button" class="tile" data-act="sub" data-id="${s}"><span class="pic">${illus(s, SUBS[s].name)}</span><span class="tt"><strong>${esc(SUBS[s].name)}</strong><span>${cnt[s] || 0} items · spec filters</span></span></button>`).join('')}</div>`;
 }
 function chipsHTML() {
-  const chip = (t, kind, key) => `<span class="chip">${esc(t)}<button type="button" data-act="chip-x" data-kind="${kind}" data-key="${esc(key)}" aria-label="Убрать фильтр: ${esc(t)}">×</button></span>`;
+  const chip = (t, kind, key) => `<span class="chip">${esc(t)}<button type="button" data-act="chip-x" data-kind="${kind}" data-key="${esc(key)}" aria-label="Remove filter: ${esc(t)}">×</button></span>`;
   const out = [];
-  if (S.q) out.push(chip(`Поиск: «${S.q}»`, 'q', ''));
+  if (S.q) out.push(chip(`Search: “${S.q}”`, 'q', ''));
   if (S.sub) {
     const F = S.F[S.sub] || {};
     for (const spec of schemaOf(S.sub)) {
@@ -848,46 +843,46 @@ function chipsHTML() {
 function cardHTML(p) {
   const ks = schemaOf(p.sub).filter((s) => s.card && filled(p.specs[s.k])).slice(0, 4);
   return `<article class="card">
-    <button type="button" class="pic" data-act="open" data-id="${p.id}" aria-label="Открыть: ${esc(p.name)}">${illus(p.sub, p.name)}</button>
+    <button type="button" class="pic" data-act="open" data-id="${p.id}" aria-label="Open: ${esc(p.name)}">${illus(p.sub, p.name)}</button>
     <div class="card-b">
       <div class="art">${esc(p.article)}</div>
       <h3><button type="button" data-act="open" data-id="${p.id}">${nameHTML(p.name)}</button></h3>
       <dl class="ks">${ks.map((s) => `<div><dt>${esc(s.label)}</dt><dd>${esc(fv(s, p.specs[s.k]))}</dd></div>`).join('')}</dl>
-      <div class="card-a"><button type="button" class="btn sm" data-act="open" data-id="${p.id}">Подробнее</button><button type="button" class="btn sm cta" data-act="kp-add" data-id="${p.id}">В запрос КП</button></div>
+      <div class="card-a"><button type="button" class="btn sm" data-act="open" data-id="${p.id}">Details</button><button type="button" class="btn sm cta" data-act="kp-add" data-id="${p.id}">Add to quote</button></div>
     </div></article>`;
 }
 function renderResults() {
   if (!$('#results')) return;
   const list = results();
   const cat = CATS.find((c) => c.id === S.cat);
-  const cr = ['<button type="button" data-act="home">Каталог</button>'];
+  const cr = ['<button type="button" data-act="home">Catalog</button>'];
   if (cat) cr.push(S.sub ? `<button type="button" data-act="cat" data-id="${cat.id}">${esc(cat.name)}</button>` : `<span>${esc(cat.name)}</span>`);
   if (S.sub) cr.push(`<span>${esc(SUBS[S.sub].name)}</span>`);
   $('#crumbs').innerHTML = cr.join('<span aria-hidden="true">/</span>');
-  $('#res-title').textContent = S.sub ? SUBS[S.sub].name : cat ? cat.name : 'Каталог оборудования';
-  $('#res-count').textContent = `${list.length} ${plural(list.length, ['позиция', 'позиции', 'позиций'])}${S.q ? ` по запросу «${S.q}»` : ''}`;
+  $('#res-title').textContent = S.sub ? SUBS[S.sub].name : cat ? cat.name : 'Equipment catalog';
+  $('#res-count').textContent = `${list.length} ${plural(list.length, ['item', 'items', 'items'])}${S.q ? ` for “${S.q}”` : ''}`;
   $('#tiles').innerHTML = tilesHTML();
   $('#chips').innerHTML = chipsHTML();
   const sig = JSON.stringify([S.cat, S.sub, S.q, S.sort, S.sub ? S.F[S.sub] || null : null]);
   if (sig !== S.sig) { S.sig = sig; S.limit = PAGE; }
   const shown = list.slice(0, S.limit);
   const wide = (S.cat || S.sub) && S.q;
-  $('#grid').innerHTML = list.length ? shown.map(cardHTML).join('') : `<div class="empty" style="grid-column:1/-1"><strong>Ничего не найдено</strong>Попробуйте ослабить фильтры или изменить запрос.<div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button type="button" class="btn sm" data-act="f-reset-all">Сбросить всё</button>${wide ? '<button type="button" class="btn sm" data-act="search-all">Искать во всём каталоге</button>' : ''}</div></div>`;
-  $('#more').innerHTML = list.length > shown.length ? `<button type="button" class="btn" data-act="more">Показать ещё ${Math.min(PAGE, list.length - shown.length)} из ${list.length - shown.length}</button>` : '';
+  $('#grid').innerHTML = list.length ? shown.map(cardHTML).join('') : `<div class="empty" style="grid-column:1/-1"><strong>Nothing found</strong>Try loosening the filters or changing the search.<div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button type="button" class="btn sm" data-act="f-reset-all">Reset all</button>${wide ? '<button type="button" class="btn sm" data-act="search-all">Search the whole catalog</button>' : ''}</div></div>`;
+  $('#more').innerHTML = list.length > shown.length ? `<button type="button" class="btn" data-act="more">Show more ${Math.min(PAGE, list.length - shown.length)} of ${list.length - shown.length}</button>` : '';
   const n = activeCount();
   $('#fcount').textContent = n;
   $('#fcount').classList.toggle('zero', !n);
   const sh = $('#side-show');
-  if (sh) sh.textContent = `Показать ${list.length}`;
+  if (sh) sh.textContent = `Show ${list.length}`;
   refreshKpButtons();
 }
 
-/* ---------- фильтры по характеристикам ---------- */
+/* ---------- spec filters ---------- */
 function renderFilters() {
   const box = $('#filters');
   if (!box) return;
   if (!S.sub) {
-    box.innerHTML = '<p class="hint">Выберите подкатегорию, и здесь появятся фильтры по техническим характеристикам: мощность, подача, диаметр, материал и другие.</p>';
+    box.innerHTML = '<p class="hint">Pick a subcategory and technical filters will appear here: power, flow, diameter, material and more.</p>';
     return;
   }
   const prods = pubList().filter((p) => p.sub === S.sub);
@@ -901,16 +896,16 @@ function renderFilters() {
       if (!b || b.min === b.max) continue;
       parts.push(`<details class="fs" open data-k="${spec.k}">${head}<div class="fs-body"><div class="rng" data-k="${spec.k}" data-min="${b.min}" data-max="${b.max}" data-step="${b.step}">
         <div class="rng-track"><div class="rng-fill"></div>
-          <button type="button" class="rng-th" data-th="min" role="slider" aria-label="${esc(spec.label)}: от"></button>
-          <button type="button" class="rng-th" data-th="max" role="slider" aria-label="${esc(spec.label)}: до"></button></div>
-        <div class="rng-in"><label>от<input type="text" inputmode="decimal" data-in="min" aria-label="${esc(spec.label)}: от"></label><label>до<input type="text" inputmode="decimal" data-in="max" aria-label="${esc(spec.label)}: до"></label></div></div></div></details>`);
+          <button type="button" class="rng-th" data-th="min" role="slider" aria-label="${esc(spec.label)}: from"></button>
+          <button type="button" class="rng-th" data-th="max" role="slider" aria-label="${esc(spec.label)}: to"></button></div>
+        <div class="rng-in"><label>from<input type="text" inputmode="decimal" data-in="min" aria-label="${esc(spec.label)}: from"></label><label>to<input type="text" inputmode="decimal" data-in="max" aria-label="${esc(spec.label)}: to"></label></div></div></div></details>`);
     } else {
       const vals = enumValues(prods, spec.k);
       if (vals.length < 2) continue;
       parts.push(`<details class="fs" open data-k="${spec.k}">${head}<div class="fs-body">${vals.map((v) => `<label class="chk"><input type="checkbox" data-k="${spec.k}" value="${esc(v)}"${(F[spec.k] || []).includes(v) ? ' checked' : ''}><span>${esc(v)}</span><span class="cnt"></span></label>`).join('')}</div></details>`);
     }
   }
-  box.innerHTML = `<div class="f-head"><h2>Подбор по параметрам</h2><button type="button" class="link" data-act="f-reset">Сбросить</button></div>${parts.join('') || '<p class="hint">Для этой подкатегории фильтры не настроены. Их можно включить в админке.</p>'}`;
+  box.innerHTML = `<div class="f-head"><h2>Filter by specs</h2><button type="button" class="link" data-act="f-reset">Reset</button></div>${parts.join('') || '<p class="hint">No filters set up for this subcategory. You can enable them in the admin panel.</p>'}`;
   $$('.rng', box).forEach(syncRange);
   updateFacets();
 }
@@ -975,12 +970,12 @@ function moveDrag(x) {
   if (which === 'min') setRange(el, Math.min(v, r.hi), r.hi); else setRange(el, r.lo, Math.max(v, r.lo));
 }
 
-/* ---------- карточка товара ---------- */
+/* ---------- product page ---------- */
 function docsFor(p) {
   const h = [...p.article].reduce((a, c) => (a * 31 + c.charCodeAt(0)) % 997, 7);
-  const sz = (i, base) => num(+(base + ((h * (i + 3)) % 17) / 10).toFixed(1)) + ' МБ';
-  const d = [['Паспорт изделия', 'PDF', sz(1, 0.6)], ['Руководство по эксплуатации', 'PDF', sz(2, 1.8)], ['Декларация о соответствии', 'PDF', sz(3, 0.3)], ['Опросный лист для заказа', 'XLS', sz(4, 0.1)], ['3D-модель', 'STEP', sz(5, 3.2)]];
-  if (p.sub === 'ex') d.splice(3, 0, ['Сертификат взрывозащиты', 'PDF', sz(6, 0.5)]);
+  const sz = (i, base) => num(+(base + ((h * (i + 3)) % 17) / 10).toFixed(1)) + ' MB';
+  const d = [['Product datasheet', 'PDF', sz(1, 0.6)], ['Operating manual', 'PDF', sz(2, 1.8)], ['Declaration of conformity', 'PDF', sz(3, 0.3)], ['Order questionnaire', 'XLS', sz(4, 0.1)], ['3D model', 'STEP', sz(5, 3.2)]];
+  if (p.sub === 'ex') d.splice(3, 0, ['ATEX certificate', 'PDF', sz(6, 0.5)]);
   return d;
 }
 function viewProduct() {
@@ -991,47 +986,47 @@ function viewProduct() {
   const key = schema.filter((s) => s.card && filled(p.specs[s.k])).slice(0, 4);
   const rel = pubList().filter((x) => x.sub === p.sub && x.id !== p.id).slice(0, 4);
   const rows = schema.filter((s) => filled(p.specs[s.k]));
-  $('#view').innerHTML = `<div class="crumbs"><button type="button" data-act="home">Каталог</button><span aria-hidden="true">/</span><button type="button" data-act="cat" data-id="${cat.id}">${esc(cat.name)}</button><span aria-hidden="true">/</span><button type="button" data-act="sub" data-id="${p.sub}">${esc(SUBS[p.sub].name)}</button><span aria-hidden="true">/</span><span>${esc(p.name)}</span></div>
+  $('#view').innerHTML = `<div class="crumbs"><button type="button" data-act="home">Catalog</button><span aria-hidden="true">/</span><button type="button" data-act="cat" data-id="${cat.id}">${esc(cat.name)}</button><span aria-hidden="true">/</span><button type="button" data-act="sub" data-id="${p.sub}">${esc(SUBS[p.sub].name)}</button><span aria-hidden="true">/</span><span>${esc(p.name)}</span></div>
   <div class="pdp">
     <div>
       <div class="gal-main" id="gal-main"><div class="pic">${illus(p.sub, p.name)}</div></div>
-      <div class="gal-th">${['Общий вид', 'Габариты', 'Шильдик'].map((t, i) => `<button type="button" data-act="img" data-i="${i}" aria-pressed="${i === 0}"><span class="pic">${[illus(p.sub, t), dimSVG(p), plateSVG(p, schema)][i]}</span><span>${t}</span></button>`).join('')}</div>
-      <p class="note" style="margin-top:8px">Изображения условные: в рабочей версии здесь фотографии изделия.</p>
+      <div class="gal-th">${['Overview', 'Dimensions', 'Nameplate'].map((t, i) => `<button type="button" data-act="img" data-i="${i}" aria-pressed="${i === 0}"><span class="pic">${[illus(p.sub, t), dimSVG(p), plateSVG(p, schema)][i]}</span><span>${t}</span></button>`).join('')}</div>
+      <p class="note" style="margin-top:8px">Placeholder images: the live version shows real product photos here.</p>
     </div>
     <div class="pdp-i">
       <div class="kicker">${esc(SUBS[p.sub].name)}</div>
       <h1>${nameHTML(p.name)}</h1>
-      <div class="art">Артикул <span class="mono" style="color:var(--ink)">${esc(p.article)}</span></div>
+      <div class="art">SKU <span class="mono" style="color:var(--ink)">${esc(p.article)}</span></div>
       <div class="pills">${key.map((s) => `<div class="pill"><small>${esc(s.label)}</small><span>${esc(fv(s, p.specs[s.k]))}</span></div>`).join('')}</div>
       <p class="lead">${esc(p.desc)}</p>
-      <div class="cta-row"><button type="button" class="btn cta" data-act="kp-add" data-id="${p.id}">В запрос КП</button><button type="button" class="btn" data-act="ask" data-id="${p.id}">Задать вопрос инженеру</button></div>
-      <p class="note">Цена не публикуется: стоимость и сроки поставки отправляются в коммерческом предложении.</p>
+      <div class="cta-row"><button type="button" class="btn cta" data-act="kp-add" data-id="${p.id}">Add to quote</button><button type="button" class="btn" data-act="ask" data-id="${p.id}">Ask an engineer</button></div>
+      <p class="note">Price on request: cost and lead time are sent in the quote.</p>
     </div>
   </div>
   <div class="two sec">
-    <section><h2>Технические характеристики</h2><table class="spec"><tbody>${rows.map((s) => `<tr><th scope="row">${esc(s.label)}</th><td>${esc(fv(s, p.specs[s.k]))}</td></tr>`).join('')}</tbody></table></section>
-    <div><section><h2>Документация</h2><div class="docs">${docsFor(p).map(([t, k, s]) => `<button type="button" class="doc" data-act="doc"><i>${k}</i><span>${esc(t)}<small>${s}</small></span></button>`).join('')}</div></section>
-    ${(USE[p.sub] || []).length ? `<section class="sec" style="margin-top:24px"><h2>Где применяется</h2><ul class="use">${USE[p.sub].map((u) => `<li>${esc(u)}</li>`).join('')}</ul></section>` : ''}</div>
+    <section><h2>Specifications</h2><table class="spec"><tbody>${rows.map((s) => `<tr><th scope="row">${esc(s.label)}</th><td>${esc(fv(s, p.specs[s.k]))}</td></tr>`).join('')}</tbody></table></section>
+    <div><section><h2>Documents</h2><div class="docs">${docsFor(p).map(([t, k, s]) => `<button type="button" class="doc" data-act="doc"><i>${k}</i><span>${esc(t)}<small>${s}</small></span></button>`).join('')}</div></section>
+    ${(USE[p.sub] || []).length ? `<section class="sec" style="margin-top:24px"><h2>Applications</h2><ul class="use">${USE[p.sub].map((u) => `<li>${esc(u)}</li>`).join('')}</ul></section>` : ''}</div>
   </div>
-  ${rel.length ? `<section class="sec"><h2>Похожие позиции</h2><div class="grid">${rel.map(cardHTML).join('')}</div></section>` : ''}`;
+  ${rel.length ? `<section class="sec"><h2>Similar items</h2><div class="grid">${rel.map(cardHTML).join('')}</div></section>` : ''}`;
   refreshKpButtons();
 }
 
-/* ---------- контакты и формы ---------- */
+/* ---------- contacts and forms ---------- */
 function viewContacts() {
-  $('#view').innerHTML = `<div class="crumbs"><button type="button" data-act="home">Каталог</button><span aria-hidden="true">/</span><span>Контакты</span></div>
-  <div class="res-head"><div><h1>Контакты</h1><div class="res-count">Напишите нам или запросите коммерческое предложение из каталога</div></div></div>
+  $('#view').innerHTML = `<div class="crumbs"><button type="button" data-act="home">Catalog</button><span aria-hidden="true">/</span><span>Contacts</span></div>
+  <div class="res-head"><div><h1>Contacts</h1><div class="res-count">Write to us or request a quote from the catalog</div></div></div>
   <div class="contacts">
-    <div class="panel"><h2>Отдел продаж</h2>
-      <dl class="dl"><dt>Телефон</dt><dd class="mono">+7 (000) 000-00-00</dd><dt>E-mail</dt><dd class="mono">sales@example.com</dd><dt>Адрес</dt><dd>г. Город, ул. Заводская, 1</dd><dt>Режим работы</dt><dd>Пн–Пт, 9:00–18:00</dd></dl>
-      <p class="note">Контакты условные. В рабочей версии здесь реквизиты, карта проезда и представители по регионам.</p></div>
-    <div class="panel"><h2>Обратная связь</h2>
+    <div class="panel"><h2>Sales department</h2>
+      <dl class="dl"><dt>Phone</dt><dd class="mono">+7 (000) 000-00-00</dd><dt>E-mail</dt><dd class="mono">sales@example.com</dd><dt>Address</dt><dd>1 Factory St, Sample City</dd><dt>Business hours</dt><dd>Mon–Fri, 9:00–18:00</dd></dl>
+      <p class="note">Sample contacts. The live version shows company details, a map and regional reps here.</p></div>
+    <div class="panel"><h2>Contact form</h2>
       <form id="fb-form" novalidate><div class="form-g">
-        ${field('name', 'Имя', {req: true, ac: 'name', pre: 'fb'})}${field('contact', 'Телефон или e-mail', {req: true, pre: 'fb'})}
-        <div class="field full"><label for="fb-topic">Тема</label><select id="fb-topic" name="topic">${['Подбор оборудования', 'Техническая консультация', 'Документация и сертификаты', 'Другое'].map((t) => `<option${S.fbTopic === t ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
-        <div class="full">${field('message', 'Сообщение', {req: true, area: true, value: S.fbText || '', pre: 'fb'})}</div>
-        <label class="agree full"><input type="checkbox" name="agree"><span>Согласен на обработку персональных данных. Данные с этой страницы никуда не передаются.<span class="em" style="display:block;color:var(--bad)"></span></span></label>
-        <div class="full"><button type="submit" class="btn pri">Отправить сообщение</button></div>
+        ${field('name', 'Name', {req: true, ac: 'name', pre: 'fb'})}${field('contact', 'Phone or email', {req: true, pre: 'fb'})}
+        <div class="field full"><label for="fb-topic">Subject</label><select id="fb-topic" name="topic">${['Equipment selection', 'Technical consultation', 'Documents and certificates', 'Other'].map((t) => `<option${S.fbTopic === t ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
+        <div class="full">${field('message', 'Message', {req: true, area: true, value: S.fbText || '', pre: 'fb'})}</div>
+        <label class="agree full"><input type="checkbox" name="agree"><span>I agree to the processing of my personal data. Nothing from this page is sent anywhere.<span class="em" style="display:block;color:var(--bad)"></span></span></label>
+        <div class="full"><button type="submit" class="btn pri">Send message</button></div>
       </div></form></div></div>`;
   S.fbText = '';
   S.fbTopic = '';
@@ -1044,35 +1039,35 @@ function addLead(l) {
 function submitFeedback(form) {
   const d = readForm(form);
   const errs = {};
-  if (!d.name) errs.name = 'Представьтесь, пожалуйста';
-  if (!d.contact) errs.contact = 'Укажите телефон или e-mail';
-  else if (!okPhone(d.contact) && !okMail(d.contact)) errs.contact = 'Похоже на неверный телефон или e-mail';
-  if (!d.message) errs.message = 'Напишите сообщение';
-  if (!d.agree) errs.agree = 'Нужно согласие на обработку данных';
+  if (!d.name) errs.name = 'Please enter your name';
+  if (!d.contact) errs.contact = 'Enter a phone or email';
+  else if (!okPhone(d.contact) && !okMail(d.contact)) errs.contact = 'This doesn’t look like a valid phone or email';
+  if (!d.message) errs.message = 'Write a message';
+  if (!d.agree) errs.agree = 'Consent to data processing is required';
   setErr(form, errs);
   if (Object.keys(errs).length) return;
   const l = addLead({type: 'fb', name: d.name, contact: d.contact, topic: d.topic, message: d.message});
-  form.closest('.panel').innerHTML = `<div class="ok-box"><div class="tick" aria-hidden="true">✓</div><strong>Сообщение принято</strong><p>Номер обращения: <span class="mono">№${l.id}</span>. Оно уже лежит в админке во вкладке «Заявки».</p><div><button type="button" class="btn" data-act="go-leads">Открыть в админке</button></div></div>`;
+  form.closest('.panel').innerHTML = `<div class="ok-box"><div class="tick" aria-hidden="true">✓</div><strong>Message received</strong><p>Ticket number: <span class="mono">№${l.id}</span>. It is already in the admin panel under “Requests”.</p><div><button type="button" class="btn" data-act="go-leads">Open in admin</button></div></div>`;
 }
 function kpHTML() {
   const items = S.kp.map((k) => ({k, p: byId(k.id)})).filter((x) => x.p);
-  const head = `<div class="m-head"><h2>Запрос коммерческого предложения</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Закрыть">×</button></div>`;
-  if (!items.length) return `${head}<div class="m-body"><div class="empty"><strong>Список пуст</strong>Добавьте позиции из каталога кнопкой «В запрос КП».</div></div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Закрыть</button></div>`;
+  const head = `<div class="m-head"><h2>Request for quote</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Close">×</button></div>`;
+  if (!items.length) return `${head}<div class="m-body"><div class="empty"><strong>The list is empty</strong>Add items from the catalog with the “Add to quote” button.</div></div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Close</button></div>`;
   return `${head}<form id="kp-form" novalidate><div class="m-body">
-    <div class="kp-list">${items.map(({k, p}) => `<div class="kp-it"><div class="nm"><b>${esc(p.name)}</b><span class="art">${esc(p.article)}</span></div><input type="number" min="1" max="9999" value="${k.qty}" data-qty="${p.id}" aria-label="Количество: ${esc(p.name)}"><button type="button" class="icon-btn" data-act="kp-rm" data-id="${p.id}" aria-label="Убрать из запроса">×</button></div>`).join('')}</div>
-    <div class="form-g">${field('name', 'Имя', {req: true, ac: 'name', pre: 'kp', af: true})}${field('company', 'Организация', {ac: 'organization', pre: 'kp'})}${field('phone', 'Телефон', {req: true, type: 'tel', ac: 'tel', ph: '+7 000 000-00-00', pre: 'kp'})}${field('email', 'E-mail', {req: true, type: 'email', ac: 'email', pre: 'kp'})}
-      <div class="full">${field('comment', 'Комментарий', {area: true, ph: 'Сроки, условия поставки, требования к документации', pre: 'kp'})}</div></div>
-    <label class="agree"><input type="checkbox" name="agree"><span>Согласен на обработку персональных данных. Данные с этой страницы никуда не передаются.<span class="em" style="display:block;color:var(--bad)"></span></span></label>
-  </div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Отмена</button><button type="submit" class="btn cta">Отправить запрос</button></div></form>`;
+    <div class="kp-list">${items.map(({k, p}) => `<div class="kp-it"><div class="nm"><b>${esc(p.name)}</b><span class="art">${esc(p.article)}</span></div><input type="number" min="1" max="9999" value="${k.qty}" data-qty="${p.id}" aria-label="Quantity: ${esc(p.name)}"><button type="button" class="icon-btn" data-act="kp-rm" data-id="${p.id}" aria-label="Remove from quote">×</button></div>`).join('')}</div>
+    <div class="form-g">${field('name', 'Name', {req: true, ac: 'name', pre: 'kp', af: true})}${field('company', 'Company', {ac: 'organization', pre: 'kp'})}${field('phone', 'Phone', {req: true, type: 'tel', ac: 'tel', ph: '+7 000 000-00-00', pre: 'kp'})}${field('email', 'E-mail', {req: true, type: 'email', ac: 'email', pre: 'kp'})}
+      <div class="full">${field('comment', 'Comment', {area: true, ph: 'Lead time, delivery terms, document requirements', pre: 'kp'})}</div></div>
+    <label class="agree"><input type="checkbox" name="agree"><span>I agree to the processing of my personal data. Nothing from this page is sent anywhere.<span class="em" style="display:block;color:var(--bad)"></span></span></label>
+  </div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Cancel</button><button type="submit" class="btn cta">Send request</button></div></form>`;
 }
-function openKp() { openModal(kpHTML(), {label: 'Запрос коммерческого предложения'}); }
+function openKp() { openModal(kpHTML(), {label: 'Request for quote'}); }
 function submitKp(form) {
   const d = readForm(form);
   const errs = {};
-  if (!d.name) errs.name = 'Представьтесь, пожалуйста';
-  if (!d.phone) errs.phone = 'Укажите телефон'; else if (!okPhone(d.phone)) errs.phone = 'Нужно не меньше 10 цифр';
-  if (!d.email) errs.email = 'Укажите e-mail'; else if (!okMail(d.email)) errs.email = 'Проверьте адрес почты';
-  if (!d.agree) errs.agree = 'Нужно согласие на обработку данных';
+  if (!d.name) errs.name = 'Please enter your name';
+  if (!d.phone) errs.phone = 'Enter a phone number'; else if (!okPhone(d.phone)) errs.phone = 'At least 10 digits required';
+  if (!d.email) errs.email = 'Enter an email'; else if (!okMail(d.email)) errs.email = 'Check the email address';
+  if (!d.agree) errs.agree = 'Consent to data processing is required';
   setErr(form, errs);
   if (Object.keys(errs).length) return;
   const items = S.kp.map((k) => ({p: byId(k.id), qty: k.qty})).filter((x) => x.p).map((x) => ({article: x.p.article, name: x.p.name, qty: x.qty}));
@@ -1080,20 +1075,20 @@ function submitKp(form) {
   S.kp = [];
   updateKpBadge();
   refreshKpButtons();
-  $('#modal-root .modal').innerHTML = `<div class="m-head"><h2>Запрос отправлен</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Закрыть">×</button></div><div class="m-body"><div class="ok-box"><div class="tick" aria-hidden="true">✓</div><strong>Заявка №${l.id} принята</strong><p>Позиций в запросе: ${items.length}. Заявка уже появилась в админке во вкладке «Заявки».</p></div></div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Закрыть</button><button type="button" class="btn pri" data-act="go-leads">Открыть в админке</button></div>`;
+  $('#modal-root .modal').innerHTML = `<div class="m-head"><h2>Request sent</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Close">×</button></div><div class="m-body"><div class="ok-box"><div class="tick" aria-hidden="true">✓</div><strong>Request #${l.id} received</strong><p>Items in request: ${items.length}. The request is already in the admin panel under “Requests”.</p></div></div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Close</button><button type="button" class="btn pri" data-act="go-leads">Open in admin</button></div>`;
   const b = $('#modal-root .m-foot .btn');
   if (b) b.focus({preventScroll: true});
 }
 
-/* ---------- админка ---------- */
-const fmtDate = (t) => new Date(t).toLocaleString('ru-RU', {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit'});
+/* ---------- admin ---------- */
+const fmtDate = (t) => new Date(t).toLocaleString('en-US', {day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit'});
 function viewAdmin() {
   const nl = DB.leads.length;
   const nn = DB.leads.filter((l) => l.status === 'new').length;
-  $('#view').innerHTML = `<div class="adm-head"><div><div class="kicker">Панель управления</div><h1>Админка</h1>
-      <p class="note" style="margin-top:6px;max-width:70ch">Изменения сохраняются в вашем браузере и сразу видны в каталоге. Добавьте товар, поменяйте набор фильтров, отправьте запрос КП на витрине: он появится во вкладке «Заявки».</p></div>
-    <button type="button" class="btn sm" data-act="adm-reset">${S.arm === 'reset' ? 'Точно сбросить?' : 'Сбросить данные'}</button></div>
-    <div class="tabs" role="tablist">${[['products', 'Товары', DB.products.length], ['specs', 'Характеристики', null], ['leads', 'Заявки', nn ? nn + ' нов.' : nl], ['import', 'Импорт CSV', null]].map(([k, t, n]) => `<button type="button" role="tab" aria-selected="${S.tab === k}" data-act="tab" data-id="${k}">${t}${n != null ? `<span class="n">${n}</span>` : ''}</button>`).join('')}</div>
+  $('#view').innerHTML = `<div class="adm-head"><div><div class="kicker">Admin panel</div><h1>Admin</h1>
+      <p class="note" style="margin-top:6px;max-width:70ch">Changes are saved in your browser and show up in the catalog right away. Add a product, change the filter set, send a quote request from the storefront: it will appear under “Requests”.</p></div>
+    <button type="button" class="btn sm" data-act="adm-reset">${S.arm === 'reset' ? 'Really reset?' : 'Reset data'}</button></div>
+    <div class="tabs" role="tablist">${[['products', 'Products', DB.products.length], ['specs', 'Specs', null], ['leads', 'Requests', nn ? nn + ' new' : nl], ['import', 'CSV import', null]].map(([k, t, n]) => `<button type="button" role="tab" aria-selected="${S.tab === k}" data-act="tab" data-id="${k}">${t}${n != null ? `<span class="n">${n}</span>` : ''}</button>`).join('')}</div>
     <div id="adm-body"></div>`;
   renderAdminTab();
 }
@@ -1102,19 +1097,19 @@ function renderAdminTab() {
   $('#adm-body').innerHTML = {products: admProducts, specs: admSpecs, leads: admLeads, import: admImport}[S.tab]();
   if (S.tab === 'products') renderAdmRows();
 }
-const subOptions = (cur, all) => `${all ? '<option value="">Все подкатегории</option>' : ''}${Object.keys(SUBS).map((k) => `<option value="${k}"${cur === k ? ' selected' : ''}>${esc(SUBS[k].name)}</option>`).join('')}`;
+const subOptions = (cur, all) => `${all ? '<option value="">All subcategories</option>' : ''}${Object.keys(SUBS).map((k) => `<option value="${k}"${cur === k ? ' selected' : ''}>${esc(SUBS[k].name)}</option>`).join('')}`;
 function admProducts() {
-  return `<div class="bar"><div class="grow"><label class="sr" for="adm-q">Поиск</label><input type="search" id="adm-q" placeholder="Поиск по названию или артикулу" value="${esc(S.aq)}"></div>
-    <label class="sr" for="adm-sub">Подкатегория</label><select class="sel" id="adm-sub">${subOptions(S.asub, true)}</select>
-    <button type="button" class="btn pri" data-act="adm-add">Добавить товар</button></div>
-    <div class="tbl-w"><table class="tbl"><thead><tr><th>Артикул</th><th>Название</th><th>Подкатегория</th><th>Опубликован</th><th class="r">Действия</th></tr></thead><tbody id="adm-rows"></tbody></table></div>`;
+  return `<div class="bar"><div class="grow"><label class="sr" for="adm-q">Search</label><input type="search" id="adm-q" placeholder="Search by name or SKU" value="${esc(S.aq)}"></div>
+    <label class="sr" for="adm-sub">Subcategory</label><select class="sel" id="adm-sub">${subOptions(S.asub, true)}</select>
+    <button type="button" class="btn pri" data-act="adm-add">Add product</button></div>
+    <div class="tbl-w"><table class="tbl"><thead><tr><th>SKU</th><th>Name</th><th>Subcategory</th><th>Published</th><th class="r">Actions</th></tr></thead><tbody id="adm-rows"></tbody></table></div>`;
 }
 function renderAdmRows() {
   const q = lc(S.aq);
   const rows = DB.products.filter((p) => (!S.asub || p.sub === S.asub) && (!q || lc(p.name + ' ' + p.article).includes(q)));
   $('#adm-rows').innerHTML = rows.map((p) => `<tr class="${p.pub ? '' : 'off'}"><td class="m">${esc(p.article)}</td><td>${esc(p.name)}</td><td>${esc(SUBS[p.sub].name)}</td>
-    <td><button type="button" class="sw" role="switch" aria-checked="${p.pub}" aria-label="Опубликован: ${esc(p.name)}" data-act="adm-pub" data-id="${p.id}"></button></td>
-    <td class="r"><span class="mini-btns"><button type="button" class="btn sm" data-act="adm-edit" data-id="${p.id}">Изменить</button><button type="button" class="btn sm" data-act="adm-del" data-id="${p.id}">${S.arm === p.id ? 'Точно удалить?' : 'Удалить'}</button></span></td></tr>`).join('') || '<tr><td colspan="5" class="note" style="padding:18px">Ничего не найдено.</td></tr>';
+    <td><button type="button" class="sw" role="switch" aria-checked="${p.pub}" aria-label="Published: ${esc(p.name)}" data-act="adm-pub" data-id="${p.id}"></button></td>
+    <td class="r"><span class="mini-btns"><button type="button" class="btn sm" data-act="adm-edit" data-id="${p.id}">Edit</button><button type="button" class="btn sm" data-act="adm-del" data-id="${p.id}">${S.arm === p.id ? 'Really delete?' : 'Delete'}</button></span></td></tr>`).join('') || '<tr><td colspan="5" class="note" style="padding:18px">Nothing found.</td></tr>';
 }
 function specFields(sub, p) {
   const all = DB.products.filter((x) => x.sub === sub);
@@ -1122,36 +1117,36 @@ function specFields(sub, p) {
     const v = p && filled(p.specs[s.k]) ? p.specs[s.k] : '';
     const dl = s.type === 'enum' ? `<datalist id="dl-${s.k}">${enumValues(all, s.k).map((x) => `<option value="${esc(x)}"></option>`).join('')}</datalist>` : '';
     return `<div class="field"><label for="sp-${s.k}">${esc(s.label)}${s.unit ? ', ' + esc(s.unit) : ''}</label><input id="sp-${s.k}" name="sp:${s.k}" type="text" ${s.type === 'num' ? 'inputmode="decimal"' : `list="dl-${s.k}"`} value="${esc(v)}" autocomplete="off">${dl}<div class="em" aria-live="polite"></div></div>`;
-  }).join('') || '<p class="note">Для этой подкатегории не заданы характеристики.</p>';
+  }).join('') || '<p class="note">No specs defined for this subcategory.</p>';
 }
 function openEditor(id, subIn) {
   const p = id ? byId(id) : null;
   const sub = p ? p.sub : subIn || S.asub || 'cf';
-  openModal(`<div class="m-head"><h2>${p ? 'Изменить товар' : 'Новый товар'}</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Закрыть">×</button></div>
+  openModal(`<div class="m-head"><h2>${p ? 'Edit product' : 'New product'}</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Close">×</button></div>
   <form id="ed-form" novalidate data-id="${p ? p.id : ''}"><div class="m-body">
     <div class="form-g">
-      <div class="field full"><label for="ed-sub">Подкатегория</label><select id="ed-sub" name="sub"${p ? ' disabled' : ''}>${subOptions(sub, false)}</select></div>
-      ${field('name', 'Название', {req: true, value: p ? p.name : '', pre: 'ed', af: true})}${field('article', 'Артикул', {req: true, value: p ? p.article : '', pre: 'ed'})}
-      <div class="full">${field('desc', 'Описание', {area: true, value: p ? p.desc : '', pre: 'ed'})}</div>
+      <div class="field full"><label for="ed-sub">Subcategory</label><select id="ed-sub" name="sub"${p ? ' disabled' : ''}>${subOptions(sub, false)}</select></div>
+      ${field('name', 'Name', {req: true, value: p ? p.name : '', pre: 'ed', af: true})}${field('article', 'SKU', {req: true, value: p ? p.article : '', pre: 'ed'})}
+      <div class="full">${field('desc', 'Description', {area: true, value: p ? p.desc : '', pre: 'ed'})}</div>
     </div>
-    <div><h3 style="font:600 17px var(--font-head);margin-bottom:8px">Характеристики</h3><div class="form-g" id="ed-specs">${specFields(sub, p)}</div>
-      <p class="note" style="margin-top:8px">Эти поля формируют фильтры на витрине. Набор характеристик настраивается во вкладке «Характеристики».</p></div>
-    <label class="agree" style="align-items:center"><input type="checkbox" name="pub"${!p || p.pub ? ' checked' : ''}><span>Опубликован на сайте</span></label>
-  </div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Отмена</button><button type="submit" class="btn pri">Сохранить</button></div></form>`, {big: true, label: 'Редактор товара'});
+    <div><h3 style="font:600 17px var(--font-head);margin-bottom:8px">Specs</h3><div class="form-g" id="ed-specs">${specFields(sub, p)}</div>
+      <p class="note" style="margin-top:8px">These fields drive the storefront filters. The spec set is configured under “Specs”.</p></div>
+    <label class="agree" style="align-items:center"><input type="checkbox" name="pub"${!p || p.pub ? ' checked' : ''}><span>Published on site</span></label>
+  </div><div class="m-foot"><button type="button" class="btn" data-act="modal-close">Cancel</button><button type="submit" class="btn pri">Save</button></div></form>`, {big: true, label: 'Product editor'});
 }
 function saveEditor(form) {
   const id = form.dataset.id;
   const d = readForm(form);
   const sub = id ? byId(id).sub : $('#ed-sub').value;
   const errs = {};
-  if (!d.name) errs.name = 'Укажите название';
-  if (!d.article) errs.article = 'Укажите артикул';
-  else if (DB.products.some((x) => lc(x.article) === lc(d.article) && x.id !== id)) errs.article = 'Такой артикул уже есть';
+  if (!d.name) errs.name = 'Enter a name';
+  if (!d.article) errs.article = 'Enter a SKU';
+  else if (DB.products.some((x) => lc(x.article) === lc(d.article) && x.id !== id)) errs.article = 'This SKU already exists';
   const specs = {};
   for (const s of schemaOf(sub)) {
     const raw = d['sp:' + s.k];
     if (raw === '' || raw == null) continue;
-    if (s.type === 'num') { const n = parseNum(raw); if (n == null) errs['sp:' + s.k] = 'Нужно число'; else specs[s.k] = n; } else specs[s.k] = raw;
+    if (s.type === 'num') { const n = parseNum(raw); if (n == null) errs['sp:' + s.k] = 'A number is required'; else specs[s.k] = n; } else specs[s.k] = raw;
   }
   setErr(form, errs);
   if (Object.keys(errs).length) return;
@@ -1159,45 +1154,45 @@ function saveEditor(form) {
   else DB.products.push({id: 'p' + (++DB.seq), sub, model: d.name, name: d.name, article: d.article, desc: d.desc, specs, pub: !!d.pub});
   save();
   closeModal();
-  toast(id ? 'Товар сохранён' : 'Товар добавлен и уже виден в каталоге');
+  toast(id ? 'Product saved' : 'Product added and already visible in the catalog');
   refreshAdmin();
 }
 function admSpecs() {
   const sub = S.ssub;
   const list = schemaOf(sub);
-  return `<div class="bar"><label for="ssub" class="note">Подкатегория</label><select class="sel" id="ssub">${subOptions(sub, false)}</select><span class="note">Отметьте, какие характеристики показывать в фильтре и на карточке.</span></div>
-  <div class="tbl-w"><div class="sp-row sp-h"><span>Характеристика</span><span>Единица</span><span>Тип</span><span class="c">В фильтре</span><span class="c">На карточке</span><span></span></div>
+  return `<div class="bar"><label for="ssub" class="note">Subcategory</label><select class="sel" id="ssub">${subOptions(sub, false)}</select><span class="note">Choose which specs to show in filters and on the product page.</span></div>
+  <div class="tbl-w"><div class="sp-row sp-h"><span>Spec</span><span>Unit</span><span>Type</span><span class="c">In filter</span><span class="c">On page</span><span></span></div>
     ${list.map((s, i) => `<div class="sp-row" data-k="${s.k}">
-      <input type="text" data-sp="label" value="${esc(s.label)}" aria-label="Название характеристики">
-      <input type="text" data-sp="unit" value="${esc(s.unit)}" aria-label="Единица измерения" placeholder="—">
-      <select data-sp="type" aria-label="Тип"${s.k.startsWith('c_') ? '' : ' disabled title="Тип встроенной характеристики менять нельзя"'}><option value="num"${s.type === 'num' ? ' selected' : ''}>Число</option><option value="enum"${s.type === 'enum' ? ' selected' : ''}>Список</option></select>
-      <span class="c"><label class="ck"><input type="checkbox" data-sp="filter"${s.filter ? ' checked' : ''} aria-label="Показывать в фильтре"><span class="only-sm">В фильтре</span></label></span>
-      <span class="c"><label class="ck"><input type="checkbox" data-sp="card"${s.card ? ' checked' : ''} aria-label="Показывать на карточке"><span class="only-sm">На карточке</span></label></span>
-      <span class="mini-btns"><button type="button" class="icon-btn" data-act="sp-up" data-k="${s.k}" aria-label="Выше"${i === 0 ? ' disabled' : ''}>↑</button><button type="button" class="icon-btn" data-act="sp-down" data-k="${s.k}" aria-label="Ниже"${i === list.length - 1 ? ' disabled' : ''}>↓</button><button type="button" class="btn sm" data-act="sp-del" data-k="${s.k}">${S.arm === 'sp:' + s.k ? 'Точно?' : 'Удалить'}</button></span></div>`).join('')}</div>
-  <form id="sp-new" class="panel" style="margin-top:16px" novalidate><h2 style="font-size:18px">Новая характеристика</h2>
-    <div class="form-g">${field('label', 'Название', {req: true, ph: 'Например, Класс точности', pre: 'sn'})}${field('unit', 'Единица измерения', {ph: 'мм, кВт, бар… или пусто', pre: 'sn'})}
-    <div class="field"><label for="sp-type">Тип значения</label><select id="sp-type" name="type"><option value="enum">Список (материал, исполнение…)</option><option value="num">Число (диапазон на слайдере)</option></select></div>
-    <div class="field" style="align-content:end"><button type="submit" class="btn pri">Добавить характеристику</button></div></div></form>`;
+      <input type="text" data-sp="label" value="${esc(s.label)}" aria-label="Spec name">
+      <input type="text" data-sp="unit" value="${esc(s.unit)}" aria-label="Unit of measure" placeholder="—">
+      <select data-sp="type" aria-label="Type"${s.k.startsWith('c_') ? '' : ' disabled title="The type of a built-in spec cannot be changed"'}><option value="num"${s.type === 'num' ? ' selected' : ''}>Number</option><option value="enum"${s.type === 'enum' ? ' selected' : ''}>List</option></select>
+      <span class="c"><label class="ck"><input type="checkbox" data-sp="filter"${s.filter ? ' checked' : ''} aria-label="Show in filter"><span class="only-sm">In filter</span></label></span>
+      <span class="c"><label class="ck"><input type="checkbox" data-sp="card"${s.card ? ' checked' : ''} aria-label="Show on product page"><span class="only-sm">On page</span></label></span>
+      <span class="mini-btns"><button type="button" class="icon-btn" data-act="sp-up" data-k="${s.k}" aria-label="Up"${i === 0 ? ' disabled' : ''}>↑</button><button type="button" class="icon-btn" data-act="sp-down" data-k="${s.k}" aria-label="Down"${i === list.length - 1 ? ' disabled' : ''}>↓</button><button type="button" class="btn sm" data-act="sp-del" data-k="${s.k}">${S.arm === 'sp:' + s.k ? 'Sure?' : 'Delete'}</button></span></div>`).join('')}</div>
+  <form id="sp-new" class="panel" style="margin-top:16px" novalidate><h2 style="font-size:18px">New spec</h2>
+    <div class="form-g">${field('label', 'Name', {req: true, ph: 'E.g. Accuracy class', pre: 'sn'})}${field('unit', 'Unit of measure', {ph: 'mm, kW, bar… or empty', pre: 'sn'})}
+    <div class="field"><label for="sp-type">Value type</label><select id="sp-type" name="type"><option value="enum">List (material, design…)</option><option value="num">Number (slider range)</option></select></div>
+    <div class="field" style="align-content:end"><button type="submit" class="btn pri">Add spec</button></div></div></form>`;
 }
 function admLeads() {
   const rows = DB.leads.filter((l) => !S.lf || l.type === S.lf).slice().reverse();
-  const stat = [['new', 'Новая'], ['work', 'В работе'], ['sent', 'КП отправлено'], ['closed', 'Закрыта']];
-  return `<div class="bar"><label class="sr" for="lead-f">Тип заявки</label><select class="sel" id="lead-f"><option value="">Все заявки</option><option value="kp"${S.lf === 'kp' ? ' selected' : ''}>Запросы КП</option><option value="fb"${S.lf === 'fb' ? ' selected' : ''}>Обратная связь</option></select>
-    <span class="note grow">Заявки с витрины попадают сюда сразу. Статус можно менять.</span>${DB.leads.length ? '<button type="button" class="btn sm" data-act="leads-clear">Очистить список</button>' : ''}</div>
-  ${rows.length ? `<div class="tbl-w"><table class="tbl"><thead><tr><th>№</th><th>Дата</th><th>Тип</th><th>Контакт</th><th>Содержание</th><th>Статус</th></tr></thead><tbody>${rows.map((l) => `<tr>
-    <td class="m">${l.id}</td><td class="m">${fmtDate(l.at)}</td><td><span class="tag-s ${l.type === 'kp' ? 'ok' : 'fb'}">${l.type === 'kp' ? 'Запрос КП' : 'Вопрос'}</span></td>
+  const stat = [['new', 'New'], ['work', 'In progress'], ['sent', 'Quote sent'], ['closed', 'Closed']];
+  return `<div class="bar"><label class="sr" for="lead-f">Request type</label><select class="sel" id="lead-f"><option value="">All requests</option><option value="kp"${S.lf === 'kp' ? ' selected' : ''}>Quote requests</option><option value="fb"${S.lf === 'fb' ? ' selected' : ''}>Contact form</option></select>
+    <span class="note grow">Requests from the storefront land here instantly. You can change the status.</span>${DB.leads.length ? '<button type="button" class="btn sm" data-act="leads-clear">Clear list</button>' : ''}</div>
+  ${rows.length ? `<div class="tbl-w"><table class="tbl"><thead><tr><th>№</th><th>Date</th><th>Type</th><th>Contact</th><th>Content</th><th>Status</th></tr></thead><tbody>${rows.map((l) => `<tr>
+    <td class="m">${l.id}</td><td class="m">${fmtDate(l.at)}</td><td><span class="tag-s ${l.type === 'kp' ? 'ok' : 'fb'}">${l.type === 'kp' ? 'Quote request' : 'Question'}</span></td>
     <td>${esc(l.name)}${l.company ? `<br><span class="note">${esc(l.company)}</span>` : ''}<br><span class="note mono">${esc(l.type === 'kp' ? l.phone : l.contact)}</span></td>
-    <td>${l.type === 'kp' ? `${l.items.length} ${plural(l.items.length, ['позиция', 'позиции', 'позиций'])}` : esc(l.topic)}<br><button type="button" class="link" data-act="lead-open" data-id="${l.id}">${S.leadOpen === l.id ? 'Свернуть' : 'Подробнее'}</button></td>
-    <td><select class="sel" data-lead="${l.id}" aria-label="Статус заявки ${l.id}">${stat.map(([k, t]) => `<option value="${k}"${l.status === k ? ' selected' : ''}>${t}</option>`).join('')}</select></td></tr>${S.leadOpen === l.id ? `<tr><td colspan="6"><div class="lead-d">${l.type === 'kp' ? l.items.map((i) => `<span><span class="mono">${esc(i.article)}</span> · ${esc(i.name)} · ${i.qty} шт.</span>`).join('') + (l.email ? `<span>E-mail: <span class="mono">${esc(l.email)}</span></span>` : '') : ''}${l.message ? `<span>${esc(l.message)}</span>` : ''}</div></td></tr>` : ''}`).join('')}</tbody></table></div>` : '<div class="empty"><strong>Заявок пока нет</strong>Отправьте запрос КП из каталога или сообщение со страницы «Контакты»: оно сразу появится здесь.</div>'}`;
+    <td>${l.type === 'kp' ? `${l.items.length} ${plural(l.items.length, ['item', 'items', 'items'])}` : esc(l.topic)}<br><button type="button" class="link" data-act="lead-open" data-id="${l.id}">${S.leadOpen === l.id ? 'Collapse' : 'Details'}</button></td>
+    <td><select class="sel" data-lead="${l.id}" aria-label="Request status ${l.id}">${stat.map(([k, t]) => `<option value="${k}"${l.status === k ? ' selected' : ''}>${t}</option>`).join('')}</select></td></tr>${S.leadOpen === l.id ? `<tr><td colspan="6"><div class="lead-d">${l.type === 'kp' ? l.items.map((i) => `<span><span class="mono">${esc(i.article)}</span> · ${esc(i.name)} · ${i.qty} pcs</span>`).join('') + (l.email ? `<span>E-mail: <span class="mono">${esc(l.email)}</span></span>` : '') : ''}${l.message ? `<span>${esc(l.message)}</span>` : ''}</div></td></tr>` : ''}`).join('')}</tbody></table></div>` : '<div class="empty"><strong>No requests yet</strong>Send a quote request from the catalog or a message from “Contacts”: it will show up here instantly.</div>'}`;
 }
 function csvTemplate() {
   const schema = schemaOf(S.csvSub);
   const prods = DB.products.filter((p) => p.sub === S.csvSub);
   const head = ['article', 'name', 'description', ...schema.map((s) => s.k)];
-  const row = (n) => [`${SUBS[S.csvSub].pre}-9${n}0`, `${SUBS[S.csvSub].one} Новый ${n}`, 'Описание товара', ...schema.map((s) => {
+  const row = (n) => [`${SUBS[S.csvSub].pre}-9${n}0`, `${SUBS[S.csvSub].one} New ${n}`, 'Product description', ...schema.map((s) => {
     const vals = s.type === 'num' ? prods.map((p) => p.specs[s.k]).filter((v) => typeof v === 'number') : enumValues(prods, s.k);
     const v = vals[(n - 1) % Math.max(1, vals.length)];
-    return v == null ? '' : String(v).replace('.', ',');
+    return v == null ? '' : String(v);
   })];
   return [head, row(1), row(2)].map((r) => r.join(';')).join('\n');
 }
@@ -1225,14 +1220,14 @@ function parseCSV(text) {
 function csvCheck() {
   const rows = parseCSV(S.csvText);
   const res = {ok: [], bad: []};
-  if (rows.length < 2) { res.err = 'Нужна строка заголовков и хотя бы одна строка с данными.'; return res; }
+  if (rows.length < 2) { res.err = 'A header row and at least one data row are required.'; return res; }
   const head = rows[0].map((h) => lc(h.trim()));
   const schema = schemaOf(S.csvSub);
   const idx = (names) => head.findIndex((h) => names.includes(h));
-  const iA = idx(['article', 'артикул']);
-  const iN = idx(['name', 'название']);
-  const iD = idx(['description', 'описание']);
-  if (iA < 0 || iN < 0) { res.err = 'В заголовке нужны колонки article и name.'; return res; }
+  const iA = idx(['article', 'sku']);
+  const iN = idx(['name', 'name']);
+  const iD = idx(['description', 'description']);
+  if (iA < 0 || iN < 0) { res.err = 'The header must contain the article and name columns.'; return res; }
   const colFor = (s) => head.findIndex((h) => h === lc(s.k) || h === lc(s.label));
   const seen = new Set(DB.products.map((p) => lc(p.article)));
   rows.slice(1).forEach((r, n) => {
@@ -1240,15 +1235,15 @@ function csvCheck() {
     const errs = [];
     const art = (r[iA] || '').trim();
     const name = (r[iN] || '').trim();
-    if (!art) errs.push('нет артикула'); else if (seen.has(lc(art))) errs.push('артикул уже есть');
-    if (!name) errs.push('нет названия');
+    if (!art) errs.push('no SKU'); else if (seen.has(lc(art))) errs.push('SKU already exists');
+    if (!name) errs.push('no name');
     const specs = {};
     schema.forEach((s) => {
       const c = colFor(s);
       if (c < 0) return;
       const raw = (r[c] || '').trim();
       if (!raw) return;
-      if (s.type === 'num') { const v = parseNum(raw); if (v == null) errs.push(`${s.label}: не число`); else specs[s.k] = v; } else specs[s.k] = raw;
+      if (s.type === 'num') { const v = parseNum(raw); if (v == null) errs.push(`${s.label}: not a number`); else specs[s.k] = v; } else specs[s.k] = raw;
     });
     if (errs.length) res.bad.push({line: n + 2, art, name, errs});
     else { seen.add(lc(art)); res.ok.push({line: n + 2, article: art, name, desc: iD >= 0 ? (r[iD] || '').trim() : '', specs}); }
@@ -1257,25 +1252,25 @@ function csvCheck() {
 }
 function csvResHTML() {
   const r = S.csvRes;
-  if (!r) return '<p class="note">Нажмите «Проверить»: покажем, какие строки подойдут, а какие нужно поправить.</p>';
+  if (!r) return '<p class="note">Click “Validate”: we’ll show which rows are fine and which need fixing.</p>';
   if (r.err) return `<p class="res-bad">${esc(r.err)}</p>`;
-  return `<p><span class="res-ok">Готово к добавлению: ${r.ok.length}</span>${r.bad.length ? ` · <span class="res-bad">с ошибками: ${r.bad.length}</span>` : ''}</p>
-  ${r.bad.length ? `<h3 class="cap">Строки с ошибками: они не будут добавлены</h3><div class="tbl-w"><table class="tbl"><thead><tr><th>Строка</th><th>Артикул</th><th>Что не так</th></tr></thead><tbody>${r.bad.slice(0, 20).map((b) => `<tr><td class="m">${b.line}</td><td class="m">${esc(b.art)}</td><td class="res-bad">${esc(b.errs.join(', '))}</td></tr>`).join('')}</tbody></table></div>` : ''}
-  ${r.ok.length ? `<h3 class="cap">Будут добавлены</h3><div class="tbl-w"><table class="tbl"><thead><tr><th>Строка</th><th>Артикул</th><th>Название</th><th>Характеристик</th></tr></thead><tbody>${r.ok.slice(0, 8).map((o) => `<tr><td class="m">${o.line}</td><td class="m">${esc(o.article)}</td><td>${esc(o.name)}</td><td class="m">${Object.keys(o.specs).length}</td></tr>`).join('')}</tbody></table></div>${r.ok.length > 8 ? `<p class="note">…и ещё ${r.ok.length - 8}</p>` : ''}` : ''}`;
+  return `<p><span class="res-ok">Ready to add: ${r.ok.length}</span>${r.bad.length ? ` · <span class="res-bad">with errors: ${r.bad.length}</span>` : ''}</p>
+  ${r.bad.length ? `<h3 class="cap">Rows with errors: they will not be added</h3><div class="tbl-w"><table class="tbl"><thead><tr><th>Row</th><th>SKU</th><th>Problem</th></tr></thead><tbody>${r.bad.slice(0, 20).map((b) => `<tr><td class="m">${b.line}</td><td class="m">${esc(b.art)}</td><td class="res-bad">${esc(b.errs.join(', '))}</td></tr>`).join('')}</tbody></table></div>` : ''}
+  ${r.ok.length ? `<h3 class="cap">Will be added</h3><div class="tbl-w"><table class="tbl"><thead><tr><th>Row</th><th>SKU</th><th>Name</th><th>Specs</th></tr></thead><tbody>${r.ok.slice(0, 8).map((o) => `<tr><td class="m">${o.line}</td><td class="m">${esc(o.article)}</td><td>${esc(o.name)}</td><td class="m">${Object.keys(o.specs).length}</td></tr>`).join('')}</tbody></table></div>${r.ok.length > 8 ? `<p class="note">…and ${r.ok.length - 8}</p>` : ''}` : ''}`;
 }
 function admImport() {
   const cols = ['article', 'name', 'description', ...schemaOf(S.csvSub).map((s) => s.k)];
-  return `<div class="panel"><h2>Массовая загрузка из CSV</h2>
-    <p class="note" style="max-width:80ch">Выберите подкатегорию и вставьте строки из Excel (разделитель: точка с запятой или табуляция) либо загрузите файл .csv. Колонки: ${cols.map((c) => `<code class="mono">${esc(c)}</code>`).join(', ')}. Числа можно писать с запятой. Первая строка: заголовки.</p>
-    <div class="bar"><label class="sr" for="csv-sub">Подкатегория</label><select class="sel" id="csv-sub">${subOptions(S.csvSub, false)}</select>
-      <button type="button" class="btn sm" data-act="csv-tpl">Вставить шаблон</button>
-      <label class="btn sm" for="csv-file">Загрузить файл…</label><input type="file" id="csv-file" accept=".csv,.txt,text/csv" class="sr"></div>
-    <label class="sr" for="csv-ta">Данные CSV</label><textarea class="csv-ta" id="csv-ta" spellcheck="false" placeholder="article;name;description;…">${esc(S.csvText)}</textarea>
-    <div class="bar"><button type="button" class="btn" data-act="csv-check">Проверить</button><button type="button" class="btn pri" id="csv-go" data-act="csv-import"${S.csvRes && S.csvRes.ok && S.csvRes.ok.length ? '' : ' disabled'}>Добавить ${S.csvRes && S.csvRes.ok ? S.csvRes.ok.length : 0} товаров</button></div>
+  return `<div class="panel"><h2>Bulk upload from CSV</h2>
+    <p class="note" style="max-width:80ch">Pick a subcategory and paste rows from Excel (separator: semicolon or tab) or upload a .csv file. Columns: ${cols.map((c) => `<code class="mono">${esc(c)}</code>`).join(', ')}. Decimal comma is allowed. First row: headers.</p>
+    <div class="bar"><label class="sr" for="csv-sub">Subcategory</label><select class="sel" id="csv-sub">${subOptions(S.csvSub, false)}</select>
+      <button type="button" class="btn sm" data-act="csv-tpl">Insert template</button>
+      <label class="btn sm" for="csv-file">Upload file…</label><input type="file" id="csv-file" accept=".csv,.txt,text/csv" class="sr"></div>
+    <label class="sr" for="csv-ta">CSV data</label><textarea class="csv-ta" id="csv-ta" spellcheck="false" placeholder="article;name;description;…">${esc(S.csvText)}</textarea>
+    <div class="bar"><button type="button" class="btn" data-act="csv-check">Validate</button><button type="button" class="btn pri" id="csv-go" data-act="csv-import"${S.csvRes && S.csvRes.ok && S.csvRes.ok.length ? '' : ' disabled'}>Add ${S.csvRes && S.csvRes.ok ? S.csvRes.ok.length : 0} products</button></div>
     <div id="csv-res">${csvResHTML()}</div></div>`;
 }
 
-/* ---------- события ---------- */
+/* ---------- events ---------- */
 document.addEventListener('click', (e) => {
   const el = e.target.closest('[data-act]');
   if (!el) return;
@@ -1312,12 +1307,12 @@ document.addEventListener('click', (e) => {
     S.kp.push({id, qty: 1});
     updateKpBadge();
     refreshKpButtons();
-    return toast('Добавлено в запрос КП');
+    return toast('Added to quote');
   }
   if (a === 'kp-open') return openKp();
   if (a === 'kp-rm') { S.kp = S.kp.filter((k) => k.id !== id); updateKpBadge(); refreshKpButtons(); return openKp(); }
-  if (a === 'doc') return toast('Документ подключается при наполнении каталога.');
-  if (a === 'ask') { const p = byId(id); S.fbTopic = 'Техническая консультация'; S.fbText = `Вопрос по позиции ${p.name} (${p.article}): `; return setView('contacts'); }
+  if (a === 'doc') return toast('Documents are attached when the catalog is filled.');
+  if (a === 'ask') { const p = byId(id); S.fbTopic = 'Technical consultation'; S.fbText = `Question about item ${p.name} (${p.article}): `; return setView('contacts'); }
   if (a === 'f-reset') { S.F[S.sub] = {}; renderFilters(); return renderResults(); }
   if (a === 'f-reset-all') { if (S.sub) S.F[S.sub] = {}; S.q = ''; $('#q').value = ''; renderFilters(); return renderResults(); }
   if (a === 'chip-x') {
@@ -1331,7 +1326,7 @@ document.addEventListener('click', (e) => {
   if (a === 'side-open') { $('#side').classList.add('open'); return; }
   if (a === 'side-close') return closeSide();
   if (a === 'go-leads') { closeModal(); S.tab = 'leads'; return setView('admin'); }
-  /* админка */
+  /* admin */
   if (a === 'tab') { S.tab = id; S.arm = ''; return viewAdmin(); }
   if (a === 'adm-add') return openEditor(null);
   if (a === 'adm-edit') return openEditor(id);
@@ -1342,15 +1337,15 @@ document.addEventListener('click', (e) => {
     S.kp = S.kp.filter((k) => k.id !== id);
     S.arm = '';
     save();
-    toast('Товар удалён');
+    toast('Product deleted');
     return refreshAdmin();
   }
   if (a === 'adm-reset') {
     if (S.arm !== 'reset') { S.arm = 'reset'; return viewAdmin(); }
     DB = seedDB();
     S.F = {}; S.kp = []; S.arm = '';
-    try { localStorage.removeItem(LS_KEY); } catch (err) { /* ничего */ }
-    toast('Данные восстановлены');
+    try { localStorage.removeItem(LS_KEY); } catch (err) { /* nothing */ }
+    toast('Data restored');
     return viewAdmin();
   }
   if (a === 'sp-up' || a === 'sp-down') {
@@ -1370,7 +1365,7 @@ document.addEventListener('click', (e) => {
     if (S.F[S.ssub]) delete S.F[S.ssub][k];
     S.arm = '';
     save();
-    toast('Характеристика удалена');
+    toast('Spec deleted');
     return renderAdminTab();
   }
   if (a === 'lead-open') { const n = +id; S.leadOpen = S.leadOpen === n ? null : n; return renderAdminTab(); }
@@ -1382,7 +1377,7 @@ document.addEventListener('click', (e) => {
     if (!r || !r.ok || !r.ok.length) return;
     r.ok.forEach((o) => DB.products.push({id: 'p' + (++DB.seq), sub: S.csvSub, model: o.name, name: o.name, article: o.article, desc: o.desc, specs: o.specs, pub: true}));
     save();
-    toast(`Добавлено товаров: ${r.ok.length}`);
+    toast(`Products added: ${r.ok.length}`);
     S.csvText = ''; S.csvRes = null;
     return viewAdmin();
   }
@@ -1403,10 +1398,10 @@ document.addEventListener('submit', (e) => {
   else if (f.id === 'ed-form') saveEditor(f);
   else if (f.id === 'sp-new') {
     const d = readForm(f);
-    if (!d.label) return setErr(f, {label: 'Укажите название'});
+    if (!d.label) return setErr(f, {label: 'Enter a name'});
     DB.schemas[S.ssub].push({k: 'c_' + (++DB.seq), label: d.label, unit: d.unit, type: d.type, filter: true, card: false});
     save();
-    toast('Характеристика добавлена. Заполните её в карточках товаров');
+    toast('Spec added. Fill it in on the product pages');
     renderAdminTab();
   }
 });
@@ -1514,7 +1509,7 @@ document.addEventListener('pointerdown', (e) => {
   if (!th) return;
   const el = th.closest('.rng');
   drag = {el, which: th.dataset.th, rect: $('.rng-track', el).getBoundingClientRect()};
-  try { th.setPointerCapture(e.pointerId); } catch (err) { /* ничего */ }
+  try { th.setPointerCapture(e.pointerId); } catch (err) { /* nothing */ }
   e.preventDefault();
   th.focus();
 });
